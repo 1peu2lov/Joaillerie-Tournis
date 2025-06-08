@@ -33,7 +33,7 @@ export default function Home() {
           </div>
 
           <div className={styles.text}>
-            <p>Chez Tournis, chaque création incarne l'excellence : fabrication sur mesure, transformation précieuse, réparations invisibles, sélection éthique des pierres et expertise gemmologique se conjuguent avec exigence dans notre atelier bordelais.
+            <p>Chez Tournis, chaque création incarne l&apos;excellence : fabrication sur mesure, transformation précieuse, réparations invisibles, sélection éthique des pierres et expertise gemmologique se conjuguent avec exigence dans notre atelier bordelais.
             </p>
             <br/>
             <p> Un savoir-faire rare, au service de bijoux uniques, conçus pour traverser le temps avec éclat.</p>
