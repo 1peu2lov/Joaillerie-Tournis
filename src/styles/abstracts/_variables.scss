@@ -1,0 +1,30 @@
+// src/styles/abstracts/_variables.scss
+
+@forward 'breakpoints';
+@forward 'typography';
+
+// Colors
+$color-primary: #1E2846;
+$color-secondary: #f5f5f5;
+$color-bg: #FBFBFB;
+$color-text: #333333;
+
+// Fonts
+$font-sans: 'Montserrat', sans-serif;
+$font-title: 'Cormorant Garamond', serif;
+
+// Spacing
+$spacing-unit: 0.125rem; // 2px
+$spacing-xs: 0.25rem;    // 4px
+$spacing-sm: 0.5rem;     // 8px
+$spacing-md: 1rem;       // 16px
+$spacing-lg: 1.5rem;     // 24px
+$spacing-xl: 2rem;       // 32px
+$spacing-xxl: 3rem;      // 48px
+
+// Container
+$container-max-width: 1500px;
+$container-padding: $spacing-md;
+
+// Variables complémentaires (à décommenter si besoin)
+// $color-accent: #...;

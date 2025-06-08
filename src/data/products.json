@@ -1,0 +1,2047 @@
+[
+  {
+    "id": "alliance-001",
+    "name": "Alliance Épure",
+    "description": "Alliance minimaliste en or blanc, parfaite dans sa simplicité.",
+    "price": 590,
+    "currency": "EUR",
+    "images": ["/img/products/images/alliance-001.jpeg"],
+    "category": "alliance",
+    "availability": true,
+    "materials": ["Or blanc 18 carats"],
+    "stones": [],
+    "colors": ["#FFFFFF"],
+    "isRecycled": true
+  },
+  {
+    "id": "alliance-002",
+    "name": "Alliance Étoilée",
+    "description": "Alliance sertie de petits diamants disposés comme une constellation.",
+    "price": 890,
+    "currency": "EUR",
+    "images": ["/img/products/images/alliance-002.jpeg"],
+    "category": "alliance",
+    "availability": true,
+    "materials": ["Or blanc 18 carats"],
+    "stones": ["Diamant"],
+    "colors": ["#FFFFFF"],
+    "isRecycled": false
+  },
+  {
+    "id": "bracelet-001",
+    "name": "Bracelet Tennis Diamants",
+    "description": "Bracelet tennis serti de diamants étincelants sur toute sa longueur.",
+    "price": 2800,
+    "currency": "EUR",
+    "images": ["/img/products/images/Bracelet 001.jpeg"],
+    "category": "bracelet",
+    "availability": true,
+    "materials": ["Or blanc 18 carats"],
+    "stones": ["Diamant"],
+    "colors": ["#FFFFFF"],
+    "isRecycled": false
+  },
+  {
+    "id": "bracelet-002",
+    "name": "Bracelet Jonc Simple",
+    "description": "Bracelet jonc minimaliste en argent.",
+    "price": 280,
+    "currency": "EUR",
+    "images": ["/img/products/images/Bracelet 002.jpeg"],
+    "category": "bracelet",
+    "availability": true,
+    "materials": ["Argent 925"],
+    "stones": [],
+    "colors": ["#C0C0C0"],
+    "isRecycled": true
+  },
+  {
+    "id": "bracelet-003",
+    "name": "Bracelet Rubis Royal",
+    "description": "Bracelet serti de rubis et de petits diamants.",
+    "price": 1800,
+    "currency": "EUR",
+    "images": ["/img/products/images/Bracelet 003.jpeg"],
+    "category": "bracelet",
+    "availability": true,
+    "materials": ["Or jaune 18 carats"],
+    "stones": ["Rubis", "Diamant"],
+    "colors": ["#FFD700", "#FF0000"],
+    "isRecycled": false
+  },
+  {
+    "id": "bracelet-004",
+    "name": "Bracelet Perles de Culture",
+    "description": "Bracelet de perles de culture blanches avec fermoir en or.",
+    "price": 590,
+    "currency": "EUR",
+    "images": ["/img/products/images/Bracelet 004.jpeg"],
+    "category": "bracelet",
+    "availability": true,
+    "materials": ["Or blanc 18 carats", "Perle"],
+    "stones": ["Perle"],
+    "colors": ["#FFFFFF", "#FFF5EE"],
+    "isRecycled": false
+  },
+  {
+    "id": "bracelet-005",
+    "name": "Bracelet Émeraude Luxe",
+    "description": "Bracelet serti d'émeraudes de Colombie.",
+    "price": 3500,
+    "currency": "EUR",
+    "images": ["/img/products/images/Bracelet 005.jpeg"],
+    "category": "bracelet",
+    "availability": true,
+    "materials": ["Platine"],
+    "stones": ["Émeraude"],
+    "colors": ["#FFFFFF", "#50C878"],
+    "isRecycled": false
+  },
+  {
+    "id": "collier-001",
+    "name": "Collier Solitaire Diamant",
+    "description": "Élégant solitaire en diamant monté sur une chaîne fine.",
+    "price": 1500,
+    "currency": "EUR",
+    "images": ["/img/products/images/Collier-Pendentif 001.jpeg"],
+    "category": "collier",
+    "availability": true,
+    "materials": ["Or blanc 18 carats"],
+    "stones": ["Diamant"],
+    "colors": ["#FFFFFF"],
+    "isRecycled": false
+  },
+  {
+    "id": "collier-002",
+    "name": "Collier Croix Saphir",
+    "description": "Pendentif croix serti de saphirs bleus profonds.",
+    "price": 890,
+    "currency": "EUR",
+    "images": ["/img/products/images/Collier-Pendentif 002.jpeg"],
+    "category": "collier",
+    "availability": true,
+    "materials": ["Or blanc 18 carats"],
+    "stones": ["Saphir"],
+    "colors": ["#FFFFFF", "#0000FF"],
+    "isRecycled": false
+  },
+  {
+    "id": "collier-003",
+    "name": "Collier Cœur Rubis",
+    "description": "Pendentif en forme de cœur orné d'un rubis central.",
+    "price": 750,
+    "currency": "EUR",
+    "images": ["/img/products/images/Collier-Pendentif 003.jpeg"],
+    "category": "collier",
+    "availability": true,
+    "materials": ["Or rose 18 carats"],
+    "stones": ["Rubis"],
+    "colors": ["#FFB6C1", "#FF0000"],
+    "isRecycled": true
+  },
+  {
+    "id": "collier-004",
+    "name": "Collier Perles Akoya",
+    "description": "Collier de perles Akoya avec fermoir en or blanc.",
+    "price": 2200,
+    "currency": "EUR",
+    "images": ["/img/products/images/Collier-Pendentif 004.jpeg"],
+    "category": "collier",
+    "availability": true,
+    "materials": ["Or blanc 18 carats", "Perle"],
+    "stones": ["Perle"],
+    "colors": ["#FFFFFF", "#FFF5EE"],
+    "isRecycled": false
+  },
+  {
+    "id": "collier-005",
+    "name": "Collier Goutte Émeraude",
+    "description": "Pendentif goutte d'eau serti d'une émeraude.",
+    "price": 1800,
+    "currency": "EUR",
+    "images": ["/img/products/images/Collier-Pendentif 005.jpeg"],
+    "category": "collier",
+    "availability": true,
+    "materials": ["Or blanc 18 carats"],
+    "stones": ["Émeraude"],
+    "colors": ["#FFFFFF", "#50C878"],
+    "isRecycled": false
+  },
+  {
+    "id": "boucles-001",
+    "name": "Boucles Cascade Diamants",
+    "description": "Boucles d'oreilles pendantes serties de diamants en cascade.",
+    "price": 2800,
+    "currency": "EUR",
+    "images": ["/img/products/images/boucles-001.jpeg"],
+    "category": "boucles",
+    "availability": true,
+    "materials": ["Or blanc 18 carats"],
+    "stones": ["Diamant"],
+    "colors": ["#FFFFFF"],
+    "isRecycled": false
+  },
+  {
+    "id": "boucles-002",
+    "name": "Boucles Créoles Simple",
+    "description": "Créoles classiques en or jaune.",
+    "price": 320,
+    "currency": "EUR",
+    "images": ["/img/products/images/boucles-002.jpeg"],
+    "category": "boucles",
+    "availability": true,
+    "materials": ["Or jaune 14 carats"],
+    "stones": [],
+    "colors": ["#FFD700"],
+    "isRecycled": true
+  },
+  {
+    "id": "boucles-003",
+    "name": "Boucles Fleur Saphir",
+    "description": "Boucles d'oreilles en forme de fleur serties de saphirs.",
+    "price": 950,
+    "currency": "EUR",
+    "images": ["/img/products/images/boucles-003.jpeg"],
+    "category": "boucles",
+    "availability": true,
+    "materials": ["Or blanc 18 carats"],
+    "stones": ["Saphir"],
+    "colors": ["#FFFFFF", "#0000FF"],
+    "isRecycled": false
+  },
+  {
+    "id": "boucles-004",
+    "name": "Boucles Perles Roses",
+    "description": "Boucles d'oreilles avec perles roses sur tige en or.",
+    "price": 480,
+    "currency": "EUR",
+    "images": ["/img/products/images/boucles-004.jpeg"],
+    "category": "boucles",
+    "availability": true,
+    "materials": ["Or rose 18 carats", "Perle"],
+    "stones": ["Perle"],
+    "colors": ["#FFB6C1", "#FFC0CB"],
+    "isRecycled": false
+  },
+  {
+    "id": "boucles-005",
+    "name": "Boucles Émeraude Royale",
+    "description": "Boucles d'oreilles serties d'émeraudes taille princesse.",
+    "price": 1900,
+    "currency": "EUR",
+    "images": ["/img/products/images/boucles-005.jpeg"],
+    "category": "boucles",
+    "availability": true,
+    "materials": ["Or blanc 18 carats"],
+    "stones": ["Émeraude"],
+    "colors": ["#FFFFFF", "#50C878"],
+    "isRecycled": false
+  },
+  {
+    "id": "alliance-020",
+    "name": "Alliance Infini",
+    "description": "Une alliance qui entrelace le symbole de l'infini, représentant l'amour éternel. Un design unique et significatif.",
+    "price": 750,
+    "currency": "EUR",
+    "images": ["/img/products/images/alliance-020.jpeg"],
+    "category": "alliance",
+    "availability": true,
+    "materials": ["Or jaune 18 carats"],
+    "stones": ["Diamant"],
+    "colors": ["#FFD700"],
+    "isRecycled": true
+  },
+  {
+    "id": "boucles-024",
+    "name": "Boucles Cascade de Perles",
+    "description": "Élégantes boucles d'oreilles pendantes ornées de perles de culture disposées en cascade, créant un effet de mouvement gracieux.",
+    "price": 680,
+    "currency": "EUR",
+    "images": ["/img/products/images/boucles-024.jpeg"],
+    "category": "boucles",
+    "availability": true,
+    "materials": ["Or blanc 18 carats"],
+    "stones": ["Perle"],
+    "colors": ["#FFFFFF", "#FFF5EE"],
+    "isRecycled": false
+  },
+  {
+    "id": "alliance-003",
+    "name": "Alliance Tressée Or Rose",
+    "description": "Alliance en or rose avec motif tressé délicat.",
+    "price": 450,
+    "currency": "EUR",
+    "images": ["/img/products/images/alliance-003.jpeg"],
+    "category": "alliance",
+    "availability": true,
+    "materials": ["Or rose 14 carats"],
+    "stones": [],
+    "colors": ["#FFB6C1"],
+    "isRecycled": true
+  },
+  {
+    "id": "alliance-004",
+    "name": "Alliance Royale Saphir",
+    "description": "Alliance luxueuse sertie de saphirs bleus.",
+    "price": 1200,
+    "currency": "EUR",
+    "images": ["/img/products/images/alliance-004.jpeg"],
+    "category": "alliance",
+    "availability": true,
+    "materials": ["Or blanc 18 carats"],
+    "stones": ["Saphir"],
+    "colors": ["#FFFFFF", "#0000FF"],
+    "isRecycled": false
+  },
+  {
+    "id": "alliance-005",
+    "name": "Alliance Classique",
+    "description": "Alliance simple en or jaune, un classique intemporel.",
+    "price": 320,
+    "currency": "EUR",
+    "images": ["/img/products/images/alliance-005.jpeg"],
+    "category": "alliance",
+    "availability": true,
+    "materials": ["Or jaune 14 carats"],
+    "stones": [],
+    "colors": ["#FFD700"],
+    "isRecycled": false
+  },
+  {
+    "id": "alliance-006",
+    "name": "Alliance Diamants Éternels",
+    "description": "Alliance sertie de diamants sur tout le tour.",
+    "price": 2500,
+    "currency": "EUR",
+    "images": ["/img/products/images/alliance-006.jpeg"],
+    "category": "alliance",
+    "availability": true,
+    "materials": ["Or blanc 18 carats"],
+    "stones": ["Diamant"],
+    "colors": ["#FFFFFF"],
+    "isRecycled": false
+  },
+  {
+    "id": "alliance-007",
+    "name": "Alliance Double Anneaux",
+    "description": "Alliance moderne composée de deux anneaux entrelacés.",
+    "price": 680,
+    "currency": "EUR",
+    "images": ["/img/products/images/alliance-007.jpeg"],
+    "category": "alliance",
+    "availability": true,
+    "materials": ["Or blanc 18 carats", "Or rose 18 carats"],
+    "stones": [],
+    "colors": ["#FFFFFF", "#FFB6C1"],
+    "isRecycled": true
+  },
+  {
+    "id": "alliance-008",
+    "name": "Alliance Vintage",
+    "description": "Alliance avec motifs gravés style art déco.",
+    "price": 420,
+    "currency": "EUR",
+    "images": ["/img/products/images/alliance-008.jpeg"],
+    "category": "alliance",
+    "availability": true,
+    "materials": ["Or jaune 14 carats"],
+    "stones": [],
+    "colors": ["#FFD700"],
+    "isRecycled": false
+  },
+  {
+    "id": "alliance-009",
+    "name": "Alliance Rubis Passion",
+    "description": "Alliance sertie de rubis ronds.",
+    "price": 1600,
+    "currency": "EUR",
+    "images": ["/img/products/images/alliance-009.jpeg"],
+    "category": "alliance",
+    "availability": true,
+    "materials": ["Or blanc 18 carats"],
+    "stones": ["Rubis"],
+    "colors": ["#FFFFFF", "#FF0000"],
+    "isRecycled": false
+  },
+  {
+    "id": "alliance-010",
+    "name": "Alliance Platine Pure",
+    "description": "Alliance simple en platine, finition polie.",
+    "price": 1200,
+    "currency": "EUR",
+    "images": ["/img/products/images/alliance-010.jpeg"],
+    "category": "alliance",
+    "availability": true,
+    "materials": ["Platine"],
+    "stones": [],
+    "colors": ["#E5E4E2"],
+    "isRecycled": true
+  },
+  {
+    "id":"alliance-011",
+    "name":"Alliance Élégance 11",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":643,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-011.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Platine"
+    ],
+    "stones":[
+
+    ],
+    "colors":[
+      "#0000FF"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"alliance-012",
+    "name":"Alliance Élégance 12",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1206,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-012.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Or jaune 14 carats"
+    ],
+    "stones":[
+      "Diamant"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFFFFF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"alliance-013",
+    "name":"Alliance Élégance 13",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1877,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-013.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Platine"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"alliance-014",
+    "name":"Alliance Élégance 14",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1818,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-014.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Or rose 14 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"alliance-015",
+    "name":"Alliance Élégance 15",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":3075,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-015.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Or jaune 14 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"alliance-016",
+    "name":"Alliance Élégance 16",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2907,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-016.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Or jaune 14 carats"
+    ],
+    "stones":[
+
+    ],
+    "colors":[
+      "#C0C0C0"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"alliance-017",
+    "name":"Alliance Élégance 17",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":385,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-017.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Or rose 14 carats"
+    ],
+    "stones":[
+
+    ],
+    "colors":[
+      "#50C878"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"alliance-018",
+    "name":"Alliance Élégance 18",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":3134,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-018.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"alliance-019",
+    "name":"Alliance Élégance 19",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":3263,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-019.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Or jaune 14 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"alliance-021",
+    "name":"Alliance Élégance 21",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2265,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-021.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Platine"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"alliance-022",
+    "name":"Alliance Élégance 22",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":548,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-022.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Or jaune 14 carats"
+    ],
+    "stones":[
+      "Diamant"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFFFFF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"alliance-023",
+    "name":"Alliance Élégance 23",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1134,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-023.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Saphir"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#0000FF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"alliance-024",
+    "name":"Alliance Élégance 24",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2274,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-024.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Platine"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"alliance-025",
+    "name":"Alliance Élégance 25",
+    "description":"Un(e) alliance raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2612,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/alliance-025.jpeg"
+    ],
+    "category":"alliance",
+    "availability":true,
+    "materials":[
+      "Or rose 14 carats"
+    ],
+    "stones":[
+      "Saphir"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#0000FF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"bracelet-006",
+    "name":"Bracelet Élégance 6",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1411,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 006.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Argent 925"
+    ],
+    "stones":[
+
+    ],
+    "colors":[
+      "#FF0000"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"bracelet-007",
+    "name":"Bracelet Élégance 7",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1113,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 007.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Argent 925"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"bracelet-008",
+    "name":"Bracelet Élégance 8",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1322,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 008.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Or jaune 18 carats"
+    ],
+    "stones":[
+      "Diamant"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFFFFF"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"bracelet-009",
+    "name":"Bracelet Élégance 9",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2585,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 009.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Or jaune 18 carats"
+    ],
+    "stones":[
+      "Perle"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFF5EE"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"bracelet-010",
+    "name":"Bracelet Élégance 10",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":354,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 010.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"bracelet-011",
+    "name":"Bracelet Élégance 11",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2627,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 011.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Argent 925"
+    ],
+    "stones":[
+      "Perle"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFF5EE"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"bracelet-012",
+    "name":"Bracelet Élégance 12",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1092,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 012.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Diamant"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFFFFF"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"bracelet-013",
+    "name":"Bracelet Élégance 13",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1495,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 013.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Platine"
+    ],
+    "stones":[
+      "Diamant"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFFFFF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"bracelet-014",
+    "name":"Bracelet Élégance 14",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1384,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 014.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Or jaune 18 carats"
+    ],
+    "stones":[
+      "Diamant"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFFFFF"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"bracelet-015",
+    "name":"Bracelet Élégance 15",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":3279,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 015.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Argent 925"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"bracelet-016",
+    "name":"Bracelet Élégance 16",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":886,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 016.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Or jaune 18 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"bracelet-017",
+    "name":"Bracelet Élégance 17",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":746,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 017.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Perle"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFF5EE"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"bracelet-018",
+    "name":"Bracelet Élégance 18",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":739,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 018.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+
+    ],
+    "colors":[
+      "#C0C0C0"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"bracelet-019",
+    "name":"Bracelet Élégance 19",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2131,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 019.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Or jaune 18 carats"
+    ],
+    "stones":[
+      "Perle"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFF5EE"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"bracelet-020",
+    "name":"Bracelet Élégance 20",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2400,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 020.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Or jaune 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"bracelet-021",
+    "name":"Bracelet Élégance 21",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2584,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 021.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"bracelet-022",
+    "name":"Bracelet Élégance 22",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":503,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 022.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Platine"
+    ],
+    "stones":[
+
+    ],
+    "colors":[
+      "#FFFFFF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"bracelet-023",
+    "name":"Bracelet Élégance 23",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1251,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 023.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Platine"
+    ],
+    "stones":[
+      "Diamant"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFFFFF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"bracelet-024",
+    "name":"Bracelet Élégance 24",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":485,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 024.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+
+    ],
+    "colors":[
+      "#50C878"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"bracelet-025",
+    "name":"Bracelet Élégance 25",
+    "description":"Un(e) bracelet raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":360,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Bracelet 025.jpeg"
+    ],
+    "category":"bracelet",
+    "availability":true,
+    "materials":[
+      "Platine"
+    ],
+    "stones":[
+      "Perle"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFF5EE"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"collier-006",
+    "name":"Collier Élégance 6",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1062,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 006.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Perle"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFF5EE"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"collier-007",
+    "name":"Collier Élégance 7",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":3072,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 007.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"collier-008",
+    "name":"Collier Élégance 8",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2694,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 008.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Saphir"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#0000FF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"collier-009",
+    "name":"Collier Élégance 9",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":282,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 009.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+
+    ],
+    "colors":[
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"collier-010",
+    "name":"Collier Élégance 10",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2228,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 010.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Diamant"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFFFFF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"collier-011",
+    "name":"Collier Élégance 11",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1015,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 011.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Saphir"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#0000FF"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"collier-012",
+    "name":"Collier Élégance 12",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2880,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 012.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"collier-013",
+    "name":"Collier Élégance 13",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1679,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 013.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+
+    ],
+    "colors":[
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"collier-014",
+    "name":"Collier Élégance 14",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":3034,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 014.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"collier-015",
+    "name":"Collier Élégance 15",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2105,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 015.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+
+    ],
+    "colors":[
+      "#FFFFFF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"collier-016",
+    "name":"Collier Élégance 16",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1362,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 016.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"collier-017",
+    "name":"Collier Élégance 17",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":867,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 017.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"collier-018",
+    "name":"Collier Élégance 18",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2422,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 018.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"collier-019",
+    "name":"Collier Élégance 19",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":3310,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 019.jpeg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"collier-020",
+    "name":"Collier Élégance 20",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2362,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 020.jpg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+
+    ],
+    "colors":[
+      "#0000FF"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"collier-021",
+    "name":"Collier Élégance 21",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1066,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 021.jpg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+
+    ],
+    "colors":[
+      "#FFFFFF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"collier-022",
+    "name":"Collier Élégance 22",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2959,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 022.jpg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Diamant"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFFFFF"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"collier-023",
+    "name":"Collier Élégance 23",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2082,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 023.jpg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"collier-024",
+    "name":"Collier Élégance 24",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1685,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 024.jpg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"collier-025",
+    "name":"Collier Élégance 25",
+    "description":"Un(e) collier raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":3264,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/Collier-Pendentif 025.jpg"
+    ],
+    "category":"collier",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Saphir"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#0000FF"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"boucles-006",
+    "name":"Boucles Élégance 6",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2142,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-006.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"boucles-007",
+    "name":"Boucles Élégance 7",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1082,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-007.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"boucles-008",
+    "name":"Boucles Élégance 8",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1528,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-008.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"boucles-009",
+    "name":"Boucles Élégance 9",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":871,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-009.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"boucles-010",
+    "name":"Boucles Élégance 10",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1764,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-010.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"boucles-011",
+    "name":"Boucles Élégance 11",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1718,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-011.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"boucles-012",
+    "name":"Boucles Élégance 12",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2405,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-012.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Saphir"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#0000FF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"boucles-013",
+    "name":"Boucles Élégance 13",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":835,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-013.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Saphir"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#0000FF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"boucles-014",
+    "name":"Boucles Élégance 14",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1069,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-014.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or jaune 14 carats"
+    ],
+    "stones":[
+      "Émeraude"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#50C878"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"boucles-015",
+    "name":"Boucles Élégance 15",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2905,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-015.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or jaune 14 carats"
+    ],
+    "stones":[
+      "Diamant"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFFFFF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"boucles-016",
+    "name":"Boucles Élégance 16",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":1593,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-016.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"boucles-017",
+    "name":"Boucles Élégance 17",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":365,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-017.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"boucles-018",
+    "name":"Boucles Élégance 18",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":660,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-018.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"boucles-019",
+    "name":"Boucles Élégance 19",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2685,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-019.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or jaune 14 carats"
+    ],
+    "stones":[
+      "Saphir"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#0000FF"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"boucles-020",
+    "name":"Boucles Élégance 20",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2140,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-020.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Perle"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFF5EE"
+    ],
+    "isRecycled":true
+  },
+  {
+    "id":"boucles-021",
+    "name":"Boucles Élégance 21",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":696,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-021.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or rose 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"boucles-022",
+    "name":"Boucles Élégance 22",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":551,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-022.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or jaune 14 carats"
+    ],
+    "stones":[
+      "Saphir"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#0000FF"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"boucles-023",
+    "name":"Boucles Élégance 23",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":2390,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-023.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Rubis"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "isRecycled":false
+  },
+  {
+    "id":"boucles-025",
+    "name":"Boucles Élégance 25",
+    "description":"Un(e) boucles raffiné(e) au design unique, idéal(e) pour toutes les occasions.",
+    "price":3310,
+    "currency":"EUR",
+    "images":[
+      "\/img\/products\/images\/boucles-025.jpeg"
+    ],
+    "category":"boucles",
+    "availability":true,
+    "materials":[
+      "Or blanc 18 carats"
+    ],
+    "stones":[
+      "Diamant"
+    ],
+    "colors":[
+      "#FFFFFF",
+      "#FFFFFF"
+    ],
+    "isRecycled":true
+  }
+]

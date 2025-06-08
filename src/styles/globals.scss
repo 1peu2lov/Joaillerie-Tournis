@@ -1,0 +1,163 @@
+@use './abstracts/variables' as vars;
+@use './abstracts/typography' as *;
+@use './abstracts/breakpoints' as *;
+
+:root {
+  --max-width: 1500px;
+  --border-radius: 12px;
+  --font-sans: vars.$font-sans;
+  --font-title: vars.$font-title;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  @include font-size('body');
+  line-height: map-get($line-heights, 'normal');
+  color: vars.$color-text;
+  background-color: vars.$color-bg;
+}
+
+h1 {
+  @include font-size('h1');
+  font-family: var(--font-title);
+  line-height: map-get($line-heights, 'tight');
+  font-weight: map-get($font-weights, 'bold');
+}
+
+h2 {
+  @include font-size('h2');
+  font-family: var(--font-title);
+  line-height: map-get($line-heights, 'tight');
+  font-weight: map-get($font-weights, 'bold');
+}
+
+h3 {
+  @include font-size('h3');
+  font-family: var(--font-title);
+  line-height: map-get($line-heights, 'tight');
+  font-weight: map-get($font-weights, 'semibold');
+}
+
+h4 {
+  @include font-size('h4');
+  font-family: var(--font-title);
+  line-height: map-get($line-heights, 'tight');
+  font-weight: map-get($font-weights, 'semibold');
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  margin-bottom: vars.$spacing-md;
+  line-height: map-get($line-heights, 'normal');
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 100%;
+  max-width: vars.$container-max-width;
+  margin: 0 auto;
+  padding: 0 vars.$container-padding;
+}
+
+.section {
+  padding: vars.$spacing-xl 0;
+  
+  @include breakpoint('md') {
+    padding: vars.$spacing-xxl 0;
+  }
+}
+
+// 2. Déclaration des polices self-hosted
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. Galter statique */
+@font-face {
+  font-family: 'Galter';
+  src: url('/fonts/Galter.ttf') format('truetype');
+  font-weight: 400;  
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galter';
+  src: url('/fonts/galter-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galter';
+  src: url('/fonts/galter-bold.ttf')    format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Galter';
+  src: url('/fonts/galter-extrabold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+// 3. Reset global
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// 4. Styles de base
+body {
+  font-family: vars.$font-sans;
+  background-color: vars.$color-bg;
+  color: vars.$color-text;
+  line-height: 1.6;
+}
+
+a, button {
+  font-family: vars.$font-sans;
+  text-decoration: none;
+  color: inherit;
+}
+
+// Titres
+h1 {
+  font-family: vars.$font-title;
+  font-weight: 700;
+  color: vars.$color-primary;
+  margin-bottom: 1rem;
+}
+
+h2, h3 {
+  font-family: vars.$font-sans;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+

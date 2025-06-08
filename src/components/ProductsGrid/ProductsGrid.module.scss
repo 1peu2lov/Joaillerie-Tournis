@@ -1,0 +1,157 @@
+@use '../../styles/abstracts/variables' as vars;
+@use '../../styles/abstracts/typography' as *;
+@use '../../styles/abstracts/breakpoints' as *;
+
+.productsGridContainer {
+    width: 100%;
+    padding: vars.$spacing-md;
+    transition: width 0.3s ease;
+    will-change: width;
+    transform: translateZ(0);
+
+    &.fullWidth {
+        width: 100%;
+    }
+
+    @include breakpoint('lg') {
+        padding: vars.$spacing-lg;
+    }
+}
+
+.productsGrid {
+    display: grid;
+    gap: vars.$spacing-md;
+    grid-auto-flow: dense;
+    min-height: 1600px;
+    transform: translateZ(0);
+    will-change: transform;
+
+    // Mobile (< 480px) : 1 colonne
+    grid-template-columns: 1fr;
+    
+    > * {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    
+    > *[data-variant='special'] {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    // Tablette portrait (>= 480px) : 2 colonnes
+    @include breakpoint('sm') {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: vars.$spacing-lg;
+        
+        > * {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        
+        > *[data-variant='special'] {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+    }
+
+    // Tablette paysage (>= 768px) : 6 colonnes
+    @include breakpoint('md') {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        
+        > * {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+        
+        > *[data-variant='special'] {
+            grid-column: span 4;
+            grid-row: span 1;
+        }
+    }
+
+    // Desktop (>= 1024px) : 12 colonnes
+    @include breakpoint('lg') {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        
+        > * {
+            grid-column: span 6;
+            grid-row: span 1;
+        }
+        
+        > *[data-variant='special'] {
+            grid-column: span 12;
+            grid-row: span 2;
+        }
+    }
+
+    // Grand écran (>= 1280px) : 15 colonnes pour 5 cartes
+    @include breakpoint('xl') {
+        grid-template-columns: repeat(15, 1fr);
+        
+        > * {
+            grid-column: span 5;
+            grid-row: span 0;
+        }
+        
+        > *[data-variant='special'] {
+            grid-column: span 10;
+            grid-row: span 2;
+        }
+    }
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: vars.$spacing-xl 0;
+    min-height: 100px;
+}
+
+.loadingSpinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: vars.$spacing-sm;
+    color: vars.$color-primary;
+    font-family: vars.$font-sans;
+    
+    &::before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        border: 2px solid vars.$color-primary;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loadMoreButton {
+    display: block;
+    margin: 0 auto;
+    padding: vars.$spacing-md vars.$spacing-xl;
+    background-color: vars.$color-primary;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-family: vars.$font-sans;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    transform: translateZ(0);
+
+    &:hover {
+        background-color: lighten(vars.$color-primary, 10%);
+    }
+}

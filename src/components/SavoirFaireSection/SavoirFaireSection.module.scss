@@ -1,0 +1,165 @@
+@use '../../styles/abstracts/variables' as vars;
+@use '../../styles/abstracts/breakpoints' as *;
+@use '../../styles/abstracts/typography' as *;
+
+// Breakpoints
+$breakpoint-sm: 480px;
+$breakpoint-md: 640px;
+$breakpoint-lg: 768px;
+
+.savoirFaire {
+  padding: vars.$spacing-xl vars.$spacing-md;
+  background-color: vars.$color-bg;
+  max-width: vars.$container-max-width;
+  margin: 0 auto;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  h2 {
+    font-family: vars.$font-title;
+    @include font-size('h2');
+    margin-bottom: vars.$spacing-xl;
+    text-align: center;
+    color: vars.$color-primary;
+  }
+}
+
+.cards {
+  display: grid;
+  gap: vars.$spacing-xl;
+  grid-template-columns: 1fr;
+
+  @include breakpoint('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include breakpoint('lg') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.card {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  overflow: visible;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (min-width: 640px) {
+    width: calc(100% - 1rem);
+    margin: 0 auto;
+  }
+
+  @media (min-width: 840px) {
+    height: 400px;
+  }
+}
+
+.left {
+  justify-self: start;
+}
+
+.right {
+  justify-self: end;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 1;
+}
+
+.info {
+  position: relative;
+  z-index: 2;
+  color: vars.$color-secondary;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 90%;
+}
+
+.leftInfo, .rightInfo {
+  margin-left: 1rem;
+}
+
+.right .info {
+  margin-left: 1rem;
+}
+
+.info h3 {
+  margin: 0 0 vars.$spacing-sm;
+  font-family: vars.$font-sans;
+  @include font-size('h3', 'sm');
+  color: #fff;
+  font-weight: map-get($font-weights, 'medium');
+}
+
+.info p {
+  margin: 0;
+  @include font-size('body');
+  flex-grow: 1;
+  color: #eee;
+}
+
+.cta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(185%);
+  padding: 0.8rem 2rem;
+  background-color: #1E2846;
+  color: #fff;
+  text-decoration: none;
+  z-index: 2;
+  left: -1rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: vars.$spacing-unit;
+  transition: all 0.3s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-image: url('/img/textures/gold-texture3.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(175%);
+    
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: translateY(180%);
+  }
+}
+.right .cta {
+  left: auto;
+  right: -1rem;
+
+  @media (min-width: 1080px) {
+    left: -1rem;
+    right: auto;
+  }
+}

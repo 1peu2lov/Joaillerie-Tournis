@@ -1,0 +1,32 @@
+@use '../../styles/abstracts/variables' as vars;
+@use '../../styles/abstracts/typography' as *;
+@use '../../styles/abstracts/breakpoints' as *;
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-lg;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    @include breakpoint('lg') {
+        flex-direction: row;
+    }
+}
+
+.filterWrapper {
+    @include breakpoint('lg') {
+        flex-shrink: 0;
+        width: 450px;
+    }
+}
+
+.productsGridWrapper {
+    width: 100%;
+    
+    @include breakpoint('lg') {
+        flex: 1;
+        min-width: 0;
+    }
+}

@@ -1,0 +1,87 @@
+@use 'breakpoints' as *;
+
+// Base font sizes
+$base-font-size: 16px;
+
+// Échelle typographique responsive
+$font-sizes: (
+  'h1': (
+    'sm': 1.75rem,    // 28px
+    'base': 2rem,     // 32px
+    'md': 2.5rem,     // 40px
+    'lg': 3rem,       // 48px
+    'xl': 3.5rem      // 56px
+  ),
+  'h2': (
+    'sm': 1.5rem,     // 24px
+    'base': 1.75rem,  // 28px
+    'md': 2rem,       // 32px
+    'lg': 2.25rem,    // 36px
+    'xl': 2.5rem      // 40px
+  ),
+  'h3': (
+    'sm': 1.25rem,    // 20px
+    'base': 1.5rem,   // 24px
+    'md': 1.75rem,    // 28px
+    'lg': 2rem,       // 32px
+    'xl': 2.25rem     // 36px
+  ),
+  'h4': (
+    'sm': 1rem,       // 16px
+    'base': 1.25rem,  // 20px
+    'md': 1.5rem,     // 24px
+    'lg': 1.75rem,    // 28px
+    'xl': 2rem        // 32px
+  ),
+  'body': (
+    'sm': 0.875rem,   // 14px
+    'base': 1rem,     // 16px
+    'md': 1rem,       // 16px
+    'lg': 1.125rem,   // 18px
+    'xl': 1.125rem    // 18px
+  )
+);
+
+// Mixin pour les tailles de police responsive
+@mixin font-size($element, $size: 'base') {
+  $sizes: map-get($font-sizes, $element);
+  font-size: map-get($sizes, $size);
+
+  @if $size == 'base' {
+    @include breakpoint('md') {
+      font-size: map-get($sizes, 'md');
+    }
+
+    @include breakpoint('lg') {
+      font-size: map-get($sizes, 'lg');
+    }
+
+    @include breakpoint('xl') {
+      font-size: map-get($sizes, 'xl');
+    }
+  }
+}
+
+// Line heights
+$line-heights: (
+  'tight': 1.2,
+  'normal': 1.5,
+  'loose': 1.8
+);
+
+// Font weights
+$font-weights: (
+  'light': 300,
+  'regular': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700
+);
+
+// Exemple d'utilisation:
+// h1 {
+//   @include font-size('h1');          // Taille responsive de base
+//   @include font-size('h1', 'sm');    // Petite taille fixe
+//   line-height: map-get($line-heights, 'tight');
+//   font-weight: map-get($font-weights, 'bold');
+// } 

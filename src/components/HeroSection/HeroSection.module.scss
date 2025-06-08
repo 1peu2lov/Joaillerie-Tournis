@@ -1,0 +1,79 @@
+@use '../../styles/abstracts/variables' as vars;
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 92vh;
+  background-image: url('/img/home/hero-bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.overlay h1 {
+  font-size: 2rem;
+  color: vars.$color-secondary;
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: 0.075rem;
+}
+
+// Groupe bas page : paragraphe + bouton collés
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;      /* réduit l'espacement entre p et .cta */
+  margin: 0;
+  padding-bottom: 1.2em;
+}
+
+.bottom p {
+  font-size: 1.1rem;
+  color: vars.$color-secondary;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.cta {
+  background: none;
+  color: vars.$color-secondary;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  overflow: hidden;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+
+   &::after {
+    /* Trait doré permanent */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-image: url('/img/textures/gold-texture3.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+}
+
+

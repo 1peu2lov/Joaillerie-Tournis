@@ -1,0 +1,173 @@
+@use '../styles/abstracts/variables' as vars;
+@use '../styles/abstracts/typography' as *;
+@use '../styles/abstracts/breakpoints' as *;
+
+.main {
+  min-height: 100vh;
+  padding-top: 80px; // Correspond à la hauteur du header
+}
+
+.hero {
+  position: relative;
+  min-height: calc(100vh - 80px); // Soustrait la hauteur du header
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: vars.$color-primary;
+  color: #fff;
+  padding: vars.$spacing-xl vars.$spacing-md;
+
+  h1 {
+    @include font-size('h1');
+    margin-bottom: vars.$spacing-lg;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  p {
+    @include font-size('body', 'lg');
+    max-width: 600px;
+    margin: 0 auto vars.$spacing-xl;
+    line-height: map-get($line-heights, 'loose');
+  }
+}
+
+.section {
+  padding: vars.$spacing-xxl 0;
+  
+  h2 {
+    @include font-size('h2');
+    text-align: center;
+    margin-bottom: vars.$spacing-xl;
+    color: vars.$color-primary;
+  }
+
+  p {
+    @include font-size('body');
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: map-get($line-heights, 'normal');
+  }
+}
+
+.grid {
+  display: grid;
+  gap: vars.$spacing-lg;
+  padding: vars.$spacing-xl vars.$spacing-md;
+  max-width: vars.$container-max-width;
+  margin: 0 auto;
+
+  @include breakpoint('md') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: vars.$spacing-xl;
+  }
+
+  @include breakpoint('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  h3 {
+    @include font-size('h4');
+    margin: vars.$spacing-md;
+  }
+
+  p {
+    @include font-size('body', 'sm');
+    margin: vars.$spacing-md;
+    color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.appointmentSection {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.contentCard {
+  position: relative;
+  background-color: #fff;
+  padding: 2rem;
+  max-width: 90%;
+  margin: 0 auto;
+  top: -8rem;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.contentCard h2 {
+  margin: 0;
+  font-family: vars.$font-sans;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: vars.$color-primary;
+}
+
+.contentCard p {
+  margin: 1rem 0;
+  font-family: vars.$font-sans;
+  color: vars.$color-text;
+}
+
+.text{
+    padding: 0rem 1.5rem 5rem 1.5rem;
+    text-align: justify;
+    letter-spacing: vars.$spacing-unit;
+    font-weight:400;
+    margin-top: -5.5rem;
+    font-size: 0.95rem;
+}
+
+.separator {
+  width: 50px;
+  height: 2px;
+  background-color: vars.$color-primary;
+  margin: 1rem auto;
+}
+
+.cta {
+  display: inline-block;
+  font-family: vars.$font-sans;
+  font-weight: 600;
+  color: vars.$color-primary;
+  padding-bottom: 2px;
+  text-decoration: none;
+  position: relative;
+  background-color: vars.$color-primary;
+  color: #fff;
+  padding: 1rem 2rem;
+  letter-spacing: vars.$spacing-unit;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+
+@media (min-width: 768px) {
+  .imageContainer {
+    height: 60vh;
+  }
+  .contentCard {
+    max-width: 600px;
+    top: -8rem;
+  }
+}
