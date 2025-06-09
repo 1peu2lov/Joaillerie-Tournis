@@ -1,0 +1,273 @@
+@use '../../styles/abstracts/variables' as vars;
+@use '../../styles/abstracts/typography' as *;
+@use '../../styles/abstracts/breakpoints' as *;
+
+// Section Hero
+.heroSection {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+
+    @include breakpoint('md') {
+        height: 70vh;
+    }
+
+    @include breakpoint('lg') {
+        height: 80vh;
+    }
+}
+
+.heroImage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.heroImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.heroOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(30, 40, 70, 0.7) 0%,
+        rgba(30, 40, 70, 0.4) 50%,
+        rgba(30, 40, 70, 0.7) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heroContent {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 0 2rem;
+
+    @include breakpoint('md') {
+        padding: 0 3rem;
+    }
+}
+
+.heroTitle {
+    font-family: vars.$font-title;
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    @include breakpoint('md') {
+        font-size: 4rem;
+    }
+
+    @include breakpoint('lg') {
+        font-size: 5rem;
+    }
+}
+
+.heroSubtitle {
+    font-family: vars.$font-sans;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 300;
+    opacity: 0.95;
+    line-height: 1.6;
+
+    @include breakpoint('md') {
+        font-size: 1.4rem;
+    }
+
+    @include breakpoint('lg') {
+        font-size: 1.6rem;
+    }
+}
+
+// Section Carrousel
+.carouselSection {
+    padding: vars.$spacing-xxl 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.carouselContainer {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    @include breakpoint('md') {
+        padding: 0 3rem;
+    }
+}
+
+.carouselTitle {
+    font-family: vars.$font-title;
+    font-size: 2.5rem;
+    text-align: center;
+    color: vars.$color-primary;
+    margin: 0 0 1rem 0;
+    font-weight: 300;
+
+    @include breakpoint('md') {
+        font-size: 3rem;
+    }
+}
+
+.carouselSubtitle {
+    font-family: vars.$font-sans;
+    font-size: 1.1rem;
+    text-align: center;
+    color: lighten(vars.$color-text, 15%);
+    margin: 0 0 3rem 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+
+    @include breakpoint('md') {
+        font-size: 1.2rem;
+        margin-bottom: 4rem;
+    }
+}
+
+// Section Description
+.descriptionSection {
+    padding: vars.$spacing-xxl 0;
+    background: white;
+}
+
+.descriptionContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+
+    @include breakpoint('lg') {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        padding: 0 3rem;
+    }
+}
+
+.descriptionContent {
+    h3 {
+        font-family: vars.$font-title;
+        font-size: 2rem;
+        color: vars.$color-primary;
+        margin: 0 0 1.5rem 0;
+        font-weight: 300;
+
+        @include breakpoint('md') {
+            font-size: 2.5rem;
+        }
+    }
+
+    p {
+        font-family: vars.$font-sans;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: vars.$color-text;
+        margin: 0 0 1.5rem 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include breakpoint('md') {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+    }
+}
+
+.descriptionImage {
+    .descImg {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+        @include breakpoint('md') {
+            height: 500px;
+        }
+    }
+}
+
+// Section Catalogue
+.catalogSection {
+    background: #fafbfc;
+}
+
+.catalogHeader {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    padding: 0 2rem;
+
+    h2 {
+        font-family: vars.$font-title;
+        font-size: 2.5rem;
+        color: vars.$color-primary;
+        margin: 0 0 1rem 0;
+        font-weight: 300;
+
+        @include breakpoint('md') {
+            font-size: 3rem;
+        }
+    }
+
+    p {
+        font-family: vars.$font-sans;
+        font-size: 1.1rem;
+        color: lighten(vars.$color-text, 15%);
+        margin: 0;
+        line-height: 1.6;
+
+        @include breakpoint('md') {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+// Styles existants pour le contenu principal
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-lg;
+    margin: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include breakpoint('lg') {
+        flex-direction: row;
+    }
+}
+
+.filterWrapper {
+    @include breakpoint('lg') {
+        flex-shrink: 0;
+        width: 450px;
+    }
+}
+
+.productsGridWrapper {
+    width: 100%;
+    
+    @include breakpoint('lg') {
+        flex: 1;
+        min-width: 0;
+    }
+}

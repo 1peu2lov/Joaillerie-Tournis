@@ -1,0 +1,143 @@
+@use '../../../styles/abstracts/variables' as vars;
+@use '../../../styles/abstracts/typography' as *;
+@use '../../../styles/abstracts/breakpoints' as *;
+
+.creationPage {
+    padding: vars.$spacing-xl;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    color: vars.$color-primary;
+    font-family: vars.$font-sans;
+    margin-bottom: vars.$spacing-xl;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: lighten(vars.$color-primary, 20%);
+    }
+}
+
+.creationContent {
+    display: grid;
+    gap: vars.$spacing-xl;
+    
+    @include breakpoint('md') {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.imageSection {
+    .mainImage {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.infoSection {
+    h1 {
+        font-family: vars.$font-title;
+        color: vars.$color-primary;
+        margin-bottom: vars.$spacing-md;
+    }
+
+    .description {
+        color: lighten(vars.$color-text, 20%);
+        margin-bottom: vars.$spacing-lg;
+        line-height: 1.6;
+    }
+}
+
+.details {
+    margin: vars.$spacing-xl 0;
+}
+
+.detailGroup {
+    margin-bottom: vars.$spacing-lg;
+
+    h3 {
+        font-family: vars.$font-sans;
+        color: vars.$color-primary;
+        margin-bottom: vars.$spacing-sm;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin-bottom: vars.$spacing-xs;
+            color: vars.$color-text;
+        }
+    }
+}
+
+.colors {
+    display: flex;
+    gap: vars.$spacing-sm;
+    margin-top: vars.$spacing-sm;
+}
+
+.colorSwatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.recycled {
+    display: inline-flex;
+    align-items: center;
+    gap: vars.$spacing-xs;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: vars.$spacing-sm vars.$spacing-md;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-top: vars.$spacing-md;
+}
+
+.creationActions {
+    margin-top: vars.$spacing-xl;
+    padding-top: vars.$spacing-lg;
+    border-top: 1px solid rgba(vars.$color-primary, 0.1);
+}
+
+.contactText {
+    color: vars.$color-text;
+    margin-bottom: vars.$spacing-md;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.contactButton {
+    background-color: vars.$color-primary;
+    color: white;
+    border: none;
+    padding: vars.$spacing-md vars.$spacing-xl;
+    border-radius: 30px;
+    font-family: vars.$font-sans;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+
+    &:hover {
+        background-color: lighten(vars.$color-primary, 10%);
+    }
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    font-family: vars.$font-sans;
+    color: vars.$color-text;
+} 

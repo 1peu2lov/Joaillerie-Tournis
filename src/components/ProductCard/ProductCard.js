@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
 
-export default function ProductCard({ product, isPremium = false, variant = 'normal' }) {
+export default function ProductCard({ product, isPremium = false, variant = 'normal', showOnlyImage = false }) {
     const [isHovered, setIsHovered] = useState(false)
     const [isVisible, setIsVisible] = useState(false)
     const cardRef = useRef(null)
@@ -37,6 +37,41 @@ export default function ProductCard({ product, isPremium = false, variant = 'nor
 
     if (!isVisible) {
         return <div ref={cardRef} className={styles.placeholder} data-variant={variant} />
+    }
+
+    // Mode image uniquement pour la page créations
+    if (showOnlyImage) {
+        return (
+            <Link 
+                ref={cardRef}
+                href={`/creations/${product.id}`}
+                className={`${styles.productCard} ${styles.imageOnlyCard}`}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                data-variant="image-only"
+            >
+                <div className={styles.imageContainer}>
+                    <Image 
+                        src={product.images[0]} 
+                        alt={product.name}
+                        className={styles.productImage}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        priority={false}
+                        loading="lazy"
+                        quality={85}
+                    />
+                    {product.isRecycled && (
+                        <span className={styles.recycledBadge}>♻️</span>
+                    )}
+                    <div className={`${styles.overlay} ${isHovered ? styles.visible : ''}`}>
+                        <span className={styles.viewDetails}>
+                            Voir la création
+                        </span>
+                    </div>
+                </div>
+            </Link>
+        )
     }
 
     if (variant === 'special') {

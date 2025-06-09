@@ -1,0 +1,535 @@
+@use '../../styles/abstracts/variables' as vars;
+@use '../../styles/abstracts/typography' as *;
+@use '../../styles/abstracts/breakpoints' as *;
+
+.carouselWrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: visible;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+    margin-top: 50px;
+
+    @include breakpoint('md') {
+        margin-top: 50px;
+    }
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: visible;
+
+    @include breakpoint('md') {
+        height: 300px;
+    }
+
+    @include breakpoint('lg') {
+        height: 350px;
+    }
+
+    @include breakpoint('xl') {
+        height: 420px;
+    }
+}
+
+.carouselTrack {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+}
+
+.carouselCard {
+    height: 100%;
+    position: relative;
+    padding: 0 8px;
+    width: 100%;
+    
+    @include breakpoint('md') {
+        padding: 0 12px;
+        width: 50%;
+    }
+    
+    @include breakpoint('lg') {
+        width: 33.333%;
+        padding: 0 8px;
+    }
+    
+    @include breakpoint('xl') {
+        width: 25%;
+        padding: 0 6px;
+    }
+}
+
+.productLink {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+
+    @include breakpoint('md') {
+    }
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8f9fa 0%, #dee2e6 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+
+    @include breakpoint('md') {
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 100%
+        );
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        z-index: 1;
+        border-radius: inherit;
+    }
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+
+        .productImage {
+            transform: scale(1.05);
+        }
+
+        .overlay {
+            background: linear-gradient(
+                135deg,
+                rgba(0, 0, 0, 0.4) 0%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+        }
+
+        .productInfo {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+.productImage {
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    border-radius: inherit;
+}
+
+.recycledBadge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.9) 100%);
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    z-index: 3;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    @include breakpoint('md') {
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+
+    @include breakpoint('lg') {
+        top: 12px;
+        right: 12px;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    @include breakpoint('xl') {
+        top: 16px;
+        right: 16px;
+        padding: 8px 15px;
+        font-size: 1.1rem;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: inherit;
+
+    @include breakpoint('md') {
+        padding: 1rem;
+    }
+
+    @include breakpoint('lg') {
+        padding: 1.25rem;
+    }
+
+    @include breakpoint('xl') {
+        padding: 1.75rem;
+    }
+}
+
+.productInfo {
+    color: white;
+    opacity: 0.8;
+    transform: translateY(10px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+    text-align: left;
+    max-width: 100%;
+    width: 100%;
+
+    @include breakpoint('lg') {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+.productName {
+    font-family: vars.$font-title;
+    font-size: 1.8rem;
+    margin: 0 0 0.75rem 0;
+    font-weight: 300;
+    line-height: 1.2;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+    @include breakpoint('md') {
+        font-size: 1.1rem;
+        margin: 0 0 0.4rem 0;
+    }
+
+    @include breakpoint('lg') {
+        font-size: 1.3rem;
+        margin: 0 0 0.5rem 0;
+    }
+
+    @include breakpoint('xl') {
+        font-size: 1.6rem;
+        margin: 0 0 0.6rem 0;
+    }
+}
+
+.productMaterial {
+    font-family: vars.$font-sans;
+    font-size: 1rem;
+    margin: 0 0 1.5rem 0;
+    opacity: 0.9;
+    font-weight: 300;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+
+    @include breakpoint('md') {
+        font-size: 0.75rem;
+        margin: 0 0 0.75rem 0;
+    }
+
+    @include breakpoint('lg') {
+        font-size: 0.85rem;
+        margin: 0 0 1rem 0;
+    }
+
+    @include breakpoint('xl') {
+        font-size: 0.95rem;
+        margin: 0 0 1.25rem 0;
+    }
+}
+
+.viewDetails {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+    font-family: vars.$font-sans;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(15px);
+
+    @include breakpoint('md') {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.65rem;
+    }
+
+    @include breakpoint('lg') {
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
+    }
+
+    @include breakpoint('xl') {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.95);
+        color: vars.$color-primary;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 1);
+    }
+}
+
+// Boutons de navigation améliorés
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: whitesmoke;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: vars.$color-primary;
+    cursor: pointer;
+    z-index: 4;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+    @include breakpoint('md') {
+        width: 55px;
+        height: 55px;
+        font-size: 1.4rem;
+    }
+
+    @include breakpoint('lg') {
+        width: 65px;
+        height: 65px;
+        font-size: 1.6rem;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 249, 250, 1) 100%);
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 0.8);
+    }
+
+    &:active {
+        transform: translateY(-50%) scale(0.95);
+    }
+}
+
+.prevButton {
+    left: 15px;
+
+    @include breakpoint('md') {
+        left: 25px;
+    }
+}
+
+.nextButton {
+    right: 15px;
+
+    @include breakpoint('md') {
+        right: 25px;
+    }
+}
+
+// Indicateurs en barres
+.indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%) translateY(220%);
+    display: flex;
+    gap: 8px;
+    z-index: 4;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+    @include breakpoint('md') {
+        bottom: 25px;
+        gap: 10px;
+        padding: 15px 25px;
+    }
+}
+
+.indicator {
+    width: 24px;
+    height: 4px;
+    border: none;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+
+    @include breakpoint('md') {
+        width: 30px;
+        height: 5px;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        transition: left 0.6s ease;
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.9);
+        transform: scaleY(1.5);
+
+        &::before {
+            left: 100%;
+        }
+    }
+
+    &.active {
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+        transform: scaleY(1.8);
+        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+
+        &::before {
+            left: 100%;
+        }
+    }
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    font-family: vars.$font-sans;
+    color: vars.$color-text;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+
+    @include breakpoint('md') {
+        height: 450px;
+        font-size: 1.2rem;
+    }
+}
+
+// Animations d'entrée améliorées
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+// Animations pour les indicateurs
+
+// Responsive improvements pour les très petits écrans
+@media (max-width: 375px) {
+    .carouselWrapper {
+        padding: 0;
+        margin-top: 80px;
+    }
+    
+    .carousel {
+        height: 300px;
+    }
+    
+    .carouselCard {
+        padding: 0 4px;
+    }
+    
+    .overlay {
+        padding: 1rem;
+    }
+    
+    .productName {
+        font-size: 1rem;
+    }
+    
+    .productMaterial {
+        font-size: 0.7rem;
+    }
+    
+    .viewDetails {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.6rem;
+    }
+    
+    .navButton {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .prevButton {
+        left: 10px;
+    }
+    
+    .nextButton {
+        right: 10px;
+    }
+    
+    .indicators {
+        bottom: 10px;
+        padding: 8px 15px;
+        gap: 6px;
+    }
+    
+    .indicator {
+        width: 20px;
+        height: 3px;
+    }
+} 

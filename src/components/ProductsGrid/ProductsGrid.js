@@ -9,7 +9,7 @@ import { useElementHeight } from '../hooks/useElementHeight'
 const INITIAL_LOAD = 8;
 const LOAD_MORE_INCREMENT = 8;
 
-const ProductsGrid = forwardRef(({ onHeightChange, isFilterOpen }, ref) => {
+const ProductsGrid = forwardRef(({ onHeightChange, isFilterOpen, showOnlyImages = false }, ref) => {
   const [products] = useState(productsData);
   const [filteredProducts, setFilteredProducts] = useState(productsData);
   const [visibleProducts, setVisibleProducts] = useState(INITIAL_LOAD);
@@ -27,9 +27,12 @@ const ProductsGrid = forwardRef(({ onHeightChange, isFilterOpen }, ref) => {
         );
       }
 
-      filtered = filtered.filter(product => 
-        product.price >= filtres.prix.min && product.price <= filtres.prix.max
-      );
+      // Ne pas filtrer par prix si showOnlyImages est true (pour la page créations)
+      if (!showOnlyImages) {
+        filtered = filtered.filter(product => 
+          product.price >= filtres.prix.min && product.price <= filtres.prix.max
+        );
+      }
 
       if (filtres.pierres.length > 0) {
         filtered = filtered.filter(product => 
@@ -106,6 +109,7 @@ const ProductsGrid = forwardRef(({ onHeightChange, isFilterOpen }, ref) => {
             key={product.id} 
             product={product}
             variant={shouldBeSpecial(index) ? 'special' : 'normal'}
+            showOnlyImage={showOnlyImages}
           />
         ))}
       </div>

@@ -356,3 +356,42 @@
     margin-top: 0.5rem;
     text-align: left;
 }
+
+// Styles pour les cartes image uniquement (page créations)
+.imageOnlyCard {
+    .imageContainer {
+        height: 100%;
+        min-height: 300px;
+    }
+    
+    .productInfo {
+        display: none;
+    }
+
+    &:hover {
+        transform: translateY(-4px) scale(1.02);
+        
+        .overlay {
+            background: rgba(30, 40, 70, 0.8);
+        }
+    }
+    
+    // Ajustements responsives pour les images seules
+    @include breakpoint('sm') {
+        .imageContainer {
+            min-height: 250px;
+        }
+    }
+    
+    @include breakpoint('md') {
+        .imageContainer {
+            min-height: 300px;
+        }
+    }
+    
+    @include breakpoint('lg') {
+        .imageContainer {
+            min-height: 350px;
+        }
+    }
+}
