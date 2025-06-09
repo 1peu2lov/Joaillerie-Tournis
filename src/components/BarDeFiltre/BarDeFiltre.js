@@ -2,6 +2,7 @@
 import styles from './BarDeFiltre.module.scss'
 import { useState, useEffect } from 'react'
 import useWindowWidth from '@/app/hooks/useWindowsWidth'
+import Image from 'next/image'
 
 const defaultFiltres = {
     categories: [],
@@ -86,9 +87,12 @@ export function BarDeFiltre({
                 >
                 {showCategories && (
                     <div className={styles.filtreSection}>
-                        <h3>Catégories</h3>
+                        <div className={styles.titleContainer}>
+                            <Image src="/images/icon-bague.svg" alt="Catégories" width={30} height={30} />
+                            <h3>Catégories</h3>
+                        </div>
                         <div className={styles.optionsContainer}>
-                            {['alliance', 'bracelet', 'collier', 'boucles'].map(cat => (
+                            {['alliance', 'bracelet', 'collier', 'boucles','bague'].map(cat => (
                                 <label key={cat}>
                                     <input 
                                         type="checkbox"
@@ -104,7 +108,9 @@ export function BarDeFiltre({
 
                 {showPriceFilter && (
                     <div className={styles.filtreSection}>
-                        <h3>Prix</h3>
+                        <div className={styles.titleContainer}>
+                            <h3>Prix</h3>
+                        </div>
                         <div className={styles.priceRangeContainer}>
                             <div className={styles.priceInputs}>
                                 <input
@@ -146,7 +152,10 @@ export function BarDeFiltre({
 
                 {showStones && (
                     <div className={styles.filtreSection}>
-                        <h3>Pierres</h3>
+                        <div className={styles.titleContainer}>
+                            <Image src="/images/icon-pierre.svg" alt="Catégories" width={30} height={30} />
+                            <h3>Pierres</h3>
+                        </div>
                         <div className={styles.optionsContainer}>
                             {['Diamant', 'Rubis', 'Saphir', 'Émeraude', 'Perle'].map(pierre => (
                                 <label key={pierre}>
@@ -164,7 +173,10 @@ export function BarDeFiltre({
 
                 {showMaterials && (
                     <div className={styles.filtreSection}>
-                        <h3>Matériaux</h3>
+                        <div className={styles.titleContainer}>
+                            <Image src="/images/icon-metal.svg" alt="Catégories" width={30} height={30} />
+                            <h3>Matériaux</h3>
+                        </div>
                         <div className={styles.optionsContainer}>
                             {[
                                 'Or blanc 18 carats',
@@ -222,7 +234,7 @@ export function BarDeFiltre({
                         className={`${styles.filterButton} ${styles.applyButton}`}
                         onClick={handleApplyFilters}
                     >
-                        Appliquer les filtres
+                        Appliquer
                     </button>
                     <button 
                         type="button"
