@@ -14,7 +14,7 @@ export default function ReparationsPage() {
         </div>
         <div className={styles.heroImage}>
           <Image 
-            src="/img/savoir-faire/reparations.jpg" 
+            src="/img/artisan_2.jpg" 
             alt="Réparation de bijoux" 
             fill
             style={{ objectFit: 'cover' }}
@@ -27,22 +27,22 @@ export default function ReparationsPage() {
           <h2>Nos services de réparation</h2>
           <div className={styles.servicesList}>
             <div className={styles.service}>
-              <div className={styles.icon}>🔧</div>
+              {/* <div className={styles.icon}>🔧</div> */}
               <h3>Réparation de chaînes</h3>
               <p>Remise en état de chaînes cassées, maillons endommagés, fermoirs défaillants.</p>
             </div>
             <div className={styles.service}>
-              <div className={styles.icon}>💎</div>
+              {/* <div className={styles.icon}>💎</div> */}
               <h3>Resertissage de pierres</h3>
               <p>Fixation sécurisée de pierres descellées ou remplacement de griffes usées.</p>
             </div>
             <div className={styles.service}>
-              <div className={styles.icon}>⚡</div>
+              {/* <div className={styles.icon}>⚡</div> */}
               <h3>Soudure d&apos;urgence</h3>
               <p>Intervention rapide pour bijoux cassés, anneaux fendus, agrafes détachées.</p>
             </div>
             <div className={styles.service}>
-              <div className={styles.icon}>✨</div>
+              {/* <div className={styles.icon}>✨</div> */}
               <h3>Remise à neuf</h3>
               <p>Polissage, nettoyage professionnel et traitement des rayures superficielles.</p>
             </div>
@@ -77,7 +77,7 @@ export default function ReparationsPage() {
             </div>
             <div className={styles.imageContent}>
               <Image 
-                src="/img/savoir-faire/atelier-reparation.jpg" 
+                src="/img/artisan_2.jpg" 
                 alt="Atelier de réparation" 
                 width={600}
                 height={400}
@@ -88,7 +88,7 @@ export default function ReparationsPage() {
         </div>
       </section>
 
-      <section className={styles.urgency}>
+      {/* <section className={styles.urgency}>
         <div className={styles.container}>
           <h2>Service d&apos;urgence</h2>
           <p>Bijou cassé avant un événement important ? Nous proposons un service de réparation express pour vos urgences.</p>
@@ -107,7 +107,7 @@ export default function ReparationsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className={styles.cta}>
         <div className={styles.container}>

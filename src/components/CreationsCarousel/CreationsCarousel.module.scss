@@ -309,7 +309,7 @@
     }
 }
 
-// Boutons de navigation améliorés
+// Boutons de navigation améliorés - Only visible on desktop
 .navButton {
     position: absolute;
     top: 50%;
@@ -329,6 +329,11 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+    // Hide on mobile and tablet
+    @media (max-width: 1023px) {
+        display: none;
+    }
 
     @include breakpoint('md') {
         width: 55px;

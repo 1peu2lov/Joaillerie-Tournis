@@ -27,22 +27,22 @@ export default function ExpertisesPage() {
           <h2>Nos services d&apos;expertise</h2>
           <div className={styles.servicesList}>
             <div className={styles.service}>
-              <div className={styles.serviceIcon}>🔍</div>
+              {/* <div className={styles.serviceIcon}>🔍</div> */}
               <h3>Évaluation patrimoniale</h3>
               <p>Estimation de la valeur de vos bijoux pour assurance, succession ou simple connaissance.</p>
             </div>
             <div className={styles.service}>
-              <div className={styles.serviceIcon}>📋</div>
+              {/* <div className={styles.serviceIcon}>📋</div> */}
               <h3>Certificat d&apos;authenticité</h3>
               <p>Vérification de l&apos;authenticité et de la qualité de vos pierres et métaux précieux.</p>
             </div>
             <div className={styles.service}>
-              <div className={styles.serviceIcon}>⚖️</div>
+              {/* <div className={styles.serviceIcon}>⚖️</div> */}
               <h3>Expertise judiciaire</h3>
               <p>Évaluation officielle pour procédures légales, divorces ou litiges d&apos;assurance.</p>
             </div>
             <div className={styles.service}>
-              <div className={styles.serviceIcon}>💰</div>
+              {/* <div className={styles.serviceIcon}>💰</div> */}
               <h3>Rachat de bijoux</h3>
               <p>Évaluation équitable pour rachat de vos bijoux en or, platine et pierres précieuses.</p>
             </div>
@@ -76,7 +76,7 @@ export default function ExpertisesPage() {
             </div>
             <div className={styles.imageContent}>
               <Image 
-                src="/img/savoir-faire/expert-diplome.jpg" 
+                src="/img/expert.jpg" 
                 alt="Expert en bijoux" 
                 width={600}
                 height={400}

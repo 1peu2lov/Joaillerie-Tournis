@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './CreationsCarousel.module.scss'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import productsData from '@/data/products.json'
@@ -12,6 +12,13 @@ export default function CreationsCarousel() {
     const carouselRef = useRef(null)
     const [isAutoPlaying, setIsAutoPlaying] = useState(true)
     const [cardsPerView, setCardsPerView] = useState(1)
+    
+    // Touch/drag functionality
+    const [isDragging, setIsDragging] = useState(false)
+    const [startX, setStartX] = useState(0)
+    const [currentX, setCurrentX] = useState(0)
+    const [translateOffset, setTranslateOffset] = useState(0)
+    const [justDragged, setJustDragged] = useState(false) // Flag pour empêcher la navigation après drag
 
     // Sélectionner les 8 premiers produits comme produits vedettes
     useEffect(() => {
@@ -43,7 +50,7 @@ export default function CreationsCarousel() {
 
     // Auto-play du carrousel
     useEffect(() => {
-        if (!isAutoPlaying || maxIndex === 0) return
+        if (!isAutoPlaying || maxIndex === 0 || isDragging) return
 
         const interval = setInterval(() => {
             setCurrentIndex(prev => 
@@ -52,7 +59,7 @@ export default function CreationsCarousel() {
         }, 4000)
 
         return () => clearInterval(interval)
-    }, [maxIndex, isAutoPlaying])
+    }, [maxIndex, isAutoPlaying, isDragging])
 
     const goToSlide = (index) => {
         setCurrentIndex(Math.min(index, maxIndex))
@@ -76,26 +83,153 @@ export default function CreationsCarousel() {
         setTimeout(() => setIsAutoPlaying(true), 10000)
     }
 
+    // Touch/Mouse event handlers with useCallback to stabilize references
+    const handleEnd = useCallback(() => {
+        if (!isDragging) return
+        
+        const deltaX = currentX - startX
+        const containerWidth = carouselRef.current?.offsetWidth || 0
+        const threshold = containerWidth * 0.2 // 20% of container width
+        
+        // Détecter si un drag significatif a eu lieu (même plus petit que le seuil de navigation)
+        const dragThreshold = 5 // pixels - seuil minimal pour considérer qu'il y a eu un drag
+        const hasDragged = Math.abs(deltaX) > dragThreshold
+        
+        if (Math.abs(deltaX) > threshold) {
+            if (deltaX > 0 && currentIndex > 0) {
+                // Swipe right - go to previous
+                setCurrentIndex(prev => prev <= 0 ? maxIndex : prev - 1)
+            } else if (deltaX < 0 && currentIndex < maxIndex) {
+                // Swipe left - go to next
+                setCurrentIndex(prev => prev >= maxIndex ? 0 : prev + 1)
+            }
+        }
+        
+        // Si il y a eu un drag, même petit, on empêche la navigation
+        if (hasDragged) {
+            setJustDragged(true)
+            // Réinitialiser le flag après un court délai
+            setTimeout(() => setJustDragged(false), 100)
+        }
+        
+        setIsDragging(false)
+        setTranslateOffset(0)
+        setIsAutoPlaying(false)
+        setTimeout(() => setIsAutoPlaying(true), 5000)
+    }, [isDragging, currentX, startX, currentIndex, maxIndex])
+
+    const handleMouseMove = useCallback((e) => {
+        if (!isDragging) return
+        
+        setCurrentX(e.clientX)
+        const deltaX = e.clientX - startX
+        const containerWidth = carouselRef.current?.offsetWidth || 0
+        const translatePercentage = (deltaX / containerWidth) * 100
+        setTranslateOffset(translatePercentage)
+    }, [isDragging, startX])
+
+    const handleMouseUp = useCallback(() => {
+        handleEnd()
+    }, [handleEnd])
+
+    const handleStart = (clientX) => {
+        setIsDragging(true)
+        setStartX(clientX)
+        setCurrentX(clientX)
+        setIsAutoPlaying(false)
+    }
+
+    const handleMove = (clientX) => {
+        if (!isDragging) return
+        
+        setCurrentX(clientX)
+        const deltaX = clientX - startX
+        const containerWidth = carouselRef.current?.offsetWidth || 0
+        const translatePercentage = (deltaX / containerWidth) * 100
+        setTranslateOffset(translatePercentage)
+    }
+
+    // Touch events
+    const handleTouchStart = (e) => {
+        e.preventDefault()
+        handleStart(e.touches[0].clientX)
+    }
+
+    const handleTouchMove = (e) => {
+        e.preventDefault()
+        handleMove(e.touches[0].clientX)
+    }
+
+    const handleTouchEnd = (e) => {
+        e.preventDefault()
+        handleEnd()
+    }
+
+    // Mouse events
+    const handleMouseDown = (e) => {
+        e.preventDefault()
+        handleStart(e.clientX)
+    }
+
+    // Fonction pour gérer les clics sur les liens et empêcher la navigation après drag
+    const handleLinkClick = (e) => {
+        if (justDragged) {
+            e.preventDefault()
+            return false
+        }
+    }
+
+    // Add mouse move/up listeners globally when dragging
+    useEffect(() => {
+        if (isDragging) {
+            document.addEventListener('mousemove', handleMouseMove, { passive: false })
+            document.addEventListener('mouseup', handleMouseUp, { passive: false })
+            
+            return () => {
+                document.removeEventListener('mousemove', handleMouseMove)
+                document.removeEventListener('mouseup', handleMouseUp)
+            }
+        }
+    }, [isDragging, handleMouseMove, handleMouseUp])
+
     if (featuredProducts.length === 0) {
         return <div className={styles.loading}>Chargement...</div>
     }
 
-    // Calculer le pourcentage de déplacement
-    const translatePercentage = -(currentIndex * (100 / cardsPerView))
+    // Calculer le pourcentage de déplacement avec offset de drag
+    const baseTranslatePercentage = -(currentIndex * (100 / cardsPerView))
+    const finalTranslatePercentage = baseTranslatePercentage + translateOffset
 
     return (
         <div className={styles.carouselWrapper}>
             <div 
                 className={styles.carousel}
                 ref={carouselRef}
-                onMouseEnter={() => setIsAutoPlaying(false)}
-                onMouseLeave={() => setIsAutoPlaying(true)}
+                onMouseEnter={() => !isDragging && setIsAutoPlaying(false)}
+                onMouseLeave={() => {
+                    if (isDragging) {
+                        handleEnd()
+                    } else {
+                        setIsAutoPlaying(true)
+                    }
+                }}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                onMouseDown={handleMouseDown}
+                style={{
+                    cursor: isDragging ? 'grabbing' : 'grab',
+                    userSelect: isDragging ? 'none' : 'auto',
+                    WebkitUserSelect: isDragging ? 'none' : 'auto',
+                    touchAction: 'pan-y pinch-zoom'
+                }}
             >
                 <div 
                     className={styles.carouselTrack}
                     style={{
-                        transform: `translateX(${translatePercentage}%)`,
-                        transition: 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)'
+                        transform: `translateX(${finalTranslatePercentage}%)`,
+                        transition: isDragging ? 'none' : 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
+                        willChange: 'transform'
                     }}
                 >
                     {featuredProducts.map((product, index) => (
@@ -104,7 +238,7 @@ export default function CreationsCarousel() {
                             className={styles.carouselCard}
                             style={{ flex: `0 0 ${100 / cardsPerView}%` }}
                         >
-                            <Link href={`/creations/${product.id}`} className={styles.productLink}>
+                            <Link href={`/creations/${product.id}`} className={styles.productLink} onClick={handleLinkClick}>
                                 <div className={styles.imageContainer}>
                                     <Image
                                         src={product.images[0]}
@@ -131,7 +265,7 @@ export default function CreationsCarousel() {
                 </div>
             </div>
 
-            {/* Navigation boutons */}
+            {/* Navigation boutons - Only visible on desktop */}
             {maxIndex > 0 && (
                 <>
                     <button 

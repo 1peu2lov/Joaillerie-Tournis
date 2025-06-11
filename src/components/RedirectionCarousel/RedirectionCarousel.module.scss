@@ -3,37 +3,102 @@
 .carousel {
   padding: 1.5rem 1rem;
   background-color: vars.$color-secondary;
+  position: relative;
+}
+
+.carouselContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 80px; // More space for square nav buttons on desktop
+  
+  @media (max-width: 1023px) {
+    padding: 0 20px; // Reduced padding on mobile/tablet since no nav buttons
+  }
 }
 
 .scrollContainer {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 0.5rem 1rem;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  cursor: grab;
+  
+  &:active {
+    cursor: grabbing;
+  }
+  
+  // Disable text selection during drag
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  
+  // Improve touch handling
+  touch-action: pan-y pinch-zoom;
 }
+
+.carouselTrack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  will-change: transform; // Optimize for animations
+}
+
 .scrollContainer::-webkit-scrollbar {
   display: none;
 }
 
 .card {
-  position: relative;  // pour l’overlay
-  scroll-snap-align: start;
-  flex: 0 0 105%;
-  width: 80vw;
-  height: 50vh;
-
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left top;
-
-  padding: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: relative;
+  height: 45vh;
+  min-height: 280px;
+  
+  // Use padding approach like CreationsCarousel
+  padding: 0 0.5rem; // Half gap on each side
+  width: 100%; // Mobile: 1 item
+  flex: 0 0 100%;
+  
   color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    padding: 0 0.5rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 0 0.75rem;
+    width: 50%;
+    flex: 0 0 50%;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 1rem;
+    width: 33.333%;
+    flex: 0 0 33.333%;
+  }
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  
+  // Improved background image handling
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: local;
 
   &::before {
     content: '';
@@ -42,12 +107,100 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.20);
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
     z-index: 1;
+    border-radius: inherit;
   }
 }
 
-// Texte et bouton au-dessus de l’overlay
+// Navigation buttons - Only visible on desktop
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(vars.$color-primary, 0.9);
+  border: none;
+  color: vars.$color-secondary;
+  font-size: 1.8rem;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+  // Hide on mobile and tablet
+  @media (max-width: 1023px) {
+    display: none;
+  }
+
+  &:hover {
+    background-color: vars.$color-primary;
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  &.prevButton {
+    left: 15px; // More space from carousel
+  }
+
+  &.nextButton {
+    right: 15px; // More space from carousel
+  }
+
+  // Desktop specific styling
+  @media (min-width: 1024px) {
+    font-size: 2rem;
+    width: 55px;
+    height: 55px;
+    
+    &.prevButton {
+      left: 20px; // Even more space on desktop
+    }
+
+    &.nextButton {
+      right: 20px;
+    }
+  }
+}
+
+// Dots navigation
+.dotsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem; // Slightly more space for better proportion
+  margin-top: 2rem; // More space from carousel
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(vars.$color-primary, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(vars.$color-primary, 0.6);
+    transform: scale(1.2);
+  }
+
+  &.active {
+    background-color: vars.$color-primary;
+    transform: scale(1.4);
+  }
+}
+
+// Texte et bouton au-dessus de l'overlay
 .card h2,
 .card p,
 .cta {
@@ -56,22 +209,25 @@
 }
 
 .card h2 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 0.75rem;
   color: vars.$color-secondary;
   font-weight: 300;
   letter-spacing: vars.$spacing-unit;
+  line-height: 1.2;
 }
 
 .card p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   margin-bottom: 1rem;
   flex-grow: 1;
   color: vars.$color-secondary;
   letter-spacing: 0.5px;
   font-weight: 400;
+  line-height: 1.4;
 }
 
+// CTA with animation
 .cta {
   position: relative;
   font-weight: 600;
@@ -81,8 +237,10 @@
   padding: 5px 5px 7px 5px; 
   letter-spacing: 2px;
   font-weight: 300;
-  font-size: 0.75rem;
-  text-transform: uppercase ;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease; // Animation transition
+  transform-origin: left bottom; // Animation origin point
 
   &::after {
     content: '';
@@ -94,18 +252,79 @@
     background-image: url('/img/textures/gold-texture3.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-3px) scale(1.05); // Move up + zoom
+    
+    &::after {
+      transform: scaleX(1.1); // Slight grow of the underline
+    }
   }
 }
 
+// Responsive design
 @media (min-width: 768px) {
-  .scrollContainer {
-    overflow-x: visible;
-    scroll-snap-type: none;
-    padding: 0 2rem;
-    justify-content: space-between;
+  .carousel {
+    padding: 2rem 1rem;
   }
+  
   .card {
-    flex: 1 1 calc(33.333% - 1rem);
-    max-width: calc(33.333% - 1rem);
+    height: 50vh;
+    min-height: 320px;
+  }
+  
+  .card h2 {
+    font-size: 1.4rem;
+  }
+  
+  .card p {
+    font-size: 1rem;
+  }
+  
+  .cta {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel {
+    padding: 2.5rem 1rem;
+  }
+  
+  .card {
+    height: 55vh;
+    min-height: 350px;
+  }
+  
+  .cardInner {
+    padding: 2rem; // More padding for larger cards
+  }
+  
+  .card h2 {
+    font-size: 1.6rem;
+  }
+  
+  .card p {
+    font-size: 1.1rem;
+  }
+  
+  .cta {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .carouselContainer {
+    padding: 0 100px; // Maximum spacing for very large screens
+  }
+  
+  .card {
+    min-height: 380px;
+  }
+  
+  .cardInner {
+    padding: 2.5rem;
   }
 }

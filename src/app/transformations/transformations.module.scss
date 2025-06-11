@@ -94,7 +94,6 @@
 .service {
   padding: vars.$spacing-lg;
   background-color: vars.$color-secondary;
-  border-radius: 8px;
   text-align: center;
 
   h3 {
@@ -197,7 +196,6 @@
 .testimonial {
   padding: vars.$spacing-lg;
   background-color: vars.$color-secondary;
-  border-radius: 8px;
   text-align: center;
 
   p {
@@ -246,7 +244,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  border-radius: 4px;
+  font-size: 0.8rem;
 
   &:hover {
     background-color: darken(vars.$color-secondary, 10%);

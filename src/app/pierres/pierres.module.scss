@@ -93,7 +93,6 @@
 
 .stone {
   background-color: vars.$color-secondary;
-  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -145,7 +144,6 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border-radius: 12px;
   }
 }
 
@@ -178,7 +176,6 @@
 .service {
   padding: vars.$spacing-lg;
   background-color: vars.$color-bg;
-  border-radius: 8px;
   text-align: center;
 
   h3 {
@@ -227,7 +224,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  border-radius: 4px;
+  font-size: 0.8rem;
 
   &:hover {
     background-color: darken(vars.$color-secondary, 10%);

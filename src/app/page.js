@@ -13,23 +13,25 @@ export default function Home() {
         <HeroSection />
         <RedirectionCarousel />
         <section className={styles.appointmentSection}>
-          <div className={styles.imageContainer}>
-            <Image
-              src="/img/home/rdv.webp"
-              alt="Rendez-vous avec nos experts"
-              fill
-              className={styles.image}
-              priority
-            />
-          </div>
+          <div className={styles.appointmentContainer}>
+            <div className={styles.imageContainer}>
+              <Image
+                src="/img/home/rdv.webp"
+                alt="Rendez-vous avec nos experts"
+                fill
+                className={styles.image}
+                priority
+              />
+            </div>
 
-          <div className={styles.contentCard}>
-            <h2>Prenez rendez-vous avec nos experts</h2>
-            <p>Un accompagnement personnalisé pour créer le bijou de vos rêves.</p>
-              <div className={styles.separator} />
-            <Link href="/rendez-vous" className={styles.cta}>
-              Prendre rendez-vous
-            </Link>
+            <div className={styles.contentCard}>
+              <h2>Prenez rendez-vous avec nos experts</h2>
+              <p>Un accompagnement personnalisé pour créer le bijou de vos rêves.</p>
+                <div className={styles.separator} />
+              <Link href="/rendez-vous" className={styles.cta}>
+                Prendre rendez-vous
+              </Link>
+            </div>
           </div>
 
           <div className={styles.text}>

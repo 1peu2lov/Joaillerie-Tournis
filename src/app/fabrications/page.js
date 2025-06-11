@@ -14,7 +14,7 @@ export default function FabricationsPage() {
         </div>
         <div className={styles.heroImage}>
           <Image 
-            src="/img/savoir-faire/fabrications.jpg" 
+            src="/img/working_hands.jpg" 
             alt="Atelier de fabrication" 
             fill
             style={{ objectFit: 'cover' }}
@@ -80,7 +80,7 @@ export default function FabricationsPage() {
             </div>
             <div className={styles.imageContent}>
               <Image 
-                src="/img/savoir-faire/atelier-fabrication.jpg" 
+                src="/img/working_hands.jpg" 
                 alt="Artisan au travail" 
                 width={600}
                 height={400}

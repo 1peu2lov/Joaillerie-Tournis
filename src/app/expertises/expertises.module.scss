@@ -94,7 +94,6 @@
 .service {
   padding: vars.$spacing-lg;
   background-color: vars.$color-secondary;
-  border-radius: 8px;
   text-align: center;
 
   .serviceIcon {
@@ -160,7 +159,6 @@
   gap: vars.$spacing-xs;
   padding: vars.$spacing-md;
   background-color: vars.$color-bg;
-  border-radius: 8px;
 
   strong {
     @include font-size('h4', 'sm');
@@ -179,7 +177,6 @@
   img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
   }
 }
 
@@ -268,7 +265,6 @@
 .guarantee {
   padding: vars.$spacing-lg;
   background-color: vars.$color-bg;
-  border-radius: 8px;
   text-align: center;
 
   h3 {
@@ -317,7 +313,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  border-radius: 4px;
+  font-size: 0.8rem;
 
   &:hover {
     background-color: darken(vars.$color-secondary, 10%);
