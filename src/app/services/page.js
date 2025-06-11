@@ -105,7 +105,7 @@ export default function Services() {
               <div className={styles.processusStep}>
                 <div className={styles.stepNumber}>4</div>
                 <h3>Livraison</h3>
-                <p>Remise de votre bijou avec certificat et conseils d'entretien</p>
+                <p>Remise de votre bijou avec certificat et conseils d&apos;entretien</p>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 'use client'
 
-import styles from './page.module.scss' 
+import styles from './page.module.scss'
+import Image from 'next/image' 
 import { BarDeFiltre } from '@/components/BarDeFiltre/BarDeFiltre'
 import ProductsGrid from '@/components/ProductsGrid/ProductsGrid'
 import ScrollToTop from '@/components/ScrollToTop/ScrollToTop'
@@ -30,10 +31,12 @@ export default function Créations() {
       {/* Section Hero avec image */}
       <section className={styles.heroSection}>
         <div className={styles.heroImage}>
-          <img 
+          <Image 
             src="/images/creations-hero.jpg" 
             alt="Nos créations artisanales"
             className={styles.heroImg}
+            fill
+            style={{ objectFit: 'cover' }}
           />
           <div className={styles.heroOverlay}>
             <div className={styles.heroContent}>
@@ -74,10 +77,13 @@ export default function Créations() {
             </p>
           </div>
           <div className={styles.descriptionImage}>
-            <img 
+            <Image 
               src="/images/artisan-work.jpg" 
               alt="Artisan au travail"
               className={styles.descImg}
+              width={600}
+              height={500}
+              style={{ objectFit: 'cover' }}
             />
           </div>
         </div>

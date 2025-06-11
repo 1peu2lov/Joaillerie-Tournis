@@ -38,10 +38,12 @@ export default function Header() {
         </button>
 
         <Link href={"/"} className={styles.logo} onClick={() => setMenuOpen(o => {o === false ? o : !o})}>
-            <img
+            <Image
               src="/img/logo/logo.svg"
               alt="Logo Tournis"
               className={styles.logoImg}
+              width={120}
+              height={40}
             />
         </Link>
 

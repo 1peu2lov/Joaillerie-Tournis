@@ -2,6 +2,7 @@
 
 import { useParams } from 'next/navigation'
 import styles from './page.module.scss'
+import Image from 'next/image'
 import productsData from '@/data/products.json'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
@@ -31,10 +32,13 @@ export default function ProductPage() {
 
             <div className={styles.productContent}>
                 <div className={styles.imageSection}>
-                    <img 
+                    <Image 
                         src={product.images[0]} 
                         alt={product.name}
                         className={styles.mainImage}
+                        width={600}
+                        height={600}
+                        style={{ objectFit: 'cover' }}
                     />
                 </div>
 
