@@ -78,7 +78,7 @@ export default function Créations() {
           </div>
           <div className={styles.descriptionImage}>
             <Image 
-              src="/images/artisan-work.jpg" 
+              src="/img/working_hands_2.webp" 
               alt="Artisan au travail"
               className={styles.descImg}
               width={600}

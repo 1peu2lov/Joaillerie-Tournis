@@ -41,9 +41,17 @@
   color: vars.$color-secondary;
   max-width: 800px;
   padding: 0 vars.$spacing-md;
+  
 
   h1 {
-    @include font-size('h1');
+    @include breakpoint('md') {
+      @include font-size('h1',"md");
+    }
+
+    @include breakpoint('lg') {
+      @include font-size('h1',"lg");
+    }
+
     font-family: vars.$font-title;
     margin-bottom: vars.$spacing-md;
     color: vars.$color-secondary;
@@ -51,8 +59,13 @@
 }
 
 .heroSubtitle {
-  @include font-size('body');
-  font-size: 1.2rem;
+  @include breakpoint('md') {
+    @include font-size('body',"md");
+  }
+
+  @include breakpoint('lg') {
+    @include font-size('body',"lg");
+  }
   opacity: 0.9;
   max-width: 600px;
   margin: 0 auto;

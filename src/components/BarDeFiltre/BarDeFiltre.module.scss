@@ -105,7 +105,7 @@
         margin-bottom: vars.$spacing-lg;
         color: vars.$color-secondary;
         font-family: vars.$font-sans;
-        font-size: 1.5rem;
+        @include font-size('h3',"md");
     }
 }
 
@@ -120,7 +120,7 @@
         gap: vars.$spacing-sm;
         cursor: pointer;
         font-family: vars.$font-sans;
-        @include font-size('body');
+        @include font-size('body',"md");
         color: vars.$color-secondary;
         padding: vars.$spacing-xs vars.$spacing-sm;
         border-radius: 4px;
@@ -185,7 +185,7 @@
             border: 1px solid vars.$color-secondary;
             color: vars.$color-secondary;
             font-family: vars.$font-sans;
-            @include font-size('body');
+            @include font-size('body',"sm");
             border-radius: 4px;
             transition: all 0.2s ease;
 
@@ -280,7 +280,7 @@
     }
 
     .buttonIcon {
-        font-size: 1.2rem;
+        @include font-size('body',"md");
         transition: transform 0.3s ease;
         margin-right: vars.$spacing-sm;
     }
@@ -298,8 +298,8 @@
 
 .buttonText {
     font-family: vars.$font-sans;
-    @include font-size('body');
-    font-weight: map-get($font-weights, 'medium');
+    @include font-size('body',"md");
+    font-weight: 500;
     display: inline-block;
 
     @media (max-width: #{map-get($breakpoints, 'lg') - 1px}) {
@@ -328,9 +328,8 @@
     &.applyButton {
         background-color: vars.$color-secondary;
         color: vars.$color-primary;
-        text-transform: uppercase;
         font-weight: 600;
-        font-size: 0.8rem;
+        @include font-size('body',"sm");    
 
         &:hover {
             background-color: darken(vars.$color-secondary, 13%);
@@ -340,6 +339,8 @@
     &.resetButton {
         background-color: transparent;
         color: vars.$color-secondary;
+        font-weight: 600;
+        @include font-size('body',"sm");
 
         &:hover {
             background-color: rgba(vars.$color-secondary, 0.1);
@@ -357,6 +358,6 @@
         margin-bottom: 0;
         color: vars.$color-secondary;
         font-family: vars.$font-sans;
-        font-size: 1.5rem;
+        @include font-size('h3',"md");
     }
 }

@@ -24,11 +24,11 @@
     overflow: visible;
 
     @include breakpoint('md') {
-        height: 300px;
+        height: 400px;
     }
 
     @include breakpoint('lg') {
-        height: 350px;
+        height: 400px;
     }
 
     @include breakpoint('xl') {
@@ -55,7 +55,7 @@
     }
     
     @include breakpoint('lg') {
-        width: 33.333%;
+        width: 40%;
         padding: 0 8px;
     }
     
@@ -144,41 +144,6 @@
     border-radius: inherit;
 }
 
-.recycledBadge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.9) 100%);
-    padding: 10px 18px;
-    border-radius: 25px;
-    font-size: 1.2rem;
-    z-index: 3;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-
-    @include breakpoint('md') {
-        top: 10px;
-        right: 10px;
-        padding: 5px 10px;
-        font-size: 0.8rem;
-    }
-
-    @include breakpoint('lg') {
-        top: 12px;
-        right: 12px;
-        padding: 6px 12px;
-        font-size: 0.9rem;
-    }
-
-    @include breakpoint('xl') {
-        top: 16px;
-        right: 16px;
-        padding: 8px 15px;
-        font-size: 1.1rem;
-    }
-}
-
 .overlay {
     position: absolute;
     top: 0;
@@ -222,52 +187,56 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
+    @include breakpoint('sm') {
+        padding-bottom: 1rem;
+    }
 }
 
 .productName {
     font-family: vars.$font-title;
-    font-size: 1.8rem;
+    @include font-size('h3',"lg");
     margin: 0 0 0.75rem 0;
     font-weight: 300;
     line-height: 1.2;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
     @include breakpoint('md') {
-        font-size: 1.1rem;
+        @include font-size('h3',"lg");
         margin: 0 0 0.4rem 0;
     }
 
     @include breakpoint('lg') {
-        font-size: 1.3rem;
+        @include font-size('h3',"lg");
         margin: 0 0 0.5rem 0;
     }
 
     @include breakpoint('xl') {
-        font-size: 1.6rem;
+        @include font-size('h3',"lg");
         margin: 0 0 0.6rem 0;
     }
 }
 
 .productMaterial {
     font-family: vars.$font-sans;
-    font-size: 1rem;
+    @include font-size('body',"md");
     margin: 0 0 1.5rem 0;
     opacity: 0.9;
     font-weight: 300;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 
     @include breakpoint('md') {
-        font-size: 0.75rem;
+        @include font-size('body',"md");
         margin: 0 0 0.75rem 0;
     }
 
     @include breakpoint('lg') {
-        font-size: 0.85rem;
+        @include font-size('body',"lg");
         margin: 0 0 1rem 0;
     }
 
     @include breakpoint('xl') {
-        font-size: 0.95rem;
+        @include font-size('body',"lg");
         margin: 0 0 1.25rem 0;
     }
 }
@@ -281,23 +250,23 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 0.85rem;
+    @include font-size('body',"sm");
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     backdrop-filter: blur(15px);
 
     @include breakpoint('md') {
         padding: 0.4rem 0.8rem;
-        font-size: 0.65rem;
+        @include font-size('body',"sm");
     }
 
     @include breakpoint('lg') {
         padding: 0.5rem 1rem;
-        font-size: 0.7rem;
+        @include font-size('body',"sm");
     }
 
     @include breakpoint('xl') {
         padding: 0.6rem 1.2rem;
-        font-size: 0.8rem;
+        @include font-size('body',"sm");
     }
 
     &:hover {
@@ -318,7 +287,7 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     width: 45px;
     height: 45px;
-    font-size: 1.2rem;
+    @include font-size('body',"md");
     font-weight: bold;
     color: vars.$color-primary;
     cursor: pointer;
@@ -338,13 +307,13 @@
     @include breakpoint('md') {
         width: 55px;
         height: 55px;
-        font-size: 1.4rem;
+        @include font-size('body',"md");
     }
 
     @include breakpoint('lg') {
         width: 65px;
         height: 65px;
-        font-size: 1.6rem;
+        @include font-size('body',"md");
     }
 
     &:hover {
@@ -449,12 +418,12 @@
     height: 350px;
     font-family: vars.$font-sans;
     color: vars.$color-text;
-    font-size: 1.1rem;
+    @include font-size('body',"md");
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 
     @include breakpoint('md') {
         height: 450px;
-        font-size: 1.2rem;
+        @include font-size('body',"lg");
     }
 }
 
@@ -501,22 +470,22 @@
     }
     
     .productName {
-        font-size: 1rem;
+        @include font-size('h3',"lg");
     }
     
     .productMaterial {
-        font-size: 0.7rem;
+        @include font-size('body',"md");
     }
     
     .viewDetails {
         padding: 0.4rem 0.8rem;
-        font-size: 0.6rem;
+        @include font-size('body',"sm");
     }
     
     .navButton {
         width: 40px;
         height: 40px;
-        font-size: 1rem;
+        @include font-size('body',"md");
     }
     
     .prevButton {

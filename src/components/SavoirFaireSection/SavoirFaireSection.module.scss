@@ -100,14 +100,15 @@ $breakpoint-lg: 768px;
 .info h3 {
   margin: 0 0 vars.$spacing-sm;
   font-family: vars.$font-sans;
-  @include font-size('h3', 'sm');
+  font-size: 1.4rem;
   color: #fff;
   font-weight: map-get($font-weights, 'medium');
+  letter-spacing: 0.08rem;
 }
 
 .info p {
   margin: 0;
-  @include font-size('body');
+  @include font-size('body','md');
   flex-grow: 1;
   color: #eee;
 }

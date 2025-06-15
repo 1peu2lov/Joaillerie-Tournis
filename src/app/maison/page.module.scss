@@ -43,7 +43,7 @@
   padding: 0 vars.$spacing-md;
 
   h1 {
-    @include font-size('h1');
+    @include font-size('h1',"md");
     font-family: vars.$font-title;
     color: vars.$color-secondary;
     line-height: 1.2;
@@ -51,6 +51,14 @@
     font-style: italic;
     max-width: 800px;
     margin: 0 auto;
+
+    @include breakpoint('md') {
+      @include font-size('h1',"md");
+    }
+
+    @include breakpoint('lg') {
+      @include font-size('h1',"lg");
+    }
   }
 }
 
@@ -65,12 +73,20 @@
   background-color: vars.$color-bg;
 
   h2 {
-    @include font-size('h2');
+      @include font-size('h2',"md");
     font-family: vars.$font-title;
     text-align: center;
     color: vars.$color-primary;
     margin-bottom: vars.$spacing-xxl;
     font-weight: 400;
+
+    @include breakpoint('md') {
+      @include font-size('h2',"lg");
+    }
+
+    @include breakpoint('lg') {
+      @include font-size('h2',"xl");
+    }
   }
 }
 
@@ -98,7 +114,7 @@
 
 .textContent {
   p {
-    @include font-size('body');
+    @include font-size('body',"md");
     color: vars.$color-text;
     line-height: 1.7;
     margin-bottom: vars.$spacing-md;
@@ -108,6 +124,14 @@
       font-weight: 600;
       color: vars.$color-primary;
     }
+
+    @include breakpoint('md') {
+      @include font-size('body',"md");
+    }
+
+    @include breakpoint('lg') {
+      @include font-size('body',"lg");
+    }
   }
 }
 
@@ -116,7 +140,6 @@
   justify-content: center;
   
   img {
-    border-radius: 8px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   }
 }
@@ -125,11 +148,10 @@
   margin-top: vars.$spacing-xxl;
   padding: vars.$spacing-xl;
   background-color: vars.$color-secondary;
-  border-radius: 12px;
   text-align: center;
 
   h3 {
-    @include font-size('h3');
+    @include font-size('h3',"md");
     font-family: vars.$font-title;
     color: vars.$color-primary;
     margin-bottom: vars.$spacing-lg;
@@ -137,7 +159,7 @@
   }
 
   p {
-    @include font-size('body');
+    @include font-size('body',"md");
     color: vars.$color-text;
     line-height: 1.7;
     max-width: 800px;
@@ -151,7 +173,7 @@
   background-color: vars.$color-secondary;
 
   h2 {
-    @include font-size('h2');
+    @include font-size('h2',"md");
     font-family: vars.$font-title;
     text-align: center;
     color: vars.$color-primary;
@@ -177,11 +199,10 @@
   text-align: center;
   padding: vars.$spacing-xl vars.$spacing-lg;
   background-color: vars.$color-bg;
-  border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 
   h3 {
-    @include font-size('h3', 'sm');
+    @include font-size('h3', 'md');
     font-family: vars.$font-title;
     color: vars.$color-primary;
     margin-bottom: vars.$spacing-md;
@@ -189,7 +210,7 @@
   }
 
   p {
-    @include font-size('body', 'sm');
+    @include font-size('body', 'md');
     color: vars.$color-text;
     line-height: 1.6;
     margin: 0;
@@ -213,7 +234,7 @@
 
 .atelierContent .textContent {
   h2 {
-    @include font-size('h2');
+    @include font-size('h2',"md");
     font-family: vars.$font-title;
     color: vars.$color-primary;
     margin-bottom: vars.$spacing-lg;
@@ -221,7 +242,7 @@
   }
 
   p {
-    @include font-size('body');
+    @include font-size('body',"md");
     color: vars.$color-text;
     line-height: 1.7;
     margin-bottom: vars.$spacing-md;
@@ -232,7 +253,6 @@
   img {
     width: 100%;
     height: auto;
-    border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   }
 }
@@ -243,7 +263,7 @@
   text-align: center;
 
   h2 {
-    @include font-size('h2');
+    @include font-size('h2',"md");
     font-family: vars.$font-title;
     color: vars.$color-secondary;
     margin-bottom: vars.$spacing-md;
@@ -251,7 +271,7 @@
   }
 
   p {
-    @include font-size('body');
+    @include font-size('body',"md");
     color: vars.$color-secondary;
     opacity: 0.9;
     margin-bottom: vars.$spacing-xl;
@@ -272,8 +292,8 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
 
   &:hover {
     background-color: darken(vars.$color-secondary, 5%);
@@ -285,12 +305,12 @@
 // Responsive typography adjustments
 @include breakpoint('sm') {
   .heroContent h1 {
-    font-size: 2.5rem;
+    @include font-size('h1',"md");
   }
 }
 
 @include breakpoint('lg') {
   .heroContent h1 {
-    font-size: 3.5rem;
+    @include font-size('h1',"lg");
   }
 }

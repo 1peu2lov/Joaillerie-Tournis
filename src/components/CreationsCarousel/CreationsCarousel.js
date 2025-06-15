@@ -29,10 +29,12 @@ export default function CreationsCarousel() {
     // Déterminer le nombre de cartes visibles selon la taille d'écran
     useEffect(() => {
         const updateCardsPerView = () => {
-            if (window.innerWidth >= 1200) {
+            if (window.innerWidth >= 1400) {
                 setCardsPerView(4) // Desktop large
-            } else if (window.innerWidth >= 992) {
+            } else if (window.innerWidth >= 1024) {
                 setCardsPerView(3) // Desktop
+            } else if (window.innerWidth >= 992) {
+                setCardsPerView(2) // Desktop
             } else if (window.innerWidth >= 768) {
                 setCardsPerView(2) // Tablet
             } else {

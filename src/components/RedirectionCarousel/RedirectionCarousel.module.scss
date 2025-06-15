@@ -10,9 +10,10 @@
   position: relative;
   display: flex;
   align-items: center;
-  max-width: 1600px;
+  max-width: 1700px;
   margin: 0 auto;
   padding: 0 80px; // More space for square nav buttons on desktop
+  margin-top: 2rem;
   
   @media (max-width: 1023px) {
     padding: 0 20px; // Reduced padding on mobile/tablet since no nav buttons
@@ -303,15 +304,15 @@
   }
   
   .card h2 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   
   .card p {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .cta {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 }
 
