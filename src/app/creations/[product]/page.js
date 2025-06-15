@@ -10,11 +10,25 @@ import Link from 'next/link'
 export default function CreationPage() {
     const params = useParams()
     const [product, setProduct] = useState(null)
+    const [mainImage, setMainImage] = useState('')
 
     useEffect(() => {
         const productData = productsData.find(p => p.id === params.product)
         setProduct(productData)
+        if (productData?.images?.[0]) {
+            setMainImage(productData.images[0])
+        }
     }, [params.product])
+
+    // Générer des images placeholder si moins de 4 images
+    const getPlaceholderImages = () => {
+        const mainImg = product?.images?.[0] || '/images/placeholder-1.jpg'
+        return Array(4).fill(mainImg)
+    }
+
+    const allImages = product?.images?.length >= 4 
+        ? product.images 
+        : [...(product?.images || []), ...getPlaceholderImages()].slice(0, 4)
 
     if (!product) {
         return (
@@ -32,14 +46,33 @@ export default function CreationPage() {
 
             <div className={styles.creationContent}>
                 <div className={styles.imageSection}>
-                    <Image 
-                        src={product.images[0]} 
-                        alt={product.name}
-                        className={styles.mainImage}
-                        width={600}
-                        height={600}
-                        style={{ objectFit: 'cover' }}
-                    />
+                    <div className={styles.mainImageContainer}>
+                        <Image 
+                            src={mainImage || product.images[0]} 
+                            alt={product.name}
+                            className={styles.mainImage}
+                            width={600}
+                            height={600}
+                            style={{ objectFit: 'cover' }}
+                        />
+                    </div>
+                    <div className={styles.thumbnailGallery}>
+                        {allImages.map((image, index) => (
+                            <div 
+                                key={index}
+                                className={`${styles.thumbnail} ${mainImage === image ? styles.active : ''}`}
+                                onClick={() => setMainImage(image)}
+                            >
+                                <Image 
+                                    src={image}
+                                    alt={`${product.name} - Vue ${index + 1}`}
+                                    width={100}
+                                    height={100}
+                                    style={{ objectFit: 'cover' }}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <div className={styles.infoSection}>

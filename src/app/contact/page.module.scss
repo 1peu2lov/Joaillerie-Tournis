@@ -1,0 +1,241 @@
+@use '../../styles/abstracts/variables' as vars;
+@use '../../styles/abstracts/typography' as *;
+@use '../../styles/abstracts/breakpoints' as *;
+
+.contactPage {
+  min-height: 100vh;
+}
+
+// Section Hero
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+
+  @include breakpoint('md') {
+    height: 60vh;
+  }
+}
+
+.heroImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 40, 70, 0.8) 0%,
+    rgba(30, 40, 70, 0.6) 50%,
+    rgba(30, 40, 70, 0.8) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroContent {
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 2rem;
+
+  @include breakpoint('md') {
+    padding: 0 3rem;
+  }
+}
+
+.heroTitle {
+  font-family: vars.$font-title;
+  font-size: 3rem;
+  margin: 0 0 1rem 0;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+  @include breakpoint('md') {
+    font-size: 4rem;
+  }
+}
+
+.heroSubtitle {
+  font-family: vars.$font-sans;
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: 300;
+  opacity: 0.95;
+  line-height: 1.6;
+
+  @include breakpoint('md') {
+    font-size: 1.4rem;
+  }
+}
+
+// Section Contact
+.contactSection {
+  padding: vars.$spacing-xxl 0;
+  background-color: vars.$color-bg;
+}
+
+.container {
+  max-width: vars.$container-max-width;
+  margin: 0 auto;
+  padding: 0 vars.$spacing-md;
+}
+
+.contactGrid {
+  display: grid;
+  gap: vars.$spacing-xxl;
+  align-items: start;
+
+  @include breakpoint('lg') {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-xl;
+}
+
+.infoCard {
+  background-color: white;
+  padding: vars.$spacing-xl;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+
+  h2 {
+    @include font-size('h2');
+    font-family: vars.$font-title;
+    color: vars.$color-primary;
+    margin-bottom: vars.$spacing-lg;
+    font-weight: 400;
+  }
+}
+
+.infoContent {
+  display: grid;
+  gap: vars.$spacing-lg;
+}
+
+.infoItem {
+  h3 {
+    @include font-size('h4');
+    font-family: vars.$font-title;
+    color: vars.$color-primary;
+    margin-bottom: vars.$spacing-sm;
+    font-weight: 400;
+  }
+
+  p {
+    @include font-size('body', 'sm');
+    color: vars.$color-text;
+    margin-bottom: vars.$spacing-xs;
+    line-height: 1.6;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.socialCard {
+  background-color: vars.$color-primary;
+  padding: vars.$spacing-xl;
+  color: white;
+
+  h3 {
+    @include font-size('h3', 'sm');
+    font-family: vars.$font-title;
+    margin-bottom: vars.$spacing-lg;
+    font-weight: 400;
+    text-align: center;
+
+    @include breakpoint('md') {
+      text-align: left;
+    }
+  }
+}
+
+.socialLinks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: vars.$spacing-md;
+
+  @include breakpoint('md') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: vars.$spacing-md;
+  color: white;
+  text-decoration: none;
+  font-family: vars.$font-sans;
+  @include font-size('body', 'sm');
+  transition: opacity 0.3s ease;
+  padding: vars.$spacing-sm vars.$spacing-md;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  span {
+    color: white;
+  }
+
+  img {
+    filter: brightness(0) invert(1);
+  }
+}
+
+.contactForm {
+  background-color: white;
+  padding: vars.$spacing-xl;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+
+  h2 {
+    @include font-size('h2');
+    font-family: vars.$font-title;
+    color: vars.$color-primary;
+    margin-bottom: vars.$spacing-md;
+    font-weight: 400;
+  }
+}
+
+.formIntro {
+  @include font-size('body');
+  color: vars.$color-text;
+  margin-bottom: vars.$spacing-xl;
+  line-height: 1.6;
+}
+
+// Section Map
+.mapSection {
+  padding: vars.$spacing-xxl 0;
+  background-color: vars.$color-secondary;
+}
+
+.mapContainer {
+  max-width: vars.$container-max-width;
+  margin: 0 auto;
+  padding: 0 vars.$spacing-md;
+  height: 400px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+} 

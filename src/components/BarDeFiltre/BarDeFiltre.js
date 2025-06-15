@@ -78,7 +78,7 @@ export function BarDeFiltre({
             <form 
                 className={styles.barDeFiltreContainer}
                 style={windowWidth > 1000 ? {
-                    height: `${gridHeight+30}px`,
+                    height: `${gridHeight+800}px`,
                     overflowY: 'auto',
                   } : {
                     height: 'auto',

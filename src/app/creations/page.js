@@ -96,7 +96,7 @@ export default function Créations() {
           <p>Utilisez les filtres pour découvrir nos créations selon vos préférences</p>
         </div>
 
-        <div className={styles.mainContent}>
+        <div className={styles.mainContent} id="creations">
           <div className={styles.filterWrapper}>
             <BarDeFiltre 
               gridHeight={gridHeight >= 1600 ? gridHeight : 1600} 

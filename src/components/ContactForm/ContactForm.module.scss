@@ -1,0 +1,92 @@
+@use '../../styles/abstracts/variables' as vars;
+@use '../../styles/abstracts/typography' as *;
+@use '../../styles/abstracts/breakpoints' as *;
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-lg;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-xs;
+
+  label {
+    @include font-size('body', 'sm');
+    color: vars.$color-text;
+    font-weight: 500;
+  }
+
+  input, textarea {
+    padding: vars.$spacing-md;
+    border: 1px solid rgba(vars.$color-primary, 0.2);
+    font-family: vars.$font-sans;
+    @include font-size('body', 'sm');
+    color: vars.$color-text;
+    background-color: white;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: vars.$color-primary;
+      box-shadow: 0 0 0 2px rgba(vars.$color-primary, 0.1);
+    }
+
+    &::placeholder {
+      color: rgba(vars.$color-text, 0.5);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+}
+
+.status {
+  padding: vars.$spacing-md;
+  @include font-size('body', 'sm');
+  text-align: center;
+
+  &.loading {
+    background-color: vars.$color-secondary;
+    color: vars.$color-primary;
+  }
+
+  &.success {
+    background-color: #e6f4ea;
+    color: #1e7e34;
+  }
+
+  &.error {
+    background-color: #fde7e7;
+    color: #d32f2f;
+  }
+}
+
+.submitButton {
+  background-color: vars.$color-primary;
+  color: white;
+  border: none;
+  padding: vars.$spacing-md vars.$spacing-xl;
+  font-family: vars.$font-sans;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  @include font-size('body', 'sm');
+
+  &:hover {
+    background-color: lighten(vars.$color-primary, 10%);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    background-color: rgba(vars.$color-primary, 0.5);
+    cursor: not-allowed;
+    transform: none;
+  }
+} 
