@@ -6,11 +6,14 @@ import Image from 'next/image'
 import productsData from '@/data/products.json'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useCart } from '@/contexts/CartContext'
 
 export default function ProductPage() {
     const params = useParams()
     const [product, setProduct] = useState(null)
     const [mainImage, setMainImage] = useState('')
+    const { addItem } = useCart()
+    const [isAdding, setIsAdding] = useState(false)
 
     useEffect(() => {
         const productData = productsData.find(p => p.id === params.product)
@@ -29,6 +32,22 @@ export default function ProductPage() {
     const allImages = product?.images?.length >= 4 
         ? product.images 
         : [...(product?.images || []), ...getPlaceholderImages()].slice(0, 4)
+
+    const handleAddToCart = async () => {
+        if (!product) return
+        
+        setIsAdding(true)
+        try {
+            addItem(product)
+            // Petit délai pour l'animation
+            setTimeout(() => {
+                setIsAdding(false)
+            }, 800)
+        } catch (error) {
+            console.error('Erreur lors de l\'ajout au panier:', error)
+            setIsAdding(false)
+        }
+    }
 
     if (!product) {
         return (
@@ -125,8 +144,12 @@ export default function ProductPage() {
                         )}
                     </div>
 
-                    <button className={styles.addToCart}>
-                        Ajouter au panier
+                    <button 
+                        className={styles.addToCart}
+                        onClick={handleAddToCart}
+                        disabled={isAdding}
+                    >
+                        {isAdding ? 'Ajout en cours...' : 'Ajouter au panier'}
                     </button>
                 </div>
             </div>

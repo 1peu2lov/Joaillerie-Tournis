@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import styles from './Header.module.scss'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { useCart } from '@/contexts/CartContext'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
+  const { getCartCount } = useCart()
 
   // Bloquer le scroll quand le menu est ouvert
   useEffect(() => {
@@ -98,13 +100,20 @@ export default function Header() {
               className={`${styles.iconLink} ${isActive('/panier') ? styles.active : ''}`} 
               aria-label="Panier"
             >
-              <Image
-                src="/icons/cart.svg"
-                alt="Panier"
-                width={24}
-                height={24}
-                className={styles.icon}
-              />
+              <div className={styles.cartIconWrapper}>
+                <Image
+                  src="/icons/cart.svg"
+                  alt="Panier"
+                  width={24}
+                  height={24}
+                  className={styles.icon}
+                />
+                {getCartCount() > 0 && (
+                  <span className={styles.cartBadge}>
+                    {getCartCount()}
+                  </span>
+                )}
+              </div>
             </Link>
           </div>
         </div>

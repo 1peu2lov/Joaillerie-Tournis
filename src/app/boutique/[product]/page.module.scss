@@ -178,9 +178,15 @@
     @include font-size('body', 'sm');
     margin-top: vars.$spacing-lg;
 
-    &:hover {
+    &:hover:not(:disabled) {
         background-color: lighten(vars.$color-primary, 10%);
         transform: translateY(-2px);
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
     }
 }
 
