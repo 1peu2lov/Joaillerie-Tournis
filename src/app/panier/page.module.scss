@@ -51,7 +51,6 @@
     gap: vars.$spacing-lg;
     padding: vars.$spacing-lg;
     background: white;
-    border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: box-shadow 0.3s ease;
 
@@ -67,7 +66,6 @@
 
 .itemImage {
     position: relative;
-    border-radius: 8px;
     overflow: hidden;
     background: vars.$color-secondary;
     transition: transform 0.3s ease;
@@ -149,7 +147,6 @@
     align-items: center;
     gap: vars.$spacing-sm;
     background: vars.$color-secondary;
-    border-radius: 6px;
     padding: vars.$spacing-xs;
 }
 
@@ -159,7 +156,6 @@
     border: none;
     background: vars.$color-primary;
     color: vars.$color-secondary;
-    border-radius: 4px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -200,7 +196,6 @@
     border: none;
     background: rgba(#ff4757, 0.1);
     color: #ff4757;
-    border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -216,7 +211,6 @@
 
 .cartSummary {
     background: white;
-    border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     height: fit-content;
     position: sticky;
@@ -259,7 +253,6 @@
     color: vars.$color-secondary;
     border: none;
     padding: vars.$spacing-md;
-    border-radius: 8px;
     font-family: vars.$font-sans;
     @include font-size('body', 'md');
     font-weight: 600;
@@ -282,7 +275,6 @@
     color: #ff4757;
     border: 1px solid #ff4757;
     padding: vars.$spacing-sm;
-    border-radius: 6px;
     font-family: vars.$font-sans;
     @include font-size('body', 'sm');
     cursor: pointer;
@@ -353,7 +345,6 @@
     background: vars.$color-primary;
     color: vars.$color-secondary;
     padding: vars.$spacing-md vars.$spacing-xl;
-    border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -363,4 +354,506 @@
         transform: translateY(-2px);
         color: vars.$color-secondary;
     }
+}
+
+// Navigation des étapes
+.stepsNavigation {
+    margin: vars.$spacing-lg 0;
+    background: vars.$color-secondary;
+    padding: vars.$spacing-md;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint('md') {
+        margin: vars.$spacing-xl 0;
+        padding: vars.$spacing-lg;
+    }
+
+    @include breakpoint('lg') {
+        flex-direction: row;
+        gap: vars.$spacing-sm;
+    }
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: vars.$spacing-sm;
+    margin-bottom: vars.$spacing-xs;
+    background: white;
+
+    @include breakpoint('md') {
+        padding: vars.$spacing-md;
+        margin-bottom: vars.$spacing-sm;
+    }
+
+    @include breakpoint('lg') {
+        flex: 1;
+        margin-bottom: 0;
+        flex-direction: column;
+        text-align: center;
+        padding: vars.$spacing-md vars.$spacing-sm;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &.active {
+        background: lighten(vars.$color-primary, 45%);
+        
+        .stepNumber {
+            background: vars.$color-primary;
+            color: vars.$color-secondary;
+        }
+
+        .stepTitle {
+            color: vars.$color-primary;
+            font-weight: 600;
+        }
+    }
+
+    &.completed {
+        background: lighten(#4caf50, 45%);
+        
+        .stepNumber {
+            background: #4caf50;
+            color: white;
+        }
+
+        .stepTitle {
+            color: #4caf50;
+        }
+    }
+
+    &:hover:not(.active) {
+        background: lighten(vars.$color-text, 50%);
+    }
+}
+
+.stepNumber {
+    width: 28px;
+    height: 28px;
+    background: lighten(vars.$color-text, 40%);
+    color: vars.$color-text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-right: vars.$spacing-md;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    @include font-size('body', 'sm');
+
+    @include breakpoint('md') {
+        width: 32px;
+        height: 32px;
+        margin-right: vars.$spacing-lg;
+        @include font-size('body', 'md');
+    }
+
+    @include breakpoint('lg') {
+        margin-right: 0;
+        margin-bottom: vars.$spacing-sm;
+        width: 36px;
+        height: 36px;
+        @include font-size('body', 'lg');
+    }
+}
+
+.stepInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint('md') {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    @include breakpoint('lg') {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.stepTitle {
+    @include font-size('body', 'md');
+    font-family: vars.$font-title;
+    margin: 0;
+    transition: color 0.3s ease;
+    font-weight: 600;
+
+    @include breakpoint('md') {
+        @include font-size('h4', 'sm');
+        margin-right: vars.$spacing-md;
+    }
+
+    @include breakpoint('lg') {
+        margin-right: 0;
+        margin-bottom: vars.$spacing-xs;
+        @include font-size('h4', 'md');
+    }
+}
+
+.stepDescription {
+    @include font-size('body', 'xs');
+    color: lighten(vars.$color-text, 20%);
+    margin: vars.$spacing-xs 0 0 0;
+
+    @include breakpoint('md') {
+        @include font-size('body', 'xs');
+        margin: 0;
+    }
+
+    @include breakpoint('lg') {
+        @include font-size('body', 'sm');
+        margin: 0;
+    }
+}
+
+.stepContent {
+    margin-top: vars.$spacing-xl;
+}
+
+// Étape Livraison
+.shippingStep {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: vars.$spacing-xl;
+    background: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+    h2 {
+        @include font-size('h2', 'lg');
+        font-family: vars.$font-title;
+        color: vars.$color-primary;
+        text-align: center;
+        margin: 0 0 vars.$spacing-xl 0;
+        font-weight: 300;
+    }
+}
+
+.shippingForm {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-lg;
+}
+
+.formRow {
+    display: grid;
+    gap: vars.$spacing-md;
+
+    @include breakpoint('md') {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        @include font-size('body', 'sm');
+        font-family: vars.$font-sans;
+        color: vars.$color-text;
+        margin-bottom: vars.$spacing-xs;
+        font-weight: 600;
+    }
+
+    input, select {
+        padding: vars.$spacing-md;
+        border: 2px solid lighten(vars.$color-text, 40%);
+        font-family: vars.$font-sans;
+        @include font-size('body', 'sm');
+        transition: border-color 0.3s ease;
+
+        &:focus {
+            outline: none;
+            border-color: vars.$color-primary;
+        }
+
+        &:required:invalid {
+            border-color: #ff4757;
+        }
+    }
+}
+
+.stepButtons {
+    display: flex;
+    gap: vars.$spacing-md;
+    justify-content: space-between;
+    margin-top: vars.$spacing-xl;
+    flex-direction: column;
+
+    @include breakpoint('sm') {
+        flex-direction: row;
+    }
+}
+
+.prevBtn, .nextBtn, .confirmBtn {
+    padding: vars.$spacing-md vars.$spacing-xl;
+    font-family: vars.$font-sans;
+    @include font-size('body', 'md');
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 150px;
+}
+
+.prevBtn {
+    background: transparent;
+    color: vars.$color-primary;
+    border: 2px solid vars.$color-primary;
+
+    &:hover {
+        background: vars.$color-primary;
+        color: vars.$color-secondary;
+        transform: translateY(-2px);
+    }
+}
+
+.nextBtn {
+    background: vars.$color-primary;
+    color: vars.$color-secondary;
+    border: none;
+
+    &:hover {
+        background: lighten(vars.$color-primary, 10%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(vars.$color-primary, 0.3);
+    }
+}
+
+.confirmBtn {
+    background: #4caf50;
+    color: white;
+    border: none;
+
+    &:hover {
+        background: darken(#4caf50, 10%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(#4caf50, 0.3);
+    }
+}
+
+// Étape Paiement
+.paymentStep {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: vars.$spacing-xl;
+    background: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+    h2 {
+        @include font-size('h2', 'lg');
+        font-family: vars.$font-title;
+        color: vars.$color-primary;
+        text-align: center;
+        margin: 0 0 vars.$spacing-xl 0;
+        font-weight: 300;
+    }
+}
+
+.paymentMethods {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-md;
+    margin-bottom: vars.$spacing-xl;
+
+    @include breakpoint('sm') {
+        flex-direction: row;
+    }
+}
+
+.paymentMethod {
+    flex: 1;
+    position: relative;
+
+    input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+
+        &:checked + label {
+            background: lighten(vars.$color-primary, 45%);
+            border-color: vars.$color-primary;
+            color: vars.$color-primary;
+        }
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: vars.$spacing-md;
+        padding: vars.$spacing-lg;
+        border: 2px solid lighten(vars.$color-text, 40%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: white;
+
+        &:hover {
+            border-color: vars.$color-primary;
+        }
+    }
+}
+
+.paymentForm {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-lg;
+}
+
+.orderSummary {
+    background: vars.$color-secondary;
+    padding: vars.$spacing-lg;
+    margin: vars.$spacing-xl 0;
+
+    h3 {
+        @include font-size('h4', 'md');
+        font-family: vars.$font-title;
+        color: vars.$color-primary;
+        margin: 0 0 vars.$spacing-md 0;
+        text-align: center;
+    }
+}
+
+.summaryTotal {
+    @include font-size('h3', 'md');
+    font-family: vars.$font-title;
+    text-align: center;
+    color: vars.$color-primary;
+}
+
+.paypalSection {
+    margin-top: vars.$spacing-xl;
+}
+
+// Étape Confirmation
+.confirmationStep {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: vars.$spacing-xl;
+    background: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+    h2 {
+        @include font-size('h2', 'lg');
+        font-family: vars.$font-title;
+        color: vars.$color-primary;
+        text-align: center;
+        margin: 0 0 vars.$spacing-xl 0;
+        font-weight: 300;
+    }
+}
+
+.confirmationContent {
+    display: grid;
+    gap: vars.$spacing-xl;
+
+    @include breakpoint('lg') {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.orderDetails {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-xl;
+}
+
+.section {
+    padding: vars.$spacing-lg;
+    background: vars.$color-secondary;
+
+    h3 {
+        @include font-size('h4', 'md');
+        font-family: vars.$font-title;
+        color: vars.$color-primary;
+        margin: 0 0 vars.$spacing-md 0;
+        font-weight: 400;
+    }
+}
+
+.addressBlock {
+    p {
+        @include font-size('body', 'sm');
+        margin: 0 0 vars.$spacing-xs 0;
+        line-height: 1.4;
+    }
+}
+
+.paymentInfo {
+    p {
+        @include font-size('body', 'sm');
+        margin: 0 0 vars.$spacing-xs 0;
+    }
+}
+
+.orderItems {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-md;
+}
+
+.orderItem {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: vars.$spacing-md;
+    align-items: center;
+    padding: vars.$spacing-md;
+    background: white;
+}
+
+.itemInfo {
+    h4 {
+        @include font-size('body', 'md');
+        font-family: vars.$font-title;
+        margin: 0 0 vars.$spacing-xs 0;
+        color: vars.$color-primary;
+    }
+
+    p {
+        @include font-size('body', 'xs');
+        margin: 0;
+        color: lighten(vars.$color-text, 20%);
+    }
+}
+
+.itemTotal {
+    @include font-size('body', 'md');
+    font-weight: 600;
+    color: vars.$color-primary;
+}
+
+.finalSummary {
+    background: vars.$color-secondary;
+    padding: vars.$spacing-xl;
+    height: fit-content;
+    position: sticky;
+    top: vars.$spacing-lg;
+
+    h3 {
+        @include font-size('h3', 'md');
+        font-family: vars.$font-title;
+        color: vars.$color-primary;
+        text-align: center;
+        margin: 0 0 vars.$spacing-lg 0;
+        font-weight: 400;
+    }
+}
+
+.finalTotal {
+    @include font-size('h2', 'lg');
+    font-family: vars.$font-title;
+    text-align: center;
+    color: vars.$color-primary;
+    margin-bottom: vars.$spacing-xl;
+    padding: vars.$spacing-lg;
+    background: white;
 } 
