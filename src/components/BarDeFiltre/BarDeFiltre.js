@@ -21,11 +21,14 @@ export function BarDeFiltre({
     showCategories = true,
     showStones = true,
     showMaterials = true,
-    showColors = true
+    showColors = true,
+    gridVisibilityRef
 }) {
     const [filtres, setFiltres] = useState(defaultFiltres);
     const [tempFiltres, setTempFiltres] = useState(defaultFiltres);
     const windowWidth = useWindowWidth();
+    const isMobile = windowWidth < 1024;
+    const [showStickyButton, setShowStickyButton] = useState(false);
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -72,6 +75,22 @@ export function BarDeFiltre({
         onFilterChange?.(defaultFiltres);
         scrollToTop();
     };
+
+    useEffect(() => {
+        if (!gridVisibilityRef?.current) return;
+        const observer = new window.IntersectionObserver(
+            ([entry]) => {
+                setShowStickyButton(entry.isIntersecting && entry.intersectionRatio > 0);
+            },
+            {
+                root: null,
+                threshold: 0,
+                rootMargin: '-100px 0px 0px 0px',
+            }
+        );
+        observer.observe(gridVisibilityRef.current);
+        return () => observer.disconnect();
+    }, [gridVisibilityRef]);
 
     return (
         <div className={`${styles.filterWrapper} ${isOpen ? styles.open : styles.closed}`}>
@@ -245,16 +264,18 @@ export function BarDeFiltre({
                     </button>
                 </div>
             </form>
-            <button 
-                className={`${styles.isOpenButton} ${isOpen ? styles.open : ''}`}
-                onClick={onToggle}
-                aria-label={isOpen ? 'Fermer les filtres' : 'Ouvrir les filtres'}
-            >
-                <span className={styles.buttonIcon}>{isOpen ? '←' : ""}</span>
-                <span className={styles.buttonText}>
-                    {isOpen ? 'Fermer les filtres' : 'Ouvrir les filtres'}
-                </span>
-            </button>
+            {isMobile && (
+                <button
+                    className={`${styles.isOpenButton} ${isOpen ? styles.open : ''} ${showStickyButton ? styles.isVisible : ''}`}
+                    onClick={onToggle}
+                    aria-label={isOpen ? 'Fermer les filtres' : 'Ouvrir les filtres'}
+                >
+                    <span className={styles.buttonIcon}>{isOpen ? '←' : ""}</span>
+                    <span className={styles.buttonText}>
+                        {isOpen ? 'Fermer les filtres' : 'Ouvrir les filtres'}
+                    </span>
+                </button>
+            )}
         </div>
     )
 }

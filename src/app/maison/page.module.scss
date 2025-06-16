@@ -66,6 +66,11 @@
   max-width: vars.$container-max-width;
   margin: 0 auto;
   padding: 0 vars.$spacing-md;
+
+  @media (max-width: 480px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 .histoire {
@@ -91,13 +96,17 @@
 }
 
 .histoireContent {
-  display: grid;
   gap: vars.$spacing-xxl;
   align-items: start;
   margin-bottom: vars.$spacing-xxl;
 
   @include breakpoint('lg') {
+    display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
   }
 
   &:nth-child(even) {
@@ -114,11 +123,13 @@
 
 .textContent {
   p {
-    @include font-size('body',"md");
+    @include font-size('body','md');
     color: vars.$color-text;
     line-height: 1.7;
     margin-bottom: vars.$spacing-md;
     text-align: justify;
+    word-break: break-word;
+    overflow-wrap: break-word;
 
     strong {
       font-weight: 600;
@@ -312,5 +323,102 @@
 @include breakpoint('lg') {
   .heroContent h1 {
     @include font-size('h1',"lg");
+  }
+}
+
+.familleSection {
+  background: #fff;
+  padding: vars.$spacing-xxl 0;
+  margin-bottom: vars.$spacing-xxl;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.familleTitle {
+  text-align: center;
+  color: vars.$color-primary;
+  font-family: vars.$font-title;
+  font-weight: 400;
+  margin-bottom: vars.$spacing-xl;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  span {
+    display: block;
+    font-size: 1.2rem;
+    color: vars.$color-text;
+    font-weight: 300;
+    margin-top: 0.5rem;
+  }
+}
+
+.familleText {
+  max-width: 900px;
+  margin: 0 auto vars.$spacing-xl auto;
+  color: vars.$color-text;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  
+  @media (max-width: 480px) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.97rem;
+  }
+
+  p {
+    margin-bottom: vars.$spacing-md;
+    text-align: justify;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+.familleHighlight {
+  color: vars.$color-primary;
+  font-weight: 600;
+}
+
+.famillePortraits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: vars.$spacing-lg;
+  justify-items: center;
+  align-items: end;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @include breakpoint('md') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include breakpoint('lg') {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.famillePortrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 0.5rem;
+    background: #f7f7f7;
+  }
+  span {
+    font-size: 1rem;
+    color: vars.$color-primary;
+    font-family: vars.$font-title;
+    font-weight: 500;
+    margin-top: 0.2rem;
+    min-height: 2.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+    word-break: break-word;
   }
 }

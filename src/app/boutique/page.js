@@ -13,6 +13,7 @@ export default function Boutique() {
   const windowWidth = useWindowWidth()
   const [isFilterOpen, setIsFilterOpen] = useState(windowWidth >= 1600)
   const gridRef = useRef(null)
+  const productsGridWrapperRef = useRef(null)
 
   // Effet pour ajuster l'état de la barre selon la largeur d'écran
   useEffect(() => {
@@ -84,10 +85,11 @@ export default function Boutique() {
             onFilterChange={filtres => gridRef.current?.applyFilters(filtres)}
             isOpen={isFilterOpen}
             onToggle={() => setIsFilterOpen(prev => !prev)}
+            gridVisibilityRef={productsGridWrapperRef}
           />
         </div>
 
-        <div className={styles.productsGridWrapper}>
+        <div className={styles.productsGridWrapper} ref={productsGridWrapperRef}>
             <ProductsGrid 
               ref={gridRef}
               onHeightChange={setGridHeight}

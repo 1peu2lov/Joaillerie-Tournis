@@ -14,6 +14,8 @@ export default function Créations() {
   const windowWidth = useWindowWidth()
   const [isFilterOpen, setIsFilterOpen] = useState(windowWidth >= 1600)
   const gridRef = useRef(null)
+  const [showFilterButton, setShowFilterButton] = useState(false)
+  const productsGridWrapperRef = useRef(null)
 
   // Effet pour ajuster l'état de la barre selon la largeur d'écran
   useEffect(() => {
@@ -23,6 +25,28 @@ export default function Créations() {
       setIsFilterOpen(false)
     }
   }, [windowWidth])
+
+  // Observer pour afficher le bouton quand la grille est visible
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        setShowFilterButton(entry.isIntersecting && entry.intersectionRatio > 0)
+      },
+      {
+        root: null,
+        threshold: 0,
+        rootMargin: '-80px 0px 0px 0px', // Décale le déclenchement pour coller sous le header
+      }
+    )
+    if (productsGridWrapperRef.current) {
+      observer.observe(productsGridWrapperRef.current)
+    }
+    return () => {
+      if (productsGridWrapperRef.current) {
+        observer.unobserve(productsGridWrapperRef.current)
+      }
+    }
+  }, [productsGridWrapperRef])
 
   console.log('Current height bar de filtre Element:', gridHeight)
 
@@ -104,16 +128,17 @@ export default function Créations() {
               isOpen={isFilterOpen}
               onToggle={() => setIsFilterOpen(prev => !prev)}
               showPriceFilter={false}
+              gridVisibilityRef={productsGridWrapperRef}
             />
           </div>
 
-          <div className={styles.productsGridWrapper}>
-              <ProductsGrid 
-                ref={gridRef}
-                onHeightChange={setGridHeight}
-                isFilterOpen={isFilterOpen}
-                showOnlyImages={true}
-              />
+          <div className={styles.productsGridWrapper} ref={productsGridWrapperRef}>
+            <ProductsGrid 
+              ref={gridRef}
+              onHeightChange={setGridHeight}
+              isFilterOpen={isFilterOpen}
+              showOnlyImages={true}
+            />
           </div>
         </div>
       </section>

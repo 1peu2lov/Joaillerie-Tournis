@@ -13,11 +13,37 @@ export default function Maison() {
           </div>
           <div className={styles.heroImage}>
             <Image 
-              src="/img/maison/hero-atelier.jpg" 
+              src="/img/histoire/hero-img.jpg" 
               alt="Atelier de joaillerie Tournis" 
               fill
               style={{ objectFit: 'cover' }}
             />
+          </div>
+        </section>
+
+        <section className={styles.familleSection}>
+          <div className={styles.container}>
+            <h2 className={styles.familleTitle}>
+              HÉRITIERS D&apos;UNE LONGUE TRADITION DE JOAILLIERS,<br />
+              <span>LA FAMILLE TOURNIS, AUJOURD&apos;HUI</span>
+            </h2>
+            <div className={styles.familleText}>
+              <p><strong className={styles.familleHighlight}>Pierre-Frédéric Tournis</strong> appartient à la quatrième génération d&apos;une famille d&apos;artisans joailliers installés à Bordeaux depuis 1896. Vingt-cinq années d&apos;expérience, dont 10 passées dans les ateliers de la place Vendôme, nourrissent ses créations aujourd&apos;hui.</p>
+              <p>Il fait ses « gammes », dans les années 80, au sein de l&apos;atelier familial avant de réaliser sa maîtrise de compagnon à Paris, chez Pery et Langlois, fournisseurs attitrés de Van Cleef et Arpels. Au cours de ce long séjour d&apos;une dizaine d&apos;années, il découvre la taille et l&apos;étude des pierres gemmes, et obtient le diplôme de l&apos;Institut National de Gemmologie.<br />Mais même si on lui propose une belle carrière parisienne de chef d&apos;atelier, il préfère réintégrer l&apos;entreprise bordelaise dont il prend la direction en 1997.<br />En 2005, il transfère atelier et boutique au centre-ville, au 29 Cours de l&apos;Intendance, à deux pas du Grand Théâtre et du Triangle d&apos;or.</p>
+              <p>Son épouse, <strong className={styles.familleHighlight}>Nathalie Tournis</strong>, animée de la même passion est à ses côtés à la boutique pour accueillir et conseiller les clients.</p>
+              <p>Depuis 2016, leurs trois enfants, la 5ème génération, les rejoignent tour à tour pour préparer les créations d&apos;aujourd&apos;hui et de demain.</p>
+              <p>Artisan, bijoutier, joaillier, <strong className={styles.familleHighlight}>Alexandre Tournis</strong> exerce à son tour la passion de la joaillerie au sein de l&apos;entreprise familiale.<br />Il apprend le métier aux côtés de son père et obtient ses CAP de joaillier et de bijoutier en 2016. Son savoir-faire et sa créativité contribuent à la notoriété de la maison familiale.</p>
+              <p><strong className={styles.familleHighlight}>Sophie Tournis</strong>, est experte gemmologue. Titulaire du diplôme d&apos;État de l&apos;Institut National de Gemmologie et du diplôme européen de gemmologie FEEG, elle partage avec vous ses connaissances des gemmes, et vous accompagne dans le choix des pierres et des créations personnalisées.</p>
+              <p><strong className={styles.familleHighlight}>Morgane Tournis</strong>, bijoutière, joaillière, a également rejoint l&apos;atelier aux côtés de son frère et de son père, depuis 2023.</p>
+              <p><strong className={styles.familleHighlight}>Léna Domenc</strong>, en alternance à l&apos;ISG Luxury Management, est arrivée aux côtés de Sophie et Nathalie à la boutique, en 2023, pour les créations et la communication.</p>
+            </div>
+            <div className={styles.famillePortraits}>
+              <div className={styles.famillePortrait}><img src="/img/histoire/pierre.jpg" alt="Pierre-Frédéric Tournis" /><span>Pierre-Frédéric Tournis</span></div>
+              <div className={styles.famillePortrait}><img src="/img/histoire/Alexandre.jpg" alt="Alexandre Tournis" /><span>Alexandre Tournis</span></div>
+              <div className={styles.famillePortrait}><img src="/img/histoire/Sophie.jpg" alt="Sophie Tournis" /><span>Sophie Tournis</span></div>
+              <div className={styles.famillePortrait}><img src="/img/histoire/Morgane.jpg" alt="Morgane Tournis" /><span>Morgane Tournis</span></div>
+              <div className={styles.famillePortrait}><img src="/img/histoire/Lena.jpg" alt="Léna Domenç" /><span>Léna Domenc</span></div>
+            </div>
           </div>
         </section>
 
@@ -40,7 +66,7 @@ export default function Maison() {
                 </p>
                 
                 <p>
-                  Alex, le premier fils, et Pierre son cadet, une fois leur certificat d&apos;étude en poche, rentrent en apprentissage. Le succès et la reconnaissance de la profession envers les joailliers Tournis ne se font pas attendre. Mais la guerre interrompt leur réussite pour 7 et 9 ans, où ils se retrouvent l&apos;un et l&apos;autre sous le calot militaire.
+                  <strong>Alex</strong>, le premier fils, et Pierre son cadet, une fois leur certificat d&apos;étude en poche, rentrent en apprentissage. Le succès et la reconnaissance de la profession envers les joailliers Tournis ne se font pas attendre. Mais la guerre interrompt leur réussite pour 7 et 9 ans, où ils se retrouvent l&apos;un et l&apos;autre sous le calot militaire.
                 </p>
                 
                 <p>
@@ -50,7 +76,7 @@ export default function Maison() {
               
               <div className={styles.imageContent}>
                 <Image 
-                  src="/img/maison/andre-tournis-1896.jpg" 
+                  src="/img/histoire/andre-tournis.jpg" 
                   alt="André Tournis, fondateur 1896" 
                   width={400}
                   height={500}

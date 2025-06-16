@@ -261,14 +261,22 @@
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
     z-index: 1001;
-    pointer-events: auto;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1), background-color 0.3s ease;
+
+    &.isVisible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
 
     @media (max-width: #{map-get($breakpoints, 'lg') - 1px}) {
         display: flex;
         position: fixed;
-        top: 80px; // Ajustez cette valeur selon la hauteur de votre header
+        top: 100px; // Ajustez cette valeur selon la hauteur de votre header
         left: 0;
         width: 100%;
         height: 50px;
@@ -294,6 +302,13 @@
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
         }
     }
+
+    @media (max-width: 1023px) {
+        display: flex;
+    }
+    @media (min-width: 1024px) {
+        display: none !important;
+    }
 }
 
 .buttonText {
@@ -302,7 +317,7 @@
     font-weight: 500;
     display: inline-block;
 
-    @media (max-width: #{map-get($breakpoints, 'lg') - 1px}) {
+    @media (max-width: #{map-get($breakpoints, 'md') - 1px}) {
         .open & {
             display: none;
         }
@@ -361,3 +376,5 @@
         @include font-size('h3',"md");
     }
 }
+
+   
