@@ -30,11 +30,22 @@ export function BarDeFiltre({
     const isMobile = windowWidth < 1024;
     const [showStickyButton, setShowStickyButton] = useState(false);
 
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+    const scrollToGrid = () => {
+        if (gridVisibilityRef?.current) {
+            const element = gridVisibilityRef.current;
+            const elementTop = element.offsetTop;
+            const offset = 120; // Ajuste ce nombre pour plus ou moins d'espace
+            
+            window.scrollTo({
+                top: elementTop - offset,
+                behavior: 'smooth'
+            });
+        } else {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
     };
 
     const handleChange = (categorie, valeur) => {
@@ -66,14 +77,14 @@ export function BarDeFiltre({
     const handleApplyFilters = () => {
         setFiltres(tempFiltres);
         onFilterChange?.(tempFiltres);
-        scrollToTop();
+        scrollToGrid();
     };
 
     const handleResetFilters = () => {
         setTempFiltres(defaultFiltres);
         setFiltres(defaultFiltres);
         onFilterChange?.(defaultFiltres);
-        scrollToTop();
+        scrollToGrid();
     };
 
     useEffect(() => {

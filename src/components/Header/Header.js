@@ -102,7 +102,7 @@ export default function Header() {
             >
               <div className={styles.cartIconWrapper}>
                 <Image
-                  src="/icons/cart.svg"
+                  src="/icons/panier.svg"
                   alt="Panier"
                   width={24}
                   height={24}

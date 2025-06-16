@@ -67,7 +67,7 @@ export default function Boutique() {
           </div>
           <div className={styles.descriptionImage}>
             <Image 
-              src="/images/boutique-description.jpg" 
+              src="/img/women_bijoux.jpeg" 
               alt="Notre sélection de bijoux"
               className={styles.descImg}
               width={600}
@@ -77,6 +77,11 @@ export default function Boutique() {
           </div>
         </div>
       </section>
+
+      <div className={styles.catalogHeader}>
+        <h2>Explorez Nos Bijoux En Ligne</h2>
+        <p>Utilisez les filtres pour découvrir nos bijoux selon vos préférences</p>
+      </div>
 
       <div className={styles.mainContent} id="boutique">
         <div className={styles.filterWrapper}>
