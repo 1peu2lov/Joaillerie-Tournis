@@ -16,6 +16,7 @@ export default function Créations() {
   const gridRef = useRef(null)
   const [showFilterButton, setShowFilterButton] = useState(false)
   const productsGridWrapperRef = useRef(null)
+  const filterRef = useRef(null)
 
   // Effet pour ajuster l'état de la barre selon la largeur d'écran
   useEffect(() => {
@@ -50,6 +51,12 @@ export default function Créations() {
   }, [])
 
   console.log('Current height bar de filtre Element:', gridHeight)
+
+  const handleResetFilters = () => {
+    if (filterRef.current) {
+      filterRef.current.resetFilters()
+    }
+  }
 
   return (
     <>
@@ -124,6 +131,7 @@ export default function Créations() {
         <div className={styles.mainContent} id="creations">
           <div className={styles.filterWrapper}>
             <BarDeFiltre 
+              ref={filterRef}
               gridHeight={gridHeight >= 1600 ? gridHeight : 1600} 
               onFilterChange={filtres => gridRef.current?.applyFilters(filtres)}
               isOpen={isFilterOpen}
@@ -139,6 +147,7 @@ export default function Créations() {
               onHeightChange={setGridHeight}
               isFilterOpen={isFilterOpen}
               showOnlyImages={true}
+              onResetFilters={handleResetFilters}
             />
           </div>
         </div>

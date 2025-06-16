@@ -9,7 +9,7 @@ import { useElementHeight } from '../hooks/useElementHeight'
 const INITIAL_LOAD = 8;
 const LOAD_MORE_INCREMENT = 8;
 
-const ProductsGrid = forwardRef(({ onHeightChange, isFilterOpen, showOnlyImages = false }, ref) => {
+const ProductsGrid = forwardRef(({ onHeightChange, isFilterOpen, showOnlyImages = false, onResetFilters }, ref) => {
   const [products] = useState(productsData);
   const [filteredProducts, setFilteredProducts] = useState(productsData);
   const [visibleProducts, setVisibleProducts] = useState(INITIAL_LOAD);
@@ -103,30 +103,52 @@ const ProductsGrid = forwardRef(({ onHeightChange, isFilterOpen, showOnlyImages 
 
   return (
     <div className={`${styles.productsGridContainer} ${!isFilterOpen ? styles.fullWidth : ''}`}>
-      <div ref={gridRef} className={styles.productsGrid}>
-        {filteredProducts.slice(0, visibleProducts).map((product, index) => (
-          <ProductCard 
-            key={product.id} 
-            product={product}
-            variant={shouldBeSpecial(index) ? 'special' : 'normal'}
-            showOnlyImage={showOnlyImages}
-          />
-        ))}
-      </div>
-
-      {visibleProducts < filteredProducts.length && (
-        <div ref={loadingRef} className={styles.loadingContainer}>
-          {isLoading ? (
-            <div className={styles.loadingSpinner}>Chargement...</div>
-          ) : (
-            <button 
-              className={styles.loadMoreButton}
-              onClick={handleLoadMore}
-            >
-              Voir plus de produits
-            </button>
-          )}
+      {filteredProducts.length === 0 ? (
+        <div className={styles.emptyState}>
+          <div className={styles.emptyStateContent}>
+            <h3 className={styles.emptyStateTitle}>Aucun produit trouvé</h3>
+            <p className={styles.emptyStateText}>
+              Aucun bijou ne correspond à vos critères de recherche. 
+              Essayez d&apos;ajuster vos filtres pour découvrir notre collection.
+            </p>
+            {onResetFilters && (
+              <button 
+                className={styles.resetFiltersButton}
+                onClick={onResetFilters}
+              >
+                Restaurer les filtres
+              </button>
+            )}
+          </div>
         </div>
+      ) : (
+        <>
+          <div ref={gridRef} className={styles.productsGrid}>
+            {filteredProducts.slice(0, visibleProducts).map((product, index) => (
+              <ProductCard 
+                key={product.id} 
+                product={product}
+                variant={shouldBeSpecial(index) ? 'special' : 'normal'}
+                showOnlyImage={showOnlyImages}
+              />
+            ))}
+          </div>
+
+          {visibleProducts < filteredProducts.length && (
+            <div ref={loadingRef} className={styles.loadingContainer}>
+              {isLoading ? (
+                <div className={styles.loadingSpinner}>Chargement...</div>
+              ) : (
+                <button 
+                  className={styles.loadMoreButton}
+                  onClick={handleLoadMore}
+                >
+                  Voir plus de produits
+                </button>
+              )}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

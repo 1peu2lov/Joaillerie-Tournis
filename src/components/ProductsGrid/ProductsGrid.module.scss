@@ -155,3 +155,66 @@
         background-color: lighten(vars.$color-primary, 10%);
     }
 }
+
+.emptyState {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    padding: vars.$spacing-xxl;
+}
+
+.emptyStateContent {
+    text-align: center;
+    max-width: 500px;
+}
+
+.emptyStateIcon {
+    font-size: 4rem;
+    margin-bottom: vars.$spacing-lg;
+    opacity: 0.6;
+}
+
+.emptyStateTitle {
+    font-family: vars.$font-title;
+    @include font-size('h3', 'md');
+    color: vars.$color-primary;
+    margin: 0 0 vars.$spacing-md 0;
+    font-weight: 300;
+
+    @include breakpoint('md') {
+        @include font-size('h3', 'lg');
+    }
+}
+
+.emptyStateText {
+    font-family: vars.$font-sans;
+    @include font-size('body', 'md');
+    color: lighten(vars.$color-text, 20%);
+    line-height: 1.6;
+    margin: 0 0 vars.$spacing-lg 0;
+
+    @include breakpoint('md') {
+        @include font-size('body', 'md');
+        line-height: 1.7;
+    }
+}
+
+.resetFiltersButton {
+    background-color: vars.$color-primary;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-family: vars.$font-sans;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    @include font-size('body', 'sm');
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &:hover {
+        background-color: lighten(vars.$color-primary, 10%);
+        transform: translateY(-2px);
+    }
+}

@@ -1,6 +1,6 @@
 'use client'
 import styles from './BarDeFiltre.module.scss'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, forwardRef, useImperativeHandle } from 'react'
 import useWindowWidth from '@/app/hooks/useWindowsWidth'
 import Image from 'next/image'
 
@@ -12,7 +12,7 @@ const defaultFiltres = {
     couleurs: []
 };
 
-export function BarDeFiltre({ 
+export const BarDeFiltre = forwardRef(({ 
     gridHeight, 
     onFilterChange, 
     isOpen, 
@@ -23,7 +23,7 @@ export function BarDeFiltre({
     showMaterials = true,
     showColors = true,
     gridVisibilityRef
-}) {
+}, ref) => {
     const [filtres, setFiltres] = useState(defaultFiltres);
     const [tempFiltres, setTempFiltres] = useState(defaultFiltres);
     const windowWidth = useWindowWidth();
@@ -86,6 +86,10 @@ export function BarDeFiltre({
         onFilterChange?.(defaultFiltres);
         scrollToGrid();
     };
+
+    useImperativeHandle(ref, () => ({
+        resetFilters: handleResetFilters
+    }));
 
     useEffect(() => {
         if (!gridVisibilityRef?.current) return;
@@ -289,6 +293,8 @@ export function BarDeFiltre({
             )}
         </div>
     )
-}
+});
+
+BarDeFiltre.displayName = 'BarDeFiltre';
 
 export default BarDeFiltre;

@@ -14,6 +14,7 @@ export default function Mariage() {
   const [isFilterOpen, setIsFilterOpen] = useState(windowWidth >= 1600)
   const gridRef = useRef(null)
   const productsGridWrapperRef = useRef(null)
+  const filterRef = useRef(null)
 
   // Effet pour ajuster l'état de la barre selon la largeur d'écran
   useEffect(() => {
@@ -25,6 +26,12 @@ export default function Mariage() {
   }, [windowWidth])
 
   console.log('Current height bar de filtre Element:', gridHeight)
+
+  const handleResetFilters = () => {
+    if (filterRef.current) {
+      filterRef.current.resetFilters()
+    }
+  }
 
   return (
     <>
@@ -86,6 +93,7 @@ export default function Mariage() {
       <div className={styles.mainContent} id="mariage">
         <div className={styles.filterWrapper}>
           <BarDeFiltre 
+            ref={filterRef}
             gridHeight={gridHeight >= 1600 ? gridHeight : 1600} 
             onFilterChange={filtres => gridRef.current?.applyFilters(filtres)}
             isOpen={isFilterOpen}
@@ -99,6 +107,7 @@ export default function Mariage() {
               ref={gridRef}
               onHeightChange={setGridHeight}
               isFilterOpen={isFilterOpen}
+              onResetFilters={handleResetFilters}
             />
         </div>
       </div>
