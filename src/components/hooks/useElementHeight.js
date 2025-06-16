@@ -27,9 +27,9 @@ export function useElementHeight() {
       observer.disconnect()
       window.removeEventListener('resize', updateHeight)
     }
-  }, [ref.current]) // 👈 c’est important !
+  }, [])
 
-  console.log('Current height:', height)
+  console.log('Current height Grid Element:', height)
 
   return { ref, height }
 }

@@ -28,6 +28,9 @@ export default function Créations() {
 
   // Observer pour afficher le bouton quand la grille est visible
   useEffect(() => {
+    const element = productsGridWrapperRef.current
+    if (!element) return
+
     const observer = new window.IntersectionObserver(
       ([entry]) => {
         setShowFilterButton(entry.isIntersecting && entry.intersectionRatio > 0)
@@ -38,15 +41,13 @@ export default function Créations() {
         rootMargin: '-80px 0px 0px 0px', // Décale le déclenchement pour coller sous le header
       }
     )
-    if (productsGridWrapperRef.current) {
-      observer.observe(productsGridWrapperRef.current)
-    }
+    
+    observer.observe(element)
+    
     return () => {
-      if (productsGridWrapperRef.current) {
-        observer.unobserve(productsGridWrapperRef.current)
-      }
+      observer.unobserve(element)
     }
-  }, [productsGridWrapperRef])
+  }, [])
 
   console.log('Current height bar de filtre Element:', gridHeight)
 

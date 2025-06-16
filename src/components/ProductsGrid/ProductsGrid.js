@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './ProductsGrid.module.scss'
-import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react'
+import { useState, useEffect, useRef, forwardRef, useImperativeHandle, useCallback } from 'react'
 import ProductCard from '../ProductCard/ProductCard'
 import productsData from '../../data/products.json'
 import { useElementHeight } from '../hooks/useElementHeight'
@@ -63,6 +63,14 @@ const ProductsGrid = forwardRef(({ onHeightChange, isFilterOpen, showOnlyImages 
     }
   }, [gridHeight, onHeightChange]);
 
+  const handleLoadMore = useCallback(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setVisibleProducts(prev => Math.min(prev + LOAD_MORE_INCREMENT, filteredProducts.length));
+      setIsLoading(false);
+    }, 300);
+  }, [filteredProducts.length]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
@@ -82,15 +90,7 @@ const ProductsGrid = forwardRef(({ onHeightChange, isFilterOpen, showOnlyImages 
     }
 
     return () => observer.disconnect();
-  }, [visibleProducts, filteredProducts.length, isLoading]);
-
-  const handleLoadMore = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setVisibleProducts(prev => Math.min(prev + LOAD_MORE_INCREMENT, filteredProducts.length));
-      setIsLoading(false);
-    }, 300);
-  };
+  }, [visibleProducts, filteredProducts.length, isLoading, handleLoadMore]);
 
   const shouldBeSpecial = (index) => {
     // On ne commence pas avant l'index 7

@@ -11,6 +11,9 @@ export default function ProductCard({ product, isPremium = false, variant = 'nor
     const cardRef = useRef(null)
 
     useEffect(() => {
+        const element = cardRef.current
+        if (!element) return
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -24,14 +27,10 @@ export default function ProductCard({ product, isPremium = false, variant = 'nor
             }
         )
 
-        if (cardRef.current) {
-            observer.observe(cardRef.current)
-        }
+        observer.observe(element)
 
         return () => {
-            if (cardRef.current) {
-                observer.unobserve(cardRef.current)
-            }
+            observer.unobserve(element)
         }
     }, [])
 

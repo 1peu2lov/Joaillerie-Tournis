@@ -92,17 +92,17 @@ export default function NotFound() {
         <div className={styles.quickActions}>
           <h3 className={styles.actionsTitle}>Actions rapides</h3>
           <div className={styles.actionButtons}>
-            <Link href="/" className={`${styles.actionBtn} ${styles.primary}`}>
-              🏠 Retour à l'accueil
-            </Link>
+                          <Link href="/" className={`${styles.actionBtn} ${styles.primary}`}>
+                Retour à l&apos;accueil
+              </Link>
             <Link href="/creations" className={`${styles.actionBtn} ${styles.secondary}`}>
               ✨ Voir nos créations
             </Link>
             <Link href="/boutique" className={`${styles.actionBtn} ${styles.secondary}`}>
-              🛍️ Découvrir la boutique
+              Découvrir la boutique
             </Link>
             <Link href="/contact" className={`${styles.actionBtn} ${styles.outline}`}>
-              📞 Nous contacter
+               Nous contacter
             </Link>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function NotFound() {
           <div className={styles.searchTip}>
             <h4>💡 Conseil de navigation</h4>
             <p>
-                             Utilisez le menu principal en haut de page ou le bouton &ldquo;Nous contacter&rdquo; 
+              Utilisez le menu principal en haut de page ou le bouton &ldquo;Nous contacter&rdquo; 
                si vous ne trouvez pas ce que vous cherchez.
             </p>
           </div>

@@ -38,11 +38,26 @@ export default function Maison() {
               <p><strong className={styles.familleHighlight}>Léna Domenc</strong>, en alternance à l&apos;ISG Luxury Management, est arrivée aux côtés de Sophie et Nathalie à la boutique, en 2023, pour les créations et la communication.</p>
             </div>
             <div className={styles.famillePortraits}>
-              <div className={styles.famillePortrait}><img src="/img/histoire/pierre.jpg" alt="Pierre-Frédéric Tournis" /><span>Pierre-Frédéric Tournis</span></div>
-              <div className={styles.famillePortrait}><img src="/img/histoire/Alexandre.jpg" alt="Alexandre Tournis" /><span>Alexandre Tournis</span></div>
-              <div className={styles.famillePortrait}><img src="/img/histoire/Sophie.jpg" alt="Sophie Tournis" /><span>Sophie Tournis</span></div>
-              <div className={styles.famillePortrait}><img src="/img/histoire/Morgane.jpg" alt="Morgane Tournis" /><span>Morgane Tournis</span></div>
-              <div className={styles.famillePortrait}><img src="/img/histoire/Lena.jpg" alt="Léna Domenç" /><span>Léna Domenc</span></div>
+              <div className={styles.famillePortrait}>
+                <Image src="/img/histoire/pierre.jpg" alt="Pierre-Frédéric Tournis" width={200} height={200} />
+                <span>Pierre-Frédéric Tournis</span>
+              </div>
+              <div className={styles.famillePortrait}>
+                <Image src="/img/histoire/Alexandre.jpg" alt="Alexandre Tournis" width={200} height={200} />
+                <span>Alexandre Tournis</span>
+              </div>
+              <div className={styles.famillePortrait}>
+                <Image src="/img/histoire/Sophie.jpg" alt="Sophie Tournis" width={200} height={200} />
+                <span>Sophie Tournis</span>
+              </div>
+              <div className={styles.famillePortrait}>
+                <Image src="/img/histoire/Morgane.jpg" alt="Morgane Tournis" width={200} height={200} />
+                <span>Morgane Tournis</span>
+              </div>
+              <div className={styles.famillePortrait}>
+                <Image src="/img/histoire/Lena.jpg" alt="Léna Domenç" width={200} height={200} />
+                <span>Léna Domenc</span>
+              </div>
             </div>
           </div>
         </section>

@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import styles from './RedirectionCarousel.module.scss'
 import Link from 'next/link'
 
@@ -134,13 +134,13 @@ export default function RedirectionCarousel() {
     handleStart(e.clientX)
   }
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = useCallback((e) => {
     handleMove(e.clientX)
-  }
+  }, [startX, currentX, isDragging])
 
-  const handleMouseUp = () => {
+  const handleMouseUp = useCallback(() => {
     handleEnd()
-  }
+  }, [currentX, startX, isDragging, currentIndex, maxIndex])
 
   const handleMouseLeave = () => {
     if (isDragging) {
@@ -159,7 +159,7 @@ export default function RedirectionCarousel() {
         document.removeEventListener('mouseup', handleMouseUp)
       }
     }
-  }, [isDragging, startX, currentX])
+  }, [isDragging, startX, currentX, handleMouseMove, handleMouseUp])
 
   // Simple percentage-based translation (like CreationsCarousel)
   const baseTranslatePercentage = -(currentIndex * (100 / itemsPerView))
