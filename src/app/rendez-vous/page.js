@@ -33,7 +33,7 @@ export default function RendezVous() {
               </div>
               <div className={styles.mapContent}>
                 <Image 
-                  src="/images/plan-boutique.jpg" 
+                  src="/img/devanture_tournis.webp" 
                   alt="Plan d'accès à notre boutique"
                   className={styles.mapImage}
                   width={600}

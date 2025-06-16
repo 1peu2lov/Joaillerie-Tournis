@@ -16,12 +16,48 @@ export default function Services() {
             </p>
           </div>
           <div className={styles.heroImage}>
-            <Image 
-              src="/img/services/hero-services.jpg" 
-              alt="Services de joaillerie" 
-              fill
-              style={{ objectFit: 'cover' }}
-            />
+            <div className={styles.heroImagesGrid}>
+              <div className={styles.imageWrapper}>
+                <Image 
+                  src="/img/savoir-faire/transformations.jpg" 
+                  alt="Service de création de bijoux" 
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+              <div className={styles.imageWrapper}>
+                <Image 
+                  src="/img/savoir-faire/reparations.jpg" 
+                  alt="Service de réparation" 
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+              <div className={styles.imageWrapper}>
+                <Image 
+                  src="/img/savoir-faire/expertises.jpg" 
+                  alt="Service d'expertise" 
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+              <div className={styles.imageWrapper}>
+                <Image 
+                  src="/img/savoir-faire/pierres.jpg" 
+                  alt="Service de transformation" 
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+              <div className={styles.imageWrapper}>
+                <Image 
+                  src="/img/savoir-faire/fabrications.jpg" 
+                  alt="Service de conseil" 
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+            </div>
           </div>
         </section>
 

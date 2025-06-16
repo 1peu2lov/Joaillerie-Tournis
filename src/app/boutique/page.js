@@ -31,7 +31,7 @@ export default function Boutique() {
       <section className={styles.heroSection}>
         <div className={styles.heroImage}>
           <Image 
-            src="/images/boutique-hero.jpg" 
+            src="/img/boutique_head.jpeg" 
             alt="Notre e-boutique de joaillerie"
             className={styles.heroImg}
             fill

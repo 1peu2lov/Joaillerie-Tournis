@@ -14,7 +14,7 @@
     }
 
     @include breakpoint('lg') {
-        height: 80vh;
+        height: 92vh;
     }
 }
 
@@ -39,9 +39,9 @@
     height: 100%;
     background: linear-gradient(
         135deg,
-        rgba(30, 40, 70, 0.7) 0%,
-        rgba(30, 40, 70, 0.4) 50%,
-        rgba(30, 40, 70, 0.7) 100%
+        rgba(30, 40, 70, 0.2) 0%,
+        rgba(30, 40, 70, 0.2) 50%,
+        rgba(30, 40, 70, 0.2) 100%
     );
     display: flex;
     align-items: center;
@@ -52,10 +52,33 @@
     text-align: center;
     color: white;
     max-width: 1400px;
-    padding: 0 2rem;
+    padding: 4rem;
+    background-color: rgba(0, 0, 0, 0.3);
+  
+    // Masque carré très doux sur les 4 côtés
+    -webkit-mask-image: 
+      linear-gradient(to top, transparent 0%, black 12%),
+      linear-gradient(to bottom, transparent 0%, black 12%),
+      linear-gradient(to left, transparent 0%, black 12%),
+      linear-gradient(to right, transparent 0%, black 12%);
+    mask-image: 
+      linear-gradient(to top, transparent 0%, black 12%),
+      linear-gradient(to bottom, transparent 0%, black 12%), 
+      linear-gradient(to left, transparent 0%, black 12%),
+      linear-gradient(to right, transparent 0%, black 12%);
+  
+    -webkit-mask-composite: intersect;
+    mask-composite: intersect;
+  
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
 
     @include breakpoint('md') {
-        padding: 0 3rem;
+        padding: 6rem;
     }
 }
 
@@ -65,7 +88,8 @@
     margin: 0 0 1rem 0;
     font-weight: 300;
     letter-spacing: 2px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    color: white;
 
     @include breakpoint('md') {
         @include font-size('h1',"md");
@@ -83,6 +107,8 @@
     font-weight: 300;
     opacity: 0.95;
     line-height: 1.6;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 
     @include breakpoint('md') {
         @include font-size('body',"md");

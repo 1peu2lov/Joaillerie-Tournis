@@ -32,7 +32,7 @@ export default function Créations() {
       <section className={styles.heroSection}>
         <div className={styles.heroImage}>
           <Image 
-            src="/images/creations-hero.jpg" 
+            src="/img/creation_head.jpeg" 
             alt="Nos créations artisanales"
             className={styles.heroImg}
             fill

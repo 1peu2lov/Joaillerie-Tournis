@@ -140,7 +140,6 @@
   margin-top: vars.$spacing-xl;
   padding: vars.$spacing-lg;
   background-color: vars.$color-secondary;
-  border-radius: 12px;
 
   h3 {
     @include font-size('h3', 'md');
@@ -165,7 +164,6 @@
   .mapImage {
     width: 100%;
     height: auto;
-    border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   }
 }
