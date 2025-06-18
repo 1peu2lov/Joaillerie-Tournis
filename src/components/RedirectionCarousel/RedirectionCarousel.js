@@ -4,11 +4,35 @@ import styles from './RedirectionCarousel.module.scss'
 import Link from 'next/link'
 
 const items = [
-  { title: 'E-boutique', description: 'Découvrez nos créations en ligne, prêtes à être adoptées.', link: '/boutique', cta: 'Voir la boutique', image: '/img/carousel/eboutique.jpg' },
-  { title: 'Créations sur mesure', description: 'Un bijou à votre image, façonné dans notre atelier.', link: '/fabrications', cta: 'Découvrir', image: '/img/carousel/sur-mesure.jpg' },
-  { title: 'Transformation de bijoux', description: 'Offrez une seconde vie à vos anciens bijoux.', link: '/transformations', cta: 'En savoir plus', image: '/img/carousel/transformation.jpg' },
-  { title: 'Réparation de bijoux', description: 'Réparez vos bijoux précieux avec notre expertise.', link: '/reparations', cta: 'Réparer', image: '/img/carousel/reparation.jpg' },
-  { title: 'Expertise & Évaluation', description: 'Faites évaluer vos bijoux par nos experts certifiés.', link: '/expertises', cta: 'Expertiser', image: '/img/carousel/expertise.jpg' }
+  { title: 'E-boutique', 
+    description: 'Découvrez nos créations en ligne, prêtes à être adoptées.', 
+    link: '/boutique', 
+    cta: 'Voir la boutique', 
+    image: '/img/carousel/eboutique.jpg' },
+
+  { title: 'Nos Créations', 
+    description: "L'art de la joaillerie française, entre tradition et modernité", 
+    link: '/creations', 
+    cta: 'Découvrir', 
+    image: '/img/creation_head.jpeg' },
+
+  { title: 'Événements', 
+    description: 'Découvrez nos événements et nos actualités.', 
+    link: '/evenements', 
+    cta: 'En savoir plus', 
+    image: '/img/evenements_head.jpg' },
+
+  { title: 'Maison Tournis', 
+    description: 'Découvrez l\'histoire de notre maison.', 
+    link: '/maison', 
+    cta: 'Découvrir', 
+    image: '/img/histoire/hero-img.JPG' },
+
+  { title: 'Expertise & Évaluation', 
+    description: 'Faites évaluer vos bijoux par nos experts certifiés.', 
+    link: '/expertises',
+     cta: 'Expertiser', 
+     image: '/img/carousel/expertise.jpg' }
 ]
 
 export default function RedirectionCarousel() {

@@ -88,10 +88,10 @@ export default function Header() {
               aria-label="Contact"
             >
               <Image
-                src="/icons/phone.svg"
+                src="/icons/tel.svg"
                 alt="Contact"
-                width={24}
-                height={24}
+                width={30}
+                height={30}
                 className={styles.icon}
               />
             </Link>
@@ -102,10 +102,10 @@ export default function Header() {
             >
               <div className={styles.cartIconWrapper}>
                 <Image
-                  src="/icons/panier.svg"
+                  src="/icons/panier_2.svg"
                   alt="Panier"
-                  width={24}
-                  height={24}
+                  width={30}
+                  height={30}
                   className={styles.icon}
                 />
                 {getCartCount() > 0 && (

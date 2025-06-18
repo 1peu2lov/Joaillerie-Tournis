@@ -67,78 +67,110 @@ export default function Maison() {
             <h2>129 ans de joaillerie</h2>
             
             <div className={styles.histoireContent}>
-              <div className={styles.textContent}>
-                <p>
-                  <strong>En 1896, André Tournis, premier joaillier du nom, s&apos;installe à son compte, en chambre, au 81 rue Ducau aux Chartrons à Bordeaux.</strong>
-                </p>
-                
-                <p>
-                  Rompant avec la tradition d&apos;une famille de maître de chais colossses de près de deux mètres, plus frêle mais déterminé, il décide de délaisser le rouge que lui offre pour forger sa propre destinée, avec la façon de l&apos;or rose, blanc et jaune et des pierres précieuses.
-                </p>
-                
-                <p>
-                  Les bruxelles succèdent alors pour lui aux tutelles, une nouvelle aventure familiale commence.
-                </p>
-                
-                <p>
-                  <strong>Alex</strong>, le premier fils, et Pierre son cadet, une fois leur certificat d&apos;étude en poche, rentrent en apprentissage. Le succès et la reconnaissance de la profession envers les joailliers Tournis ne se font pas attendre. Mais la guerre interrompt leur réussite pour 7 et 9 ans, où ils se retrouvent l&apos;un et l&apos;autre sous le calot militaire.
-                </p>
-                
-                <p>
-                  Cyclistes amateurs ils deviennent cyclistes du colonel ! Et avec beaucoup de chances et quelques éclats d&apos;obus, les deux retournent avec bonheur à leur atelier. Après l&apos;acier des obus et la coiffe de guerre, ils retrouvent le franc or (pour peu de temps), le carotter, et enfin la belle époque.
-                </p>
+              <div className={styles.imageContent}>
+                <div className={styles.historicalImage}>
+                  <Image 
+                    src="/img/histoire/andre-tournis.jpg" 
+                    alt="André Tournis, fondateur en 1896" 
+                    width={400}
+                    height={500}
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <div className={styles.imageName}>
+                    André Tournis
+                  </div>
+                </div>
               </div>
               
-              <div className={styles.imageContent}>
-                <Image 
-                  src="/img/histoire/andre-tournis.jpg" 
-                  alt="André Tournis, fondateur 1896" 
-                  width={400}
-                  height={500}
-                  style={{ objectFit: 'cover' }}
-                />
+              <div className={styles.textContent}>
+                <div className={styles.dateSection}>
+                  <h3>1896 - Les origines</h3>
+                  <p>
+                    <strong>En 1896, André Tournis, premier joaillier du nom, s&apos;installe à son compte, en chambre, au 81 rue Ducau aux Chartrons à Bordeaux.</strong>
+                  </p>
+                  
+                  <p>
+                    Rompant avec la tradition familiale de maîtres de chais colosses de près de deux mètres, plus frêle mais déterminé, il décide de délaisser le rouge du vin pour forger sa propre destinée avec l&apos;or rose, blanc et jaune ainsi que les pierres précieuses.
+                  </p>
+                  
+                  <p>
+                    Les brucelles succèdent alors aux tonneaux, une nouvelle aventure familiale commence.
+                  </p>
+                </div>
               </div>
             </div>
 
             <div className={styles.histoireContent}>
-              <div className={styles.imageContent}>
-                <Image 
-                  src="/img/maison/atelier-ancien.jpg" 
-                  alt="Ancien atelier Tournis" 
-                  width={400}
-                  height={300}
-                  style={{ objectFit: 'cover' }}
-                />
+              <div className={styles.textContent}>
+                <div className={styles.dateSection}>
+                  <h3>1914-1945 - Deux générations, deux guerres</h3>
+                  <p>
+                                         <strong>Alex</strong>, le fils aîné, et <strong>Pierre</strong> son cadet, une fois leur certificat d&apos;études en poche, entrent en apprentissage. Le succès et la reconnaissance de la profession envers les joailliers Tournis ne se font pas attendre. Mais la Première Guerre mondiale interrompt leur réussite pendant 7 et 9 ans, où ils se retrouvent l&apos;un et l&apos;autre sous le calot militaire.
+                  </p>
+                  
+                  <p>
+                                         Cyclistes amateurs, ils deviennent cyclistes du colonel ! Avec beaucoup de chance et quelques éclats d&apos;obus, ils retournent avec bonheur à leur atelier. Après l&apos;acier des obus et la coiffe de guerre, ils retrouvent l&apos;or fin, le chagrin, et enfin la belle époque.
+                  </p>
+                  
+                  <p>
+                    Peu de congés à l&apos;époque, mais rencontrer un client à Paris ou un fournisseur prenait une huitaine de jours, et permettait de belles rencontres et la découverte de nouveaux horizons en chemin.
+                  </p>
+                  
+                  <p>
+                    De nombreux compagnons et apprentis partagent le renom de l&apos;Atelier Tournis durant cette époque prospère. D&apos;autres grands joailliers comme Servan et Fontan honorent à merveille le métier.
+                  </p>
+                  
+                  <p>
+                    La concurrence est rude mais loyale, non dépourvue de malice entre confrères, qui rivalisent d&apos;ingéniosité et de créativité. La pièce « à l&apos;unité » de rigueur marquera d&apos;un trait indélébile une tradition suivie et respectée.
+                  </p>
+                  
+                  <p>
+                    C&apos;est dans les ateliers de la maison Tournis que vient en apprentissage un certain Jean Prévot qui fera une carrière éblouissante. De nouvelles heures sombres avec la Seconde Guerre mondiale viennent stopper l&apos;élan de la profession. C&apos;est le temps du travail à façon, des bijoux conçus de bric et de broc, de longues années de vaches maigres.
+                  </p>
+                </div>
               </div>
               
-              <div className={styles.textContent}>
-                <p>
-                  Peu de congés à l&apos;époque, mais rencontrer un client à Paris ou un fournisseur prenait une huitaine de jours, et permettait de belles rencontres et la découverte de nouveaux paysages en chérit.
-                </p>
-                
-                <p>
-                  De nombreux compagnons et apprentis partagent le renom de l&apos;Atelier Tournis durant cette époque prospère.
-                </p>
-                
-                <p>
-                  D&apos;autres grands joailliers comme Servan et Fontan servent à merveille le métier.
-                </p>
-                
-                <p>
-                  La concurrence est rude mais loyale, non dépourvue de malice entre confrères, qui rivalisent d&apos;ingéniosité et de créativité. La pièce « à l&apos;unité » de rigueur marquera d&apos;un trait indélébile une tradition suivie et respectée.
-                </p>
-                
-                <p>
-                  C&apos;est dans les ateliers de la maison Tournis que s&apos;en vient en apprentissage un certain Jean Prévot qui fera une carrière éblouissante. De nouvelles heures sombres avec la seconde guerre mondiale viennent stopper l&apos;élan de la profession. C&apos;est le temps du travail à façon, des bijoux conçus de bric et de broc, de longues années de vaches maigres.
-                </p>
+              <div className={styles.imageContent}>
+                <div className={styles.brothersImages}>
+                  <div className={styles.historicalImage}>
+                    <Image 
+                      src="/img/histoire/Alex.jpg" 
+                      alt="Alex Tournis, deuxième génération" 
+                      width={300}
+                      height={250}
+                      style={{ objectFit: 'cover' }}
+                    />
+                    <div className={styles.imageName}>
+                      Alex Tournis
+                    </div>
+                  </div>
+                  <div className={styles.historicalImage}>
+                    <Image 
+                      src="/img/histoire/Pierre_ancien.jpg" 
+                      alt="Pierre Tournis, deuxième génération" 
+                      width={300}
+                      height={250}
+                      style={{ objectFit: 'cover' }}
+                    />
+                    <div className={styles.imageName}>
+                      Pierre Tournis
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div className={styles.continuiteSection}>
-              <h3>La continuité familiale</h3>
+              <h3>1950-1980 - La transmission du savoir</h3>
               <p>
-                Durant les années 50, André Tournis, troisième du nom, découvre les joies de longues journées à plier sur l&apos;ouvrage, les concours de fin d&apos;année, le poêle à son qu&apos;il faut entretenir, les balayures récupérées et traitées. Il acquiert la maîtrise du geste, la connaissance des pierres précieuses, le contact avec chacun.
+                  Durant les années 50, <strong>André Tournis, troisième du nom</strong>, découvre les joies de longues journées à peiner sur l&apos;ouvrage, les concours de fin d&apos;année, le poêle au charbon qu&apos;il faut entretenir, les balayures récupérées et traitées. Il acquiert la maîtrise du geste, la connaissance des pierres précieuses, le contact avec la clientèle.   
               </p>
+              <br />
+              <p>À son tour, il initie de nombreux apprentis en pesant sur ces « drôles », ainsi qu&apos;on appelle les jeunes à Bordeaux, qui ne veulent rien écouter !... et celui qui assurera le relais, Pierre-Frédéric.</p>  
+              <br />
+              <p>Dans les années 80, Pierre-Frédéric monte à Paris parfaire sa technique dans plusieurs grands ateliers, préparer un diplôme de gemmologue, avant de reprendre le flambeau aux Chartrons.</p>
+              <br />
+              <p>Le respect des traditions allié aux évolutions apportées par les nouvelles générations pérennisera plus d&apos;un siècle d&apos;artisanat au service de clients devenus des amis. À cette belle histoire collabore maintenant la cinquième génération…</p>
             </div>
           </div>
         </section>
@@ -181,7 +213,7 @@ export default function Maison() {
               </div>
               <div className={styles.imageContent}>
                 <Image 
-                  src="/img/maison/atelier-moderne.jpg" 
+                  src="/img/histoire/atelier.jpg" 
                   alt="Atelier Tournis moderne" 
                   width={600}
                   height={400}

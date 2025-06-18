@@ -96,32 +96,27 @@
 }
 
 .histoireContent {
-  gap: vars.$spacing-xxl;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-xl;
   margin-bottom: vars.$spacing-xxl;
 
   @include breakpoint('lg') {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+    flex-direction: row;
+    gap: vars.$spacing-xxl;
+    align-items: flex-start;
   }
 
   &:nth-child(even) {
     @include breakpoint('lg') {
-      .textContent {
-        order: 2;
-      }
-      .imageContent {
-        order: 1;
-      }
+      flex-direction: row-reverse;
     }
   }
 }
 
 .textContent {
+  flex: 1;
+  
   p {
     @include font-size('body','md');
     color: vars.$color-text;
@@ -148,7 +143,10 @@
 
 .imageContent {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  flex: 1;
   
   img {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -177,6 +175,46 @@
     margin: 0 auto;
     text-align: justify;
   }
+}
+
+.dateSection {
+  h3 {
+    @include font-size('h3',"md");
+    font-family: vars.$font-title;
+    color: vars.$color-primary;
+    margin-bottom: vars.$spacing-lg;
+    font-weight: 500;
+    border-bottom: 2px solid vars.$color-primary;
+    padding-bottom: vars.$spacing-sm;
+    display: inline-block;
+  }
+}
+
+.historicalImage {
+  position: relative;
+  display: inline-block;
+  margin-bottom: vars.$spacing-md;
+  
+  img {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 3px solid vars.$color-secondary;
+  }
+}
+
+.imageName {
+  text-align: center;
+  margin-top: vars.$spacing-md;
+  font-family: vars.$font-title;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: vars.$color-primary;
+}
+
+.brothersImages {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-xl;
+  align-items: center;
 }
 
 .valeurs {

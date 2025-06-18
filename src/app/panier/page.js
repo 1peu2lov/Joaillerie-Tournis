@@ -177,6 +177,64 @@ function CartStep({ items, removeItem, updateQuantity, clearCart, isClearing, ge
             <div className={styles.cartItems}>
                 {items.map((item) => (
                     <div key={item.id} className={styles.cartItem}>
+                        {/* Layout mobile */}
+                        <div className={styles.mobileProductInfo}>
+                            <Link href={`/boutique/${item.id}`} className={styles.itemImage}>
+                                <Image 
+                                    src={item.images[0]} 
+                                    alt={item.name}
+                                    width={120}
+                                    height={120}
+                                    style={{ objectFit: 'cover' }}
+                                />
+                            </Link>
+
+                            <div className={styles.itemDetails}>
+                                <Link href={`/boutique/${item.id}`} className={styles.itemName}>
+                                    <h3>{item.name}</h3>
+                                </Link>
+                                <p className={styles.itemDescription}>{item.description}</p>
+                                
+                                <div className={styles.itemMaterials}>
+                                    <span>Matériaux: </span>
+                                    {item.materials.slice(0, 2).join(', ')}
+                                    {item.materials.length > 2 && '...'}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={styles.mobileActions}>
+                            <div className={styles.quantityControls}>
+                                <button 
+                                    onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+                                    className={styles.quantityBtn}
+                                    disabled={item.quantity <= 1}
+                                >
+                                    -
+                                </button>
+                                <span className={styles.quantity}>{item.quantity}</span>
+                                <button 
+                                    onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+                                    className={styles.quantityBtn}
+                                >
+                                    +
+                                </button>
+                            </div>
+
+                            <div className={styles.itemPrice}>
+                                {(item.price * item.quantity).toLocaleString('fr-FR')} €
+                            </div>
+
+                            <button 
+                                onClick={() => removeItem(item.id)}
+                                className={styles.removeBtn}
+                                aria-label="Supprimer cet article"
+                            >
+                                ×
+                            </button>
+                        </div>
+
+                        {/* Layout desktop (masqué sur mobile) */}
                         <Link href={`/boutique/${item.id}`} className={styles.itemImage}>
                             <Image 
                                 src={item.images[0]} 

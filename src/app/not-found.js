@@ -9,17 +9,17 @@ export default function NotFound() {
     {
       category: "Navigation Principale",
       links: [
-                 { name: "Accueil", href: "/", description: "Page d&apos;accueil de Tournis Joaillerie" },
+        { name: "Accueil", href: "/", description: "Page d'accueil de Tournis Joaillerie" },
         { name: "Nos Créations", href: "/creations", description: "Découvrez notre collection de bijoux uniques" },
         { name: "E-Boutique", href: "/boutique", description: "Achetez nos bijoux en ligne" },
-        { name: "Services", href: "/services", description: "Nos services de joaillerie sur mesure" },
-                 { name: "Notre Maison", href: "/maison", description: "L&apos;histoire et les valeurs de Tournis" }
+        { name: "Mariage", href: "/mariage", description: "Alliances et bijoux pour votre jour J" },
+        { name: "Notre Maison", href: "/maison", description: "L'histoire et les valeurs de Tournis" }
       ]
     },
     {
       category: "Services Spécialisés",
       links: [
-        { name: "Mariage", href: "/mariage", description: "Alliances et bijoux pour votre jour J" },
+        { name: "Services", href: "/services", description: "Nos services de joaillerie sur mesure" },
         { name: "Rendez-vous", href: "/rendez-vous", description: "Prenez rendez-vous dans notre atelier" },
         { name: "Événements", href: "/evenements", description: "Nos événements et expositions" }
       ]
@@ -96,7 +96,7 @@ export default function NotFound() {
                 Retour à l&apos;accueil
               </Link>
             <Link href="/creations" className={`${styles.actionBtn} ${styles.secondary}`}>
-              ✨ Voir nos créations
+              Voir nos créations
             </Link>
             <Link href="/boutique" className={`${styles.actionBtn} ${styles.secondary}`}>
               Découvrir la boutique
@@ -110,7 +110,7 @@ export default function NotFound() {
         {/* Section Recherche */}
         <div className={styles.searchSection}>
           <div className={styles.searchTip}>
-            <h4>💡 Conseil de navigation</h4>
+            <h4>Conseil de navigation</h4>
             <p>
               Utilisez le menu principal en haut de page ou le bouton &ldquo;Nous contacter&rdquo; 
                si vous ne trouvez pas ce que vous cherchez.

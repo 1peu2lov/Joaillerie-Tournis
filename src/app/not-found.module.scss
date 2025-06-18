@@ -111,7 +111,6 @@
 
 .mapSection {
     background: white;
-    border-radius: 12px;
     padding: vars.$spacing-xl;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -145,7 +144,6 @@
     justify-content: space-between;
     padding: vars.$spacing-md;
     background: vars.$color-secondary;
-    border-radius: 8px;
     text-decoration: none;
     transition: all 0.3s ease;
     border: 2px solid transparent;
@@ -223,7 +221,6 @@
     align-items: center;
     justify-content: center;
     padding: vars.$spacing-md vars.$spacing-lg;
-    border-radius: 8px;
     text-decoration: none;
     font-family: vars.$font-sans;
     @include font-size('body', 'sm');
@@ -274,7 +271,6 @@
 .searchTip {
     background: linear-gradient(135deg, rgba(vars.$color-primary, 0.05) 0%, rgba(vars.$color-primary, 0.1) 100%);
     border: 1px solid rgba(vars.$color-primary, 0.2);
-    border-radius: 12px;
     padding: vars.$spacing-xl;
     max-width: 600px;
     margin: 0 auto;

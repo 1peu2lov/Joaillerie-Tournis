@@ -127,7 +127,7 @@
 
 .navLink {
   font-size: 0.85rem;
-  color: vars.$color-text;
+  color: vars.$color-primary;
   text-decoration: none;
   font-weight: map-get($font-weights, 'medium');
   transition: all 0.3s ease;
@@ -161,6 +161,8 @@
 
   &:hover {
     color: vars.$color-primary;
+    transform: translateY(-2px);
+    font-weight: 500;
 
     &::after {
       width: 100%;
@@ -169,6 +171,7 @@
 
   &.active {
     color: vars.$color-primary;
+    transform: translateY(-2px);
 
     &::after {
       width: 100%;
@@ -219,19 +222,19 @@
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   filter: brightness(0);
   transition: all 0.3s ease;
 
   @include breakpoint('md') {
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
   }
 
   @include breakpoint('lg') {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
   }
 }
 
