@@ -8,7 +8,7 @@ const items = [
     description: 'Découvrez nos créations en ligne, prêtes à être adoptées.', 
     link: '/boutique', 
     cta: 'Voir la boutique', 
-    image: '/img/carousel/eboutique.jpg' },
+    image: '/img/boutique_head.jpeg' },
 
   { title: 'Nos Créations', 
     description: "L'art de la joaillerie française, entre tradition et modernité", 
@@ -32,7 +32,7 @@ const items = [
     description: 'Faites évaluer vos bijoux par nos experts certifiés.', 
     link: '/expertises',
      cta: 'Expertiser', 
-     image: '/img/carousel/expertise.jpg' }
+     image: '/img/savoir-faire/expertises.jpg' }
 ]
 
 export default function RedirectionCarousel() {

@@ -164,13 +164,14 @@
   transition: all 0.3s ease;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-weight: 500;
+  
 
   &::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0;
+    width: 100%;
     height: 2px;
     background-image: url('/img/textures/gold-texture3.jpeg');
     background-size: cover;
@@ -182,7 +183,7 @@
     color: vars.$color-secondary;
     transform: translateY(-2px);
     letter-spacing: 1.7px;
-    font-weight: 600;
+    font-weight: 500;
 
     &::after {
       width: 100%;

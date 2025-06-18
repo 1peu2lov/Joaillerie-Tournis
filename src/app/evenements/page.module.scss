@@ -1,0 +1,363 @@
+@use '../../styles/abstracts/variables' as vars;
+@use '../../styles/abstracts/typography' as *;
+@use '../../styles/abstracts/breakpoints' as *;
+
+.evenementsPage {
+  min-height: 100vh;
+}
+
+// Section Hero
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+
+  @include breakpoint('md') {
+    height: 70vh;
+  }
+
+  @include breakpoint('lg') {
+    height: 70vh;
+  }
+}
+
+.heroImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position:70% 30%;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 40, 70, 0.3) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(30, 40, 70, 0.4) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroContent {
+  text-align: center;
+  color: white;
+  max-width: 1400px;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  @include breakpoint('md') {
+    padding: 0 3rem;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.heroTitle {
+  font-family: vars.$font-title;
+  @include font-size('h1',"md");
+  margin: 0 0 1rem 0;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: white;
+  animation: fadeInUp 1.2s ease-out forwards;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-image: url('/img/textures/gold-texture3.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: expandLine 1.5s ease-out 0.6s forwards;
+  }
+
+  @include breakpoint('md') {
+    @include font-size('h1',"md");
+  }
+
+  @include breakpoint('lg') {
+    @include font-size('h1',"lg");
+  }
+}
+
+.heroSubtitle {
+  font-family: vars.$font-sans;
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: 300;
+  opacity: 0.95;
+  line-height: 1.6;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+  animation: fadeInUp 1.2s ease-out 0.3s forwards;
+  opacity: 0;
+
+  @include breakpoint('md') {
+    @include font-size('body',"md");
+  }
+
+  @include breakpoint('lg') {
+    @include font-size('body',"lg");
+  }
+}
+
+// Sections événements
+.eventSection {
+  padding: vars.$spacing-xxl 0;
+  background: white;
+
+  &:nth-child(even) {
+    background: #fafbfc;
+  }
+}
+
+.eventContainer {
+  max-width: 1500px;
+  margin: 0 auto;
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+  padding: 0 2rem;
+
+  @include breakpoint('lg') {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  &.reverse {
+    @include breakpoint('lg') {
+      .eventImage {
+        order: 2;
+      }
+      .eventContent {
+        order: 1;
+      }
+    }
+  }
+}
+
+.eventImage {
+  .eventImg {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+    opacity: 0;
+
+    @include breakpoint('md') {
+      height: 500px;
+    }
+  }
+}
+
+.eventContent {
+  h2 {
+    font-family: vars.$font-title;
+    @include font-size('h2',"lg");
+    color: vars.$color-primary;
+    margin: 0 0 1rem 0;
+    font-weight: 300;
+    animation: fadeInUp 1s ease-out 0.2s forwards;
+    opacity: 0;
+
+    @include breakpoint('md') {
+      @include font-size('h2',"lg");
+    }
+  }
+
+  p {
+    font-family: vars.$font-sans;
+    @include font-size('body',"md");
+    line-height: 1.7;
+    color: vars.$color-text;
+    margin: 0 0 1.5rem 0;
+    animation: fadeInUp 1s ease-out 0.4s forwards;
+    opacity: 0;
+
+    &:last-of-type {
+      margin-bottom: 2rem;
+      animation-delay: 0.6s;
+    }
+
+    @include breakpoint('md') {
+      @include font-size('body',"md");
+      line-height: 1.8;
+    }
+
+    @include breakpoint('lg') {
+      @include font-size('body',"lg");
+      line-height: 1.8;
+    }
+  }
+}
+
+.eventDate {
+  font-family: vars.$font-title;
+  color: vars.$color-primary;
+  font-weight: 400;
+  margin-bottom: 1.5rem !important;
+  @include font-size('h4', 'md');
+}
+
+.eventCta {
+  background-color: vars.$color-primary;
+  color: vars.$color-secondary;
+  border: none;
+  padding: 0.8rem 1rem;
+  font-family: vars.$font-sans;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  @include font-size('body', 'sm');
+  animation: fadeInUp 1s ease-out 0.8s forwards;
+  opacity: 0;
+  font-size: 0.8rem;
+
+  &:hover {
+    background-color: lighten(vars.$color-primary, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Section actualités
+.newsSection {
+  padding: vars.$spacing-xxl 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.newsContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  h2 {
+    font-family: vars.$font-title;
+    @include font-size('h2',"lg");
+    text-align: center;
+    color: vars.$color-primary;
+    margin: 0 0 3rem 0;
+    font-weight: 300;
+
+    @include breakpoint('md') {
+      @include font-size('h2',"lg");
+      margin-bottom: 4rem;
+    }
+  }
+}
+
+.newsGrid {
+  display: grid;
+  gap: 2rem;
+
+  @include breakpoint('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.newsCard {
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.newsImageContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.newsContent {
+  padding: 1.5rem;
+
+  h3 {
+    font-family: vars.$font-title;
+    @include font-size('h3', 'sm');
+    color: vars.$color-primary;
+    margin: 0 0 0.5rem 0;
+    font-weight: 400;
+  }
+
+  p {
+    font-family: vars.$font-sans;
+    @include font-size('body', 'sm');
+    color: vars.$color-text;
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.newsDate {
+  font-family: vars.$font-sans;
+  color: lighten(vars.$color-text, 20%);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1rem !important;
+}
