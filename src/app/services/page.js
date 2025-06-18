@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 export default function Services() {
   return (
-    <PageAnimation>
+    <>
       <main className={styles.servicesPage}>
         <section className={styles.hero}>
           <div className={styles.heroContent}>
@@ -157,6 +157,6 @@ export default function Services() {
           </div>
         </section>
       </main>
-    </PageAnimation>
+    </>
   )
 }

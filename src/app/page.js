@@ -8,7 +8,6 @@ import PageAnimation from '@/components/PageAnimation/PageAnimation'
 
 export default function Home() {
   return (
-    <PageAnimation>
       <div>
         <HeroSection />
         
@@ -104,6 +103,5 @@ export default function Home() {
           </div>
         </section>
       </div>
-    </PageAnimation>
   );
 }

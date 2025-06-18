@@ -5,7 +5,7 @@ import PageAnimation from '@/components/PageAnimation/PageAnimation'
 
 export default function Maison() {
   return (
-    <PageAnimation>
+    <>
       <main className={styles.maisonPage}>
         <section className={styles.hero}>
           <div className={styles.heroContent}>
@@ -64,7 +64,9 @@ export default function Maison() {
 
         <section className={styles.histoire}>
           <div className={styles.container}>
-            <h2>129 ans de joaillerie</h2>
+            <div className={styles.titleWrapper}>
+              <h2>129 ans de joaillerie</h2>
+            </div>
             
             <div className={styles.histoireContent}>
               <div className={styles.imageContent}>
@@ -234,6 +236,6 @@ export default function Maison() {
           </div>
         </section>
       </main>
-    </PageAnimation>
+    </>
   )
 }

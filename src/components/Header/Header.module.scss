@@ -155,7 +155,9 @@
     left: 0;
     width: 0;
     height: 2px;
-    background-color: vars.$color-primary;
+    background-image: url('/img/textures/gold-texture3.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
     transition: width 0.3s ease;
   }
 
@@ -200,6 +202,7 @@
   transition: all 0.3s ease;
   position: relative;
   flex-shrink: 0;
+  color: red;
 
   @include breakpoint('md') {
     width: 36px;
@@ -212,12 +215,12 @@
   }
 
   &:hover {
-    color: vars.$color-primary;
+    color:red;
     transform: translateY(-2px);
   }
 
   &.active {
-    color: vars.$color-primary;
+    color:red;
   }
 }
 

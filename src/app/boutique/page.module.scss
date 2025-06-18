@@ -53,6 +53,10 @@
     color: white;
     max-width: 1400px;
     padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 
     @include breakpoint('md') {
         padding: 0 3rem;
@@ -70,6 +74,15 @@
     }
 }
 
+@keyframes expandLine {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
 .heroTitle {
     font-family: vars.$font-title;
     @include font-size('h1',"md");
@@ -79,6 +92,21 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     color: white;
     animation: fadeInUp 1.2s ease-out forwards;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-image: url('/img/textures/gold-texture3.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: expandLine 1.5s ease-out 0.6s forwards;
+    }
 
     @include breakpoint('md') {
         @include font-size('h1',"md");
