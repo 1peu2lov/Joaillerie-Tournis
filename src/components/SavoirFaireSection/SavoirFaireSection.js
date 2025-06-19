@@ -8,7 +8,8 @@ const savoirFaireList = [
   { title: 'Transformations', description: 'Redonnez vie à vos bijoux anciens avec une transformation sur-mesure.', cta: 'En savoir plus', href: '/transformations', bg: '/img/savoir-faire/transformations.jpg' },
   { title: 'Réparations', description: 'Un savoir-faire de précision pour réparer vos bijoux abîmés ou cassés.', cta: 'Nos services', href: '/reparations', bg: '/img/savoir-faire/reparations.jpg' },
   { title: 'Collection Pierres', description: 'Découvrez notre sélection de pierres précieuses prêtes à sublimer vos créations.', cta: 'Voir la collection', href: '/pierres', bg: '/img/savoir-faire/pierres.jpg' },
-  { title: 'Expertises', description: 'Faites évaluer vos bijoux par des experts de confiance, discrets et rigoureux.', cta: 'Prendre rendez-vous', href: '/expertises', bg: '/img/savoir-faire/expertises.jpg' }
+  { title: 'Expertises', description: 'Faites évaluer vos bijoux par des experts de confiance, discrets et rigoureux.', cta: 'Prendre rendez-vous', href: '/expertises', bg: '/img/savoir-faire/expertises.jpg' },
+  { title: 'Conseils & Garanties', description: 'Découvrez nos conseils d\'entretien et nos garanties pour préserver vos bijoux.', cta: 'Nos conseils', href: '/conseils', bg: '/img/expert.jpg' }
 ]
 
 export default function SavoirFaireSection() {
