@@ -137,11 +137,6 @@ export default function ProductPage() {
                             </div>
                         </div>
 
-                        {product.isRecycled && (
-                            <div className={styles.recycled}>
-                                ♻️ Matériaux recyclés
-                            </div>
-                        )}
                     </div>
 
                     <button 

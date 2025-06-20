@@ -17,7 +17,7 @@ export default function Footer() {
         <div className={styles.column}>
           <h4>Service client</h4>
           <ul>
-            <li><Link href="/nous-contacter">Nous contacter</Link></li>
+            <li><Link href="/contact">Nous contacter</Link></li>
             <li><Link href="/rendez-vous">Prendre rendez-vous</Link></li>
           </ul>
         </div>
