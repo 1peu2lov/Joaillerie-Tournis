@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './CreationsCarousel.module.scss'
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import productsData from '@/data/products.json'
@@ -18,7 +18,12 @@ export default function CreationsCarousel() {
     const [startX, setStartX] = useState(0)
     const [currentX, setCurrentX] = useState(0)
     const [translateOffset, setTranslateOffset] = useState(0)
-    const [justDragged, setJustDragged] = useState(false) // Flag pour empêcher la navigation après drag
+    const [justDragged, setJustDragged] = useState(false)
+
+    // Refs pour maintenir les valeurs à jour dans les écouteurs d'événements
+    const isDraggingRef = useRef(false)
+    const startXRef = useRef(0)
+    const currentXRef = useRef(0)
 
     // Sélectionner les 8 premiers produits comme produits vedettes
     useEffect(() => {
@@ -30,15 +35,15 @@ export default function CreationsCarousel() {
     useEffect(() => {
         const updateCardsPerView = () => {
             if (window.innerWidth >= 1400) {
-                setCardsPerView(4) // Desktop large
+                setCardsPerView(4)
             } else if (window.innerWidth >= 1024) {
-                setCardsPerView(3) // Desktop
+                setCardsPerView(3)
             } else if (window.innerWidth >= 992) {
-                setCardsPerView(2) // Desktop
+                setCardsPerView(2)
             } else if (window.innerWidth >= 768) {
-                setCardsPerView(2) // Tablet
+                setCardsPerView(2)
             } else {
-                setCardsPerView(1) // Mobile
+                setCardsPerView(1)
             }
         }
 
@@ -85,32 +90,52 @@ export default function CreationsCarousel() {
         setTimeout(() => setIsAutoPlaying(true), 10000)
     }
 
-    // Touch/Mouse event handlers with useCallback to stabilize references
-    const handleEnd = useCallback(() => {
-        if (!isDragging) return
+    // Touch/Mouse event handlers
+    const handleStart = (clientX) => {
+        setIsDragging(true)
+        setStartX(clientX)
+        setCurrentX(clientX)
+        setIsAutoPlaying(false)
         
-        const deltaX = currentX - startX
+        // Mettre à jour les refs
+        isDraggingRef.current = true
+        startXRef.current = clientX
+        currentXRef.current = clientX
+    }
+
+    const handleMove = (clientX) => {
+        if (!isDraggingRef.current) return
+        
+        setCurrentX(clientX)
+        currentXRef.current = clientX
+        
+        const deltaX = clientX - startXRef.current
         const containerWidth = carouselRef.current?.offsetWidth || 0
-        const threshold = containerWidth * 0.2 // 20% of container width
+        const translatePercentage = (deltaX / containerWidth) * 100
+        setTranslateOffset(translatePercentage)
+    }
+
+    const handleEnd = () => {
+        if (!isDraggingRef.current) return
         
-        // Détecter si un drag significatif a eu lieu (même plus petit que le seuil de navigation)
-        const dragThreshold = 5 // pixels - seuil minimal pour considérer qu'il y a eu un drag
+        const deltaX = currentXRef.current - startXRef.current
+        const containerWidth = carouselRef.current?.offsetWidth || 0
+        const threshold = containerWidth * 0.2
+        
+        // Seuil plus élevé pour mobile pour permettre les clics
+        const dragThreshold = window.innerWidth < 768 ? 15 : 5
         const hasDragged = Math.abs(deltaX) > dragThreshold
         
         if (Math.abs(deltaX) > threshold) {
             if (deltaX > 0 && currentIndex > 0) {
-                // Swipe right - go to previous
                 setCurrentIndex(prev => prev <= 0 ? maxIndex : prev - 1)
             } else if (deltaX < 0 && currentIndex < maxIndex) {
-                // Swipe left - go to next
                 setCurrentIndex(prev => prev >= maxIndex ? 0 : prev + 1)
             }
         }
         
-        // Si il y a eu un drag, même petit, on empêche la navigation
         if (hasDragged) {
             setJustDragged(true)
-            // Réinitialiser le flag après un court délai
             setTimeout(() => setJustDragged(false), 100)
         }
         
@@ -118,53 +143,9 @@ export default function CreationsCarousel() {
         setTranslateOffset(0)
         setIsAutoPlaying(false)
         setTimeout(() => setIsAutoPlaying(true), 5000)
-    }, [isDragging, currentX, startX, currentIndex, maxIndex])
-
-    const handleMouseMove = useCallback((e) => {
-        if (!isDragging) return
         
-        setCurrentX(e.clientX)
-        const deltaX = e.clientX - startX
-        const containerWidth = carouselRef.current?.offsetWidth || 0
-        const translatePercentage = (deltaX / containerWidth) * 100
-        setTranslateOffset(translatePercentage)
-    }, [isDragging, startX])
-
-    const handleMouseUp = useCallback(() => {
-        handleEnd()
-    }, [handleEnd])
-
-    const handleStart = (clientX) => {
-        setIsDragging(true)
-        setStartX(clientX)
-        setCurrentX(clientX)
-        setIsAutoPlaying(false)
-    }
-
-    const handleMove = (clientX) => {
-        if (!isDragging) return
-        
-        setCurrentX(clientX)
-        const deltaX = clientX - startX
-        const containerWidth = carouselRef.current?.offsetWidth || 0
-        const translatePercentage = (deltaX / containerWidth) * 100
-        setTranslateOffset(translatePercentage)
-    }
-
-    // Touch events
-    const handleTouchStart = (e) => {
-        e.preventDefault()
-        handleStart(e.touches[0].clientX)
-    }
-
-    const handleTouchMove = (e) => {
-        e.preventDefault()
-        handleMove(e.touches[0].clientX)
-    }
-
-    const handleTouchEnd = (e) => {
-        e.preventDefault()
-        handleEnd()
+        // Mettre à jour les refs
+        isDraggingRef.current = false
     }
 
     // Mouse events
@@ -173,7 +154,31 @@ export default function CreationsCarousel() {
         handleStart(e.clientX)
     }
 
-    // Fonction pour gérer les clics sur les liens et empêcher la navigation après drag
+    const handleMouseMove = (e) => {
+        if (!isDraggingRef.current) return
+        
+        setCurrentX(e.clientX)
+        currentXRef.current = e.clientX
+        
+        const deltaX = e.clientX - startXRef.current
+        const containerWidth = carouselRef.current?.offsetWidth || 0
+        const translatePercentage = (deltaX / containerWidth) * 100
+        setTranslateOffset(translatePercentage)
+    }
+
+    const handleMouseUp = () => {
+        handleEnd()
+    }
+
+    const handleMouseLeave = () => {
+        if (isDragging) {
+            handleEnd()
+        } else {
+            setIsAutoPlaying(true)
+        }
+    }
+
+    // Fonction pour gérer les clics sur les liens
     const handleLinkClick = (e) => {
         if (justDragged) {
             e.preventDefault()
@@ -184,8 +189,8 @@ export default function CreationsCarousel() {
     // Add mouse move/up listeners globally when dragging
     useEffect(() => {
         if (isDragging) {
-            document.addEventListener('mousemove', handleMouseMove, { passive: false })
-            document.addEventListener('mouseup', handleMouseUp, { passive: false })
+            document.addEventListener('mousemove', handleMouseMove)
+            document.addEventListener('mouseup', handleMouseUp)
             
             return () => {
                 document.removeEventListener('mousemove', handleMouseMove)
@@ -193,6 +198,37 @@ export default function CreationsCarousel() {
             }
         }
     }, [isDragging, handleMouseMove, handleMouseUp])
+
+    // Add touch event listeners with passive: false
+    useEffect(() => {
+        const carousel = carouselRef.current
+        if (!carousel) return
+
+        const handleTouchStartNative = (e) => {
+            handleStart(e.touches[0].clientX)
+        }
+
+        const handleTouchMoveNative = (e) => {
+            if (isDraggingRef.current) {
+                e.preventDefault()
+            }
+            handleMove(e.touches[0].clientX)
+        }
+
+        const handleTouchEndNative = () => {
+            handleEnd()
+        }
+
+        carousel.addEventListener('touchstart', handleTouchStartNative, { passive: false })
+        carousel.addEventListener('touchmove', handleTouchMoveNative, { passive: false })
+        carousel.addEventListener('touchend', handleTouchEndNative, { passive: false })
+
+        return () => {
+            carousel.removeEventListener('touchstart', handleTouchStartNative)
+            carousel.removeEventListener('touchmove', handleTouchMoveNative)
+            carousel.removeEventListener('touchend', handleTouchEndNative)
+        }
+    }, [handleStart, handleMove, handleEnd])
 
     if (featuredProducts.length === 0) {
         return <div className={styles.loading}>Chargement...</div>
@@ -208,16 +244,7 @@ export default function CreationsCarousel() {
                 className={styles.carousel}
                 ref={carouselRef}
                 onMouseEnter={() => !isDragging && setIsAutoPlaying(false)}
-                onMouseLeave={() => {
-                    if (isDragging) {
-                        handleEnd()
-                    } else {
-                        setIsAutoPlaying(true)
-                    }
-                }}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
+                onMouseLeave={handleMouseLeave}
                 onMouseDown={handleMouseDown}
                 style={{
                     cursor: isDragging ? 'grabbing' : 'grab',
@@ -304,4 +331,4 @@ export default function CreationsCarousel() {
             )}
         </div>
     )
-} 
+}

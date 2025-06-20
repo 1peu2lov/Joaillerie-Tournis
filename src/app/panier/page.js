@@ -80,7 +80,7 @@ export default function PanierPage() {
         return (
             <div className={styles.emptyCart}>
                 <div className={styles.emptyCartContent}>
-                    <div className={styles.emptyCartIcon}>🛒</div>
+                    <div className={styles.emptyCartIcon}><Image src="/icons/cadie.svg" alt="Panier" width={100} height={100} /></div>
                     <h1>Votre panier est vide</h1>
                     <p>Découvrez nos créations et ajoutez vos bijoux préférés à votre panier</p>
                     <Link href="/boutique" className={styles.continueShopping}>

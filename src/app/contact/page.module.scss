@@ -160,7 +160,7 @@
 
   h3 {
     @include font-size('h3', 'sm');
-    font-family: vars.$font-title;
+    font-family: vars.$font-head-title;
     margin-bottom: vars.$spacing-lg;
     font-weight: 400;
     text-align: center;

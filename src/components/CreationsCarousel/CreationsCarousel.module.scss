@@ -73,6 +73,8 @@
     color: inherit;
     position: relative;
     overflow: hidden;
+    
+
 
     @include breakpoint('md') {
     }
@@ -86,6 +88,8 @@
     background: linear-gradient(135deg, #f8f9fa 0%, #dee2e6 100%);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.4s ease;
+    
+
 
     @include breakpoint('md') {
     }

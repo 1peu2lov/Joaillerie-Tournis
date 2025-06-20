@@ -67,7 +67,7 @@
   padding: 0 vars.$spacing-lg;
 
   h1 {
-    font-family: vars.$font-title;
+    font-family: vars.$font-head-title;
     @include font-size('h1', 'lg');
     margin-bottom: 1.8rem;
     color: vars.$color-secondary;

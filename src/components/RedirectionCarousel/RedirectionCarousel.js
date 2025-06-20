@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import styles from './RedirectionCarousel.module.scss'
 import Link from 'next/link'
 
@@ -28,11 +28,11 @@ const items = [
     cta: 'Découvrir', 
     image: '/img/histoire/hero-img.JPG' },
 
-  { title: 'Expertise & Évaluation', 
-    description: 'Faites évaluer vos bijoux par nos experts certifiés.', 
-    link: '/expertises',
-     cta: 'Expertiser', 
-     image: '/img/savoir-faire/expertises.jpg' }
+  { title: 'Mariage', 
+    description: 'Créations uniques pour votre jour J, alliances et bijoux sur mesure.', 
+    link: '/mariage',
+     cta: 'Découvrir', 
+     image: '/img/mariage.jpeg' }
 ]
 
 export default function RedirectionCarousel() {
@@ -45,8 +45,14 @@ export default function RedirectionCarousel() {
   const [startX, setStartX] = useState(0)
   const [currentX, setCurrentX] = useState(0)
   const [translateOffset, setTranslateOffset] = useState(0)
+  const [justDragged, setJustDragged] = useState(false)
   
   const carouselRef = useRef(null)
+
+  // Refs pour maintenir les valeurs à jour dans les écouteurs d'événements
+  const isDraggingRef = useRef(false)
+  const startXRef = useRef(0)
+  const currentXRef = useRef(0)
 
   // Detect screen size and set items per view
   useEffect(() => {
@@ -105,24 +111,35 @@ export default function RedirectionCarousel() {
     setStartX(clientX)
     setCurrentX(clientX)
     setIsAutoPlay(false)
+    
+    // Mettre à jour les refs
+    isDraggingRef.current = true
+    startXRef.current = clientX
+    currentXRef.current = clientX
   }
 
   const handleMove = (clientX) => {
-    if (!isDragging) return
+    if (!isDraggingRef.current) return
     
     setCurrentX(clientX)
-    const deltaX = clientX - startX
+    currentXRef.current = clientX
+    
+    const deltaX = clientX - startXRef.current
     const containerWidth = carouselRef.current?.offsetWidth || 0
     const translatePercentage = (deltaX / containerWidth) * 100
     setTranslateOffset(translatePercentage)
   }
 
   const handleEnd = () => {
-    if (!isDragging) return
+    if (!isDraggingRef.current) return
     
-    const deltaX = currentX - startX
+    const deltaX = currentXRef.current - startXRef.current
     const containerWidth = carouselRef.current?.offsetWidth || 0
     const threshold = containerWidth * 0.2 // 20% of container width
+    
+    // Seuil plus élevé pour mobile pour permettre les clics
+    const dragThreshold = window.innerWidth < 768 ? 15 : 5
+    const hasDragged = Math.abs(deltaX) > dragThreshold
     
     if (Math.abs(deltaX) > threshold) {
       if (deltaX > 0 && currentIndex > 0) {
@@ -134,41 +151,53 @@ export default function RedirectionCarousel() {
       }
     }
     
+    // Si il y a eu un drag, même petit, on empêche la navigation
+    if (hasDragged) {
+      setJustDragged(true)
+      setTimeout(() => setJustDragged(false), 100)
+    }
+    
     setIsDragging(false)
     setTranslateOffset(0)
     setTimeout(() => setIsAutoPlay(true), 5000)
-  }
-
-  // Touch events
-  const handleTouchStart = (e) => {
-    handleStart(e.touches[0].clientX)
-  }
-
-  const handleTouchMove = (e) => {
-    e.preventDefault()
-    handleMove(e.touches[0].clientX)
-  }
-
-  const handleTouchEnd = () => {
-    handleEnd()
+    
+    // Mettre à jour les refs
+    isDraggingRef.current = false
   }
 
   // Mouse events
   const handleMouseDown = (e) => {
+    e.preventDefault()
     handleStart(e.clientX)
   }
 
-  const handleMouseMove = useCallback((e) => {
-    handleMove(e.clientX)
-  }, [startX, currentX, isDragging])
+  const handleMouseMove = (e) => {
+    if (!isDraggingRef.current) return
+    
+    setCurrentX(e.clientX)
+    currentXRef.current = e.clientX
+    
+    const deltaX = e.clientX - startXRef.current
+    const containerWidth = carouselRef.current?.offsetWidth || 0
+    const translatePercentage = (deltaX / containerWidth) * 100
+    setTranslateOffset(translatePercentage)
+  }
 
-  const handleMouseUp = useCallback(() => {
+  const handleMouseUp = () => {
     handleEnd()
-  }, [currentX, startX, isDragging, currentIndex, maxIndex])
+  }
 
   const handleMouseLeave = () => {
     if (isDragging) {
       handleEnd()
+    }
+  }
+
+  // Fonction pour gérer les clics sur les liens
+  const handleLinkClick = (e) => {
+    if (justDragged) {
+      e.preventDefault()
+      return false
     }
   }
 
@@ -183,7 +212,38 @@ export default function RedirectionCarousel() {
         document.removeEventListener('mouseup', handleMouseUp)
       }
     }
-  }, [isDragging, startX, currentX, handleMouseMove, handleMouseUp])
+  }, [isDragging, handleMouseMove, handleMouseUp])
+
+  // Add touch event listeners with passive: false
+  useEffect(() => {
+    const carousel = carouselRef.current
+    if (!carousel) return
+
+    const handleTouchStartNative = (e) => {
+      handleStart(e.touches[0].clientX)
+    }
+
+    const handleTouchMoveNative = (e) => {
+      if (isDraggingRef.current) {
+        e.preventDefault()
+      }
+      handleMove(e.touches[0].clientX)
+    }
+
+    const handleTouchEndNative = () => {
+      handleEnd()
+    }
+
+    carousel.addEventListener('touchstart', handleTouchStartNative, { passive: false })
+    carousel.addEventListener('touchmove', handleTouchMoveNative, { passive: false })
+    carousel.addEventListener('touchend', handleTouchEndNative, { passive: false })
+
+    return () => {
+      carousel.removeEventListener('touchstart', handleTouchStartNative)
+      carousel.removeEventListener('touchmove', handleTouchMoveNative)
+      carousel.removeEventListener('touchend', handleTouchEndNative)
+    }
+  }, [handleStart, handleMove, handleEnd])
 
   // Simple percentage-based translation (like CreationsCarousel)
   const baseTranslatePercentage = -(currentIndex * (100 / itemsPerView))
@@ -216,23 +276,29 @@ export default function RedirectionCarousel() {
         <div 
           className={styles.scrollContainer}
           ref={carouselRef}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
+          style={{
+            cursor: isDragging ? 'grabbing' : 'grab',
+            userSelect: isDragging ? 'none' : 'auto',
+            WebkitUserSelect: isDragging ? 'none' : 'auto',
+            touchAction: 'pan-y pinch-zoom'
+          }}
         >
           <div 
             className={styles.carouselTrack}
             style={{ 
               transform: `translateX(${finalTranslatePercentage}%)`,
-              transition: isDragging ? 'none' : 'transform 0.5s ease-in-out'
+              transition: isDragging ? 'none' : 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
+              willChange: 'transform'
             }}
           >
             {items.map((item, index) => (
-              <article
+              <Link
                 key={index}
+                href={item.link}
                 className={styles.card}
+                onClick={handleLinkClick}
               >
                 <div 
                   className={styles.cardInner}
@@ -240,11 +306,11 @@ export default function RedirectionCarousel() {
                 >
                   <h2>{item.title}</h2>
                   <p>{item.description}</p>
-                  <Link href={item.link} className={styles.cta}>
+                  <span className={styles.cta}>
                     {item.cta}
-                  </Link>
+                  </span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

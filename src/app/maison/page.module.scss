@@ -64,7 +64,7 @@
 
   h1 {
     @include font-size('h1',"md");
-    font-family: vars.$font-title;
+    font-family: vars.$font-head-title;
     color: vars.$color-secondary;
     line-height: 1.2;
     font-weight: 400;
@@ -73,6 +73,7 @@
     margin: 0 auto;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
     animation: fadeInUp 1.2s ease-out forwards;
+    letter-spacing: 1px;
 
     @include breakpoint('md') {
       @include font-size('h1',"md");
@@ -428,7 +429,7 @@
   font-family: vars.$font-title;
   font-weight: 400;
   margin-bottom: vars.$spacing-xl;
-  font-size: 2rem;
+  font-size: 1.5rem;
   letter-spacing: 1px;
   animation: fadeInUp 1s ease-out 0.2s forwards;
   opacity: 0;

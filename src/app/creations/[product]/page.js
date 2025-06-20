@@ -114,11 +114,6 @@ export default function CreationPage() {
                             </div>
                         </div>
 
-                        {product.isRecycled && (
-                            <div className={styles.recycled}>
-                                ♻️ Matériaux recyclés
-                            </div>
-                        )}
                     </div>
 
                     <div className={styles.creationActions}>
@@ -126,7 +121,9 @@ export default function CreationPage() {
                             Cette création vous intéresse ? Contactez-nous pour plus d&apos;informations.
                         </p>
                         <button className={styles.contactButton}>
-                            Nous contacter
+                            <Link href="/rendez-vous">
+                                Prendre rendez-vous
+                            </Link>
                         </button>
                     </div>
                 </div>

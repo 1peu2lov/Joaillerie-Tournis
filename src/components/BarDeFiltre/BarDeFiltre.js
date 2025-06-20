@@ -1,6 +1,7 @@
 'use client'
 import styles from './BarDeFiltre.module.scss'
-import { useState, useEffect, forwardRef, useImperativeHandle } from 'react'
+import { useState, useEffect, forwardRef, useImperativeHandle, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import useWindowWidth from '@/app/hooks/useWindowsWidth'
 import Image from 'next/image'
 
@@ -29,6 +30,16 @@ export const BarDeFiltre = forwardRef(({
     const windowWidth = useWindowWidth();
     const isMobile = windowWidth < 1024;
     const [showStickyButton, setShowStickyButton] = useState(false);
+    const filterWrapperRef = useRef(null);
+    
+    // États pour les sections déroulantes
+    const [sectionsOpen, setSectionsOpen] = useState({
+        prix: false,
+        categories: false,
+        pierres: false,
+        materiaux: false,
+        couleurs: false
+    });
 
     const scrollToGrid = () => {
         if (gridVisibilityRef?.current) {
@@ -87,6 +98,13 @@ export const BarDeFiltre = forwardRef(({
         scrollToGrid();
     };
 
+    const toggleSection = (sectionName) => {
+        setSectionsOpen(prev => ({
+            ...prev,
+            [sectionName]: !prev[sectionName]
+        }));
+    };
+
     useImperativeHandle(ref, () => ({
         resetFilters: handleResetFilters
     }));
@@ -107,8 +125,28 @@ export const BarDeFiltre = forwardRef(({
         return () => observer.disconnect();
     }, [gridVisibilityRef]);
 
+    // Fermer le filtre quand on clique à l'extérieur (seulement en mobile)
+    useEffect(() => {
+        if (!isMobile || !isOpen) return;
+
+        const handleClickOutside = (event) => {
+            if (filterWrapperRef.current && !filterWrapperRef.current.contains(event.target)) {
+                onToggle();
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMobile, isOpen, onToggle]);
+
     return (
-        <div className={`${styles.filterWrapper} ${isOpen ? styles.open : styles.closed}`}>
+        <div className={`${styles.filterWrapper} ${isOpen ? styles.open : styles.closed}`} ref={filterWrapperRef}>
+            {/* Overlay cliquable pour fermer le filtre */}
+            {isMobile && isOpen && (
+                <div className={styles.overlay} onClick={onToggle} />
+            )}
             <form 
                 className={styles.barDeFiltreContainer}
                 style={windowWidth > 1000 ? {
@@ -119,146 +157,213 @@ export const BarDeFiltre = forwardRef(({
                     overflowY: 'auto',
                   }}
                 >
-                {showCategories && (
+                {showPriceFilter && (
                     <div className={styles.filtreSection}>
-                        <div className={styles.titleContainer}>
-                            <Image src="/images/icon-bague.svg" alt="Catégories" width={30} height={30} />
-                            <h3>Catégories</h3>
+                        <div className={styles.titleContainer} onClick={() => toggleSection('prix')}>
+                            <h3>Prix</h3>
+                            <span className={`${styles.arrow} ${sectionsOpen.prix ? styles.open : ''}`}>
+                                &gt;
+                            </span>
                         </div>
-                        <div className={styles.optionsContainer}>
-                            {['alliance', 'bracelet', 'collier', 'boucles','bague'].map(cat => (
-                                <label key={cat}>
-                                    <input 
-                                        type="checkbox"
-                                        onChange={() => handleChange('categories', cat)}
-                                        checked={tempFiltres.categories.includes(cat)}
-                                    />
-                                    {cat.charAt(0).toUpperCase() + cat.slice(1)}
-                                </label>
-                            ))}
-                        </div>
+                        <AnimatePresence>
+                            {sectionsOpen.prix && (
+                                <motion.div 
+                                    className={styles.priceRangeContainer}
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: "auto" }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                >
+                                    <div className={styles.priceInputs}>
+                                        <input
+                                            type="number"
+                                            value={tempFiltres.prix.min}
+                                            onChange={(e) => handlePriceChange('min', e.target.value)}
+                                            min="0"
+                                            max={tempFiltres.prix.max}
+                                        />
+                                        <span>€</span>
+                                        <input
+                                            type="number"
+                                            value={tempFiltres.prix.max}
+                                            onChange={(e) => handlePriceChange('max', e.target.value)}
+                                            min={tempFiltres.prix.min}
+                                            max="3500"
+                                        />
+                                        <span>€</span>
+                                    </div>
+                                    <div className={styles.rangeSliders}>
+                                        <input
+                                            type="range"
+                                            value={tempFiltres.prix.min}
+                                            onChange={(e) => handlePriceChange('min', e.target.value)}
+                                            min="0"
+                                            max="3500"
+                                        />
+                                        <input
+                                            type="range"
+                                            value={tempFiltres.prix.max}
+                                            onChange={(e) => handlePriceChange('max', e.target.value)}
+                                            min="0"
+                                            max="3500"
+                                        />
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
                 )}
 
-                {showPriceFilter && (
+                {showCategories && (
                     <div className={styles.filtreSection}>
-                        <div className={styles.titleContainer}>
-                            <h3>Prix</h3>
+                        <div className={styles.titleContainer} onClick={() => toggleSection('categories')}>
+                            <Image src="/icons/filtre/bague.svg" alt="Catégories" width={30} height={30} />
+                            <h3>Catégories</h3>
+                            <span className={`${styles.arrow} ${sectionsOpen.categories ? styles.open : ''}`}>
+                                &gt;
+                            </span>
                         </div>
-                        <div className={styles.priceRangeContainer}>
-                            <div className={styles.priceInputs}>
-                                <input
-                                    type="number"
-                                    value={tempFiltres.prix.min}
-                                    onChange={(e) => handlePriceChange('min', e.target.value)}
-                                    min="0"
-                                    max={tempFiltres.prix.max}
-                                />
-                                <span>€</span>
-                                <input
-                                    type="number"
-                                    value={tempFiltres.prix.max}
-                                    onChange={(e) => handlePriceChange('max', e.target.value)}
-                                    min={tempFiltres.prix.min}
-                                    max="3500"
-                                />
-                                <span>€</span>
-                            </div>
-                            <div className={styles.rangeSliders}>
-                                <input
-                                    type="range"
-                                    value={tempFiltres.prix.min}
-                                    onChange={(e) => handlePriceChange('min', e.target.value)}
-                                    min="0"
-                                    max="3500"
-                                />
-                                <input
-                                    type="range"
-                                    value={tempFiltres.prix.max}
-                                    onChange={(e) => handlePriceChange('max', e.target.value)}
-                                    min="0"
-                                    max="3500"
-                                />
-                            </div>
-                        </div>
+                        <AnimatePresence>
+                            {sectionsOpen.categories && (
+                                <motion.div 
+                                    className={styles.optionsContainer}
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: "auto" }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                >
+                                    {['alliance', 'bracelet', 'collier', 'boucles','bague'].map(cat => (
+                                        <label key={cat}>
+                                            <input 
+                                                type="checkbox"
+                                                onChange={() => handleChange('categories', cat)}
+                                                checked={tempFiltres.categories.includes(cat)}
+                                            />
+                                            {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                                        </label>
+                                    ))}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
                 )}
 
                 {showStones && (
                     <div className={styles.filtreSection}>
-                        <div className={styles.titleContainer}>
-                            <Image src="/images/icon-pierre.svg" alt="Catégories" width={30} height={30} />
+                        <div className={styles.titleContainer} onClick={() => toggleSection('pierres')}>
+                            <Image src="/icons/filtre/pierre.svg" alt="Catégories" width={30} height={30} />
                             <h3>Pierres</h3>
+                            <span className={`${styles.arrow} ${sectionsOpen.pierres ? styles.open : ''}`}>
+                                &gt;
+                            </span>
                         </div>
-                        <div className={styles.optionsContainer}>
-                            {['Diamant', 'Rubis', 'Saphir', 'Émeraude', 'Perle'].map(pierre => (
-                                <label key={pierre}>
-                                    <input 
-                                        type="checkbox"
-                                        onChange={() => handleChange('pierres', pierre)}
-                                        checked={tempFiltres.pierres.includes(pierre)}
-                                    />
-                                    {pierre}
-                                </label>
-                            ))}
-                        </div>
+                        <AnimatePresence>
+                            {sectionsOpen.pierres && (
+                                <motion.div 
+                                    className={styles.optionsContainer}
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: "auto" }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                >
+                                    {['Diamant', 'Rubis', 'Saphir', 'Émeraude', 'Perle'].map(pierre => (
+                                        <label key={pierre}>
+                                            <input 
+                                                type="checkbox"
+                                                onChange={() => handleChange('pierres', pierre)}
+                                                checked={tempFiltres.pierres.includes(pierre)}
+                                            />
+                                            {pierre}
+                                        </label>
+                                    ))}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
                 )}
 
                 {showMaterials && (
                     <div className={styles.filtreSection}>
-                        <div className={styles.titleContainer}>
-                            <Image src="/images/icon-metal.svg" alt="Catégories" width={30} height={30} />
+                        <div className={styles.titleContainer} onClick={() => toggleSection('materiaux')}>
+                            <Image src="/icons/filtre/metal.svg" alt="Catégories" width={30} height={30} />
                             <h3>Matériaux</h3>
+                            <span className={`${styles.arrow} ${sectionsOpen.materiaux ? styles.open : ''}`}>
+                                &gt;
+                            </span>
                         </div>
-                        <div className={styles.optionsContainer}>
-                            {[
-                                'Or blanc 18 carats',
-                                'Or jaune 18 carats',
-                                'Or rose 18 carats',
-                                'Platine',
-                                'Argent 925'
-                            ].map(materiau => (
-                                <label key={materiau}>
-                                    <input 
-                                        type="checkbox"
-                                        onChange={() => handleChange('materiaux', materiau)}
-                                        checked={tempFiltres.materiaux.includes(materiau)}
-                                    />
-                                    {materiau}
-                                </label>
-                            ))}
-                        </div>
+                        <AnimatePresence>
+                            {sectionsOpen.materiaux && (
+                                <motion.div 
+                                    className={styles.optionsContainer}
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: "auto" }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                >
+                                    {[
+                                        'Or blanc 18 carats',
+                                        'Or jaune 18 carats',
+                                        'Or rose 18 carats',
+                                        'Platine',
+                                        'Argent 925'
+                                    ].map(materiau => (
+                                        <label key={materiau}>
+                                            <input 
+                                                type="checkbox"
+                                                onChange={() => handleChange('materiaux', materiau)}
+                                                checked={tempFiltres.materiaux.includes(materiau)}
+                                            />
+                                            {materiau}
+                                        </label>
+                                    ))}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
                 )}
 
                 {showColors && (
                     <div className={styles.filtreSection}>
-                        <h3>Couleurs</h3>
-                        <div className={styles.optionsContainer}>
-                            {[
-                                { value: '#FFFFFF', label: 'Blanc' },
-                                { value: '#FFD700', label: 'Or' },
-                                { value: '#C0C0C0', label: 'Argent' },
-                                { value: '#FFB6C1', label: 'Rose' },
-                                { value: '#FF0000', label: 'Rouge' },
-                                { value: '#0000FF', label: 'Bleu' },
-                                { value: '#50C878', label: 'Vert' }
-                            ].map(couleur => (
-                                <label key={couleur.value}>
-                                    <input 
-                                        type="checkbox"
-                                        onChange={() => handleChange('couleurs', couleur.value)}
-                                        checked={tempFiltres.couleurs.includes(couleur.value)}
-                                    />
-                                    <span 
-                                        className={styles.colorSwatch} 
-                                        style={{ backgroundColor: couleur.value }}
-                                    />
-                                    {couleur.label}
-                                </label>
-                            ))}
+                        <div className={styles.titleContainer} onClick={() => toggleSection('couleurs')}>
+                            <h3>Couleurs</h3>
+                            <span className={`${styles.arrow} ${sectionsOpen.couleurs ? styles.open : ''}`}>
+                                &gt;
+                            </span>
                         </div>
+                        <AnimatePresence>
+                            {sectionsOpen.couleurs && (
+                                <motion.div 
+                                    className={styles.optionsContainer}
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: "auto" }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                >
+                                    {[
+                                        { value: '#FFFFFF', label: 'Blanc' },
+                                        { value: '#FFD700', label: 'Or' },
+                                        { value: '#C0C0C0', label: 'Argent' },
+                                        { value: '#FFB6C1', label: 'Rose' },
+                                        { value: '#FF0000', label: 'Rouge' },
+                                        { value: '#0000FF', label: 'Bleu' },
+                                        { value: '#50C878', label: 'Vert' }
+                                    ].map(couleur => (
+                                        <label key={couleur.value}>
+                                            <input 
+                                                type="checkbox"
+                                                onChange={() => handleChange('couleurs', couleur.value)}
+                                                checked={tempFiltres.couleurs.includes(couleur.value)}
+                                            />
+                                            <span 
+                                                className={styles.colorSwatch} 
+                                                style={{ backgroundColor: couleur.value }}
+                                            />
+                                            {couleur.label}
+                                        </label>
+                                    ))}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
                 )}
 
