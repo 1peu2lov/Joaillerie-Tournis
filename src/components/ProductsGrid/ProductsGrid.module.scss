@@ -28,6 +28,7 @@
 
     // Mobile (< 480px) : 1 colonne
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
     
     > * {
         grid-column: span 1;
@@ -91,10 +92,11 @@
     // Grand écran (>= 1280px) : 15 colonnes pour 5 cartes
     @include breakpoint('xl') {
         grid-template-columns: repeat(15, 1fr);
+        grid-template-rows: repeat(4, 1fr);
         
         > * {
             grid-column: span 5;
-            grid-row: span 0;
+            grid-row: span 1;
         }
         
         > *[data-variant='special'] {

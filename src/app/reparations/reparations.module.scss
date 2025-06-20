@@ -2,6 +2,27 @@
 @use '../../styles/abstracts/typography' as *;
 @use '../../styles/abstracts/breakpoints' as *;
 
+// Keyframes pour les animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 .reparationsPage {
   min-height: 100vh;
 }
@@ -45,18 +66,92 @@
   h1 {
     @include font-size('h1');
     font-family: vars.$font-title;
-    margin-bottom: vars.$spacing-md;
+    margin-bottom: 1.8rem;
     color: vars.$color-secondary;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    font-weight: 500;
+    animation: fadeInUp 1.2s ease-out forwards;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-image: url('/img/textures/gold-texture3.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      animation: expandLine 1.5s ease-out 0.6s forwards;
+    }
+  }
+}
+
+.heroNavigation {
+  position: absolute;
+  top: vars.$spacing-lg;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 vars.$spacing-lg;
+  z-index: 3;
+  pointer-events: none;
+
+  @include breakpoint('md') {
+    padding: 0 vars.$spacing-xl;
+  }
+}
+
+.navButton {
+  color: vars.$color-secondary;
+  text-decoration: none;
+  font-family: vars.$font-sans;
+  @include font-size('body', 'sm');
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding: vars.$spacing-xs 0;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-image: url('/img/textures/gold-texture3.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: vars.$color-secondary;
+    transform: translateY(-2px);
+
+    &::after {
+      width: 100%;
+    }
   }
 }
 
 .heroSubtitle {
   @include font-size('body');
   font-size: 1.2rem;
-  opacity: 0.9;
+  opacity: 0;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+  animation: fadeInUp 1.2s ease-out 0.3s forwards;
 }
 
 .container {

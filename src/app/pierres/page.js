@@ -2,16 +2,17 @@
 import { useState } from 'react'
 import styles from './pierres.module.scss'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const pierresParCouleur = {
   rouge: {
     title: "Pierres Rouges",
     description: "Symboles de passion et d'amour",
     pierres: [
-      { nom: "Rubis", origine: "Birmanie", caracteristique: "Sang-de-pigeon", image: "/img/pierres/rubis.jpg" },
-      { nom: "Grenat", origine: "Madagascar", caracteristique: "Rouge feu", image: "/img/pierres/grenat.jpg" },
-      { nom: "Tourmaline rouge", origine: "Brésil", caracteristique: "Rouge rosé", image: "/img/pierres/tourmaline-rouge.jpg" },
-      { nom: "Spinelle rouge", origine: "Myanmar", caracteristique: "Rouge pur", image: "/img/pierres/spinelle-rouge.jpg" }
+      { nom: "Rubis", origine: "Birmanie", caracteristique: "Sang-de-pigeon", image: "/img/pierres/rouge/rubis.JPG" },
+      { nom: "Almandin", origine: "Madagascar", caracteristique: "Rouge feu", image: "/img/pierres/rouge/almandin.JPG" },
+      { nom: "Rubellite rouge", origine: "Brésil", caracteristique: "Rouge rosé", image: "/img/pierres/rouge/rubellite.JPG" },
+      { nom: "Spinelle rouge", origine: "Myanmar", caracteristique: "Rouge pur", image: "/img/pierres/rouge/spinelle.JPG" }
     ]
   },
   bleu: {
@@ -72,6 +73,14 @@ export default function PierresPage() {
   return (
     <div className={styles.pierresPage}>
       <section className={styles.hero}>
+        <div className={styles.heroNavigation}>
+          <Link href="/reparations" className={styles.navButton}>
+            ← Réparations
+          </Link>
+          <Link href="/expertises" className={styles.navButton}>
+            Expertises →
+          </Link>
+        </div>
         <div className={styles.heroContent}>
           <h1>Collection Pierres</h1>
           <p className={styles.heroSubtitle}>
@@ -80,7 +89,7 @@ export default function PierresPage() {
         </div>
         <div className={styles.heroImage}>
           <Image 
-            src="/img/pierres.jpg" 
+            src="/img/pierres/pierres_head.jpeg" 
             alt="Collection de pierres précieuses" 
             fill
             style={{ objectFit: 'cover' }}
@@ -126,9 +135,8 @@ export default function PierresPage() {
                       width={300}
                       height={200}
                       style={{ objectFit: 'cover' }}
-                    
                     />
-                  </div>
+                  </div>  
                   <div className={styles.stoneInfo}>
                     <h4>{pierre.nom}</h4>
                     <div className={styles.stoneDetails}>
@@ -153,22 +161,66 @@ export default function PierresPage() {
                 Comment choisir un diamant pour une bague de fiançailles ? Que faut-il savoir avant 
                 de se lancer dans un tel achat ?
               </p>
+              
               <div className={styles.diamondCriteria}>
-                <h3>Les 4 critères d&apos;évaluation :</h3>
-                <ul>
-                  <li><strong>CARAT :</strong> Le poids en carats (Carats)</li>
-                  <li><strong>CUT :</strong> La taille (Cut)</li>
-                  <li><strong>COLOR :</strong> La couleur (Color)</li>
-                  <li><strong>CLARITY :</strong> La pureté (Clarity)</li>
-                </ul>
+                <div className={styles.criteriaItem}>
+                  <h3>CARAT</h3>
+                  <p>
+                    Le nombre de carats fait référence au poids. Plus le nombre de carats augmente, plus 
+                    le diamant est lourd et plus il a de valeur.
+                  </p>
+                  <p><strong>1 Carat = 0.20 grammes</strong></p>
+                </div>
+
+                <div className={styles.criteriaItem}>
+                  <h3>COULEUR (COLOR)</h3>
+                  <p>Plus un diamant est transparent, plus il a de valeur.</p>
+                  <p>
+                    La couleur est notée de D (parfaitement incolore) à Z (légèrement jaune). 
+                    Certains diamants colorés sont plus appréciés (rose, ...) qu&apos;apparaît où ils étaient 
+                    délaissés.
+                  </p>
+                </div>
+
+                <div className={styles.criteriaItem}>
+                  <h3>PURETÉ (CLARITY)</h3>
+                  <p>
+                    Plus un diamant est pur, c&apos;est-à-dire moins il contient d&apos;impuretés et plus il a de valeur. 
+                    Les impuretés sont aussi appelées inclusions.
+                  </p>
+                  <p>Voici l&apos;échelle qui permet de noter la pureté des diamants (du plus pur au moins pur) :</p>
+                  <ul>
+                    <li><strong>FL :</strong> pas de défaut interne ni externe visible à la loupe (10 fois).</li>
+                    <li><strong>IF :</strong> pas de défaut interne visible à la loupe (10 fois).</li>
+                    <li><strong>VVS1 et VVS2 :</strong> minuscules inclusions à peine visibles à la loupe (10 fois).</li>
+                    <li><strong>VS1 et VS2 :</strong> très petites inclusions visibles à la loupe (10 fois).</li>
+                    <li><strong>SI1 et SI2 :</strong> petites inclusions visibles à la loupe (10 fois).</li>
+                    <li><strong>P1 :</strong> inclusions invisibles à l&apos;œil nu mais visibles à la loupe (10 fois).</li>
+                    <li><strong>P2 :</strong> inclusions qui dégradent légèrement la brillance.</li>
+                    <li><strong>P3 :</strong> grandes et nombreuses inclusions visibles à l&apos;œil nu qui dégradent fortement la brillance.</li>
+                  </ul>
+                </div>
+
+                <div className={styles.criteriaItem}>
+                  <h3>TAILLE (CUT)</h3>
+                  <p>
+                    La taille du diamant fait référence à ses proportions, sa symétrie et son polissage. La 
+                    taille influence la manière dont la lumière est réfléchie.
+                  </p>
+                  <p>
+                    Quelle soit la forme c&apos;est la qualité de la taille qui va optimiser la brillance. Une 
+                    taille idéale diminue la quantité de lumière qui s&apos;échappe par la base et les côtés et 
+                    augmente la réflexion de la lumière.
+                  </p>
+                </div>
               </div>
             </div>
             <div className={styles.diamondImage}>
               <Image 
-                src="/img/pierres/diamant-chart.jpg" 
+                src="/img/pierres/4c.jpg" 
                 alt="Guide des 4C du diamant"
-                width={500}
-                height={400}
+                width={400}
+                height={500}
                 style={{ objectFit: 'contain' }}
               />
             </div>
@@ -182,7 +234,7 @@ export default function PierresPage() {
           <div className={styles.gemologistContent}>
             <div className={styles.gemologistImage}>
               <Image 
-                src="/img/gemmologue.jpg" 
+                src="/img/pierres/pierre_et_sophie.jpg" 
                 alt="Pierre-Frédéric et Sophie, gemmologues"
                 width={400}
                 height={300}

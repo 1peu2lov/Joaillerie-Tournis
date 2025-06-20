@@ -85,7 +85,9 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: vars.$color-primary;
+      background-image: url('/img/textures/gold-texture3.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
       animation: expandLine 1.5s ease-out 0.6s forwards;
     }
 
@@ -105,6 +107,58 @@
 
   @include breakpoint('md') {
     @include font-size('body', 'lg');
+  }
+}
+
+.heroNavigation {
+  position: absolute;
+  top: vars.$spacing-lg;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 vars.$spacing-lg;
+  z-index: 3;
+  pointer-events: none;
+
+  @include breakpoint('md') {
+    padding: 0 vars.$spacing-xl;
+  }
+}
+
+.navButton {
+  color: vars.$color-secondary;
+  text-decoration: none;
+  font-family: vars.$font-sans;
+  @include font-size('body', 'sm');
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding: vars.$spacing-xs 0;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-image: url('/img/textures/gold-texture3.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: vars.$color-secondary;
+    transform: translateY(-2px);
+
+    &::after {
+      width: 100%;
+    }
   }
 }
 

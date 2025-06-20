@@ -1,11 +1,20 @@
 'use client'
 import styles from './reparations.module.scss'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function ReparationsPage() {
   return (
     <div className={styles.reparationsPage}>
       <section className={styles.hero}>
+        <div className={styles.heroNavigation}>
+          <Link href="/transformations" className={styles.navButton}>
+            ← Transformations
+          </Link>
+          <Link href="/pierres" className={styles.navButton}>
+            Collection Pierres →
+          </Link>
+        </div>
         <div className={styles.heroContent}>
           <h1>Réparations</h1>
           <p className={styles.heroSubtitle}>

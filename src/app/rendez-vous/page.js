@@ -1,13 +1,57 @@
 'use client'
+import { useState, useEffect } from 'react'
 import styles from './page.module.scss'
 import BookingForm from '@/components/BookingForm/BookingForm'
 import PageAnimation from '@/components/PageAnimation/PageAnimation'
 import Image from 'next/image'
 
 export default function RendezVous() {
+  const [showScrollInvitation, setShowScrollInvitation] = useState(true)
+
+  const scrollToForm = () => {
+    const formElement = document.querySelector('[class*="bookingContainer"]')
+    if (formElement) {
+      const headerHeight = 100 // Hauteur du header
+      const elementPosition = formElement.offsetTop - headerHeight
+      window.scrollTo({ 
+        top: elementPosition, 
+        behavior: 'smooth' 
+      })
+    }
+  }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const formElement = document.querySelector('[class*="bookingContainer"]')
+      if (formElement) {
+        const headerHeight = 100
+        const formPosition = formElement.offsetTop - headerHeight - 100 // 100px d'offset supplémentaire
+        const currentScroll = window.scrollY
+        
+        setShowScrollInvitation(currentScroll < formPosition)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    handleScroll() // Vérifier au chargement
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <PageAnimation>
+   
       <main className={styles.rendezVousPage}>
+        {/* Invitation au scroll */}
+        {showScrollInvitation && (
+          <div className={styles.scrollInvitation} onClick={scrollToForm}>
+            <div className={styles.scrollText}>
+              Formulaire
+            </div>
+            <div className={styles.scrollArrow}>
+              ↓
+            </div>
+          </div>
+        )}
 
         <section className={styles.infoSection}>
           <div className={styles.container}>
@@ -47,6 +91,5 @@ export default function RendezVous() {
 
         <BookingForm />
       </main>
-    </PageAnimation>
   )
 }

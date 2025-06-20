@@ -1,11 +1,20 @@
 'use client'
 import styles from './expertises.module.scss'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function ExpertisesPage() {
   return (
     <div className={styles.expertisesPage}>
       <section className={styles.hero}>
+        <div className={styles.heroNavigation}>
+          <Link href="/pierres" className={styles.navButton}>
+            ← Collection Pierres
+          </Link>
+          <Link href="/conseils" className={styles.navButton}>
+            Conseils & Garanties →
+          </Link>
+        </div>
         <div className={styles.heroContent}>
           <h1>Expertises</h1>
           <p className={styles.heroSubtitle}>

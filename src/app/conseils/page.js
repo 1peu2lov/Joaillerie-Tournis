@@ -1,12 +1,21 @@
 'use client'
 import styles from './page.module.scss'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Conseils() {
   return (
     <>
       <main className={styles.conseilsPage}>
         <section className={styles.hero}>
+          <div className={styles.heroNavigation}>
+            <Link href="/expertises" className={styles.navButton}>
+              ← Expertises
+            </Link>
+            <Link href="/fabrications" className={styles.navButton}>
+              Fabrications →
+            </Link>
+          </div>
           <div className={styles.heroContent}>
             <h1>Nos Conseils et Garanties</h1>
             <p className={styles.heroSubtitle}>

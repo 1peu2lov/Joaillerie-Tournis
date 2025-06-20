@@ -9,6 +9,7 @@ import { useCart } from '@/contexts/CartContext'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [servicesMenuOpen, setServicesMenuOpen] = useState(false)
   const pathname = usePathname()
   const { getCartCount } = useCart()
 
@@ -26,6 +27,15 @@ export default function Header() {
     { label: 'Mariage',               href: '/mariage' },
     { label: 'Rendez-vous',   href: '/rendez-vous' },
     { label: 'Événements',            href: '/evenements' },
+  ]
+
+  const servicesRoutes = [
+    { label: 'Fabrications', href: '/fabrications' },
+    { label: 'Transformations', href: '/transformations' },
+    { label: 'Réparations', href: '/reparations' },
+    { label: 'Collection Pierres', href: '/pierres' },
+    { label: 'Expertises', href: '/expertises' },
+    { label: 'Conseils & Garanties', href: '/conseils' },
   ]
 
   const isActive = (href) => {
@@ -56,15 +66,56 @@ export default function Header() {
           </Link>
 
           <nav className={styles.desktopNav}>
-            {routes.slice(0, 4).map(({ label, href }, i) => (
-              <Link 
-                key={i} 
-                href={href} 
-                className={`${styles.navLink} ${isActive(href) ? styles.active : ''}`}
-              >
-                {label}
-              </Link>
-            ))}
+            {routes.slice(0, 4).map(({ label, href }, i) => {
+              if (label === 'Services') {
+                return (
+                  <div 
+                    key={i}
+                    className={styles.servicesDropdown}
+                    onMouseEnter={() => setServicesMenuOpen(true)}
+                    onMouseLeave={() => setServicesMenuOpen(false)}
+                  >
+                    <Link 
+                      href={href} 
+                      className={`${styles.navLink} ${isActive(href) ? styles.active : ''}`}
+                    >
+                      {label}
+                    </Link>
+                    <AnimatePresence>
+                      {servicesMenuOpen && (
+                        <motion.div
+                          className={styles.servicesMenu}
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {servicesRoutes.map((service, idx) => (
+                            <Link
+                              key={idx}
+                              href={service.href}
+                              className={`${styles.serviceLink} ${isActive(service.href) ? styles.active : ''}`}
+                              onClick={() => setServicesMenuOpen(false)}
+                            >
+                              {service.label}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                )
+              }
+              return (
+                <Link 
+                  key={i} 
+                  href={href} 
+                  className={`${styles.navLink} ${isActive(href) ? styles.active : ''}`}
+                >
+                  {label}
+                </Link>
+              )
+            })}
           </nav>
         </div>
 
@@ -128,19 +179,46 @@ export default function Header() {
             exit={{ y: '-100%' }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
           >
-            <ul>
-              {routes.map(({ label, href }, i) => (
-                <li key={i}>
+            <div className={styles.mobileMenuContent}>
+              {/* Section principale */}
+              <div className={styles.mainRoutes}>
+                {routes.filter(route => route.label !== 'Services').map(({ label, href }, i) => (
                   <Link 
+                    key={i}
                     href={href} 
                     onClick={() => setMenuOpen(false)}
-                    className={isActive(href) ? styles.active : ''}
+                    className={`${styles.mobileNavLink} ${isActive(href) ? styles.active : ''}`}
                   >
                     {label}
                   </Link>
-                </li>
-              ))}
-            </ul>
+                ))}
+              </div>
+
+              {/* Section Services */}
+              <div className={styles.servicesSection}>
+                <div className={styles.servicesSectionHeader}>
+                  <Link 
+                    href="/services" 
+                    onClick={() => setMenuOpen(false)}
+                    className={`${styles.servicesMainLink} ${isActive('/services') ? styles.active : ''}`}
+                  >
+                    Services
+                  </Link>
+                </div>
+                <div className={styles.servicesGrid}>
+                  {servicesRoutes.map((service, idx) => (
+                    <Link
+                      key={idx}
+                      href={service.href}
+                      className={`${styles.mobileServiceLink} ${isActive(service.href) ? styles.active : ''}`}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {service.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </motion.nav>
         )}
       </AnimatePresence>

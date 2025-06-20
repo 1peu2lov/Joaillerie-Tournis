@@ -1,11 +1,20 @@
 'use client'
 import styles from './fabrications.module.scss'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function FabricationsPage() {
   return (
     <div className={styles.fabricationsPage}>
       <section className={styles.hero}>
+        <div className={styles.heroNavigation}>
+          <Link href="/conseils" className={styles.navButton}>
+            ← Conseils & Garanties
+          </Link>
+          <Link href="/transformations" className={styles.navButton}>
+            Transformations →
+          </Link>
+        </div>
         <div className={styles.heroContent}>
           <h1>Fabrications</h1>
           <p className={styles.heroSubtitle}>

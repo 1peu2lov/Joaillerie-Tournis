@@ -181,6 +181,84 @@
   }
 }
 
+.servicesDropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.servicesMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: vars.$color-bg;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: vars.$spacing-md 0;
+  min-width: 220px;
+  z-index: 10000;
+  margin-top: vars.$spacing-xs;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left:10%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid vars.$color-bg;
+  }
+}
+
+.serviceLink {
+  display: block;
+  padding: vars.$spacing-sm vars.$spacing-md;
+  color: vars.$color-primary;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: map-get($font-weights, 'medium');
+  transition: all 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: vars.$spacing-md;
+    right: vars.$spacing-md;
+    width: 0;
+    height: 2px;
+    background-image: url('/img/textures/gold-texture3.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    background-color: rgba(vars.$color-primary, 0.05);
+    color: vars.$color-primary;
+    font-weight: 500;
+
+    &::after {
+      width: calc(100% - 2 * #{vars.$spacing-md});
+    }
+  }
+
+  &.active {
+    background-color: rgba(vars.$color-primary, 0.1);
+    color: vars.$color-primary;
+    font-weight: 500;
+
+    &::after {
+      width: calc(100% - 2 * #{vars.$spacing-md});
+    }
+  }
+}
+
 .headerIcons {
   display: flex;
   align-items: center;
@@ -291,82 +369,206 @@
   }
 }
 
-/* Menu déroulant */
+/* Menu déroulant mobile */
 .dropdownMenu {
   position: fixed;
-  top: 82px;
+  top: 100px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 82px);
+  height: calc(100vh - 100px);
   background-color: vars.$color-bg;
   z-index: 9998;
+  overflow-y: auto;
 
   @include breakpoint('lg') {
     display: none;
   }
+}
 
-  ul {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
+.mobileMenuContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.mainRoutes {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileNavLink {
+  display: block;
+  padding: vars.$spacing-lg vars.$spacing-lg;
+  @include font-size('h3', 'sm');
+  font-weight: map-get($font-weights, 'medium');
+  color: vars.$color-text;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: vars.$spacing-md;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-image: url('/img/textures/gold-texture3.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: width 0.3s ease;
   }
 
-  li {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  &:hover {
+    color: vars.$color-primary;
 
-    &:last-child {
+    &::after {
+      width: 50%;
+    }
+  }
+
+  &.active {
+    color: vars.$color-primary;
+
+    &::after {
+      width: 50%;
+    }
+  }
+}
+
+.servicesSection {
+}
+
+.servicesSectionHeader {
+}
+
+.servicesMainLink {
+  display: block;
+  padding: vars.$spacing-lg vars.$spacing-lg;
+  @include font-size('h3', 'sm');
+  font-weight: map-get($font-weights, 'medium');
+  color: vars.$color-text;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: vars.$spacing-md;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-image: url('/img/textures/gold-texture3.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: vars.$color-primary;
+
+    &::after {
+      width: 50%;
+    }
+  }
+
+  &.active {
+    color: vars.$color-primary;
+
+    &::after {
+      width: 50%;
+    }
+  }
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: vars.$spacing-sm;
+  margin-top: vars.$spacing-lg;
+
+  @include breakpoint('md') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.mobileServiceLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: vars.$spacing-md vars.$spacing-sm;
+  @include font-size('body', 'sm');
+  font-weight: map-get($font-weights, 'medium');
+  color: vars.$color-text;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  text-align: center;
+  min-height: 60px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  &:nth-child(2n) {
+    border-right: none;
+  }
+
+  &:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  @include breakpoint('md') {
+    &:nth-child(2n) {
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    &:nth-child(3n) {
+      border-right: none;
+    }
+
+    &:nth-last-child(-n+2) {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &:nth-last-child(-n+3) {
       border-bottom: none;
     }
   }
 
-  a {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @include font-size('h3', 'sm');
-    font-weight: map-get($font-weights, 'medium');
-    color: vars.$color-text;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: vars.$spacing-sm;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-image: url('/img/textures/gold-texture3.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: vars.$color-primary;
 
     &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 2px;
-      background-color: vars.$color-primary;
-      transition: width 0.3s ease;
+      width: 80%;
     }
+  }
 
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.05);
-      color: vars.$color-primary;
+  &.active {
+    color: vars.$color-primary;
 
-      &::after {
-        width: 50%;
-      }
-    }
-
-    &.active {
-      color: vars.$color-primary;
-      background-color: rgba(0, 0, 0, 0.05);
-
-      &::after {
-        width: 50%;
-      }
+    &::after {
+      width: 80%;
     }
   }
 }
