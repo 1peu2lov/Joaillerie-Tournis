@@ -1,0 +1,23 @@
+/favicon.ico
+  Cache-Control: public, max-age=86400
+  Content-Type: image/x-icon
+
+/favicon-16x16.png
+  Cache-Control: public, max-age=86400
+  Content-Type: image/png
+
+/favicon-32x32.png
+  Cache-Control: public, max-age=86400
+  Content-Type: image/png
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=86400
+  Content-Type: image/png
+
+/android-chrome-192x192.png
+  Cache-Control: public, max-age=86400
+  Content-Type: image/png
+
+/android-chrome-512x512.png
+  Cache-Control: public, max-age=86400
+  Content-Type: image/png 
