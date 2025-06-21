@@ -7,6 +7,7 @@ import ScrollToTop from '@/components/ScrollToTop/ScrollToTop'
 import { useState, useRef, useEffect } from 'react'
 import useWindowWidth from '@/app/hooks/useWindowsWidth'
 import Image from 'next/image'
+import Head from 'next/head'
 
 export default function Mariage() {
   const [gridHeight, setGridHeight] = useState(0)
@@ -35,6 +36,14 @@ export default function Mariage() {
 
   return (
     <>
+    <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/mariage.webp"
+          type="image/webp"
+        />
+      </Head>
       {/* Section Hero avec image */}
       <section className={styles.heroSection}>
         <div className={styles.heroImage}>

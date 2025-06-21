@@ -1,8 +1,25 @@
 import styles from './HeroSection.module.scss'
 import Link from 'next/link'
+import Head from 'next/head'
 
 export default function HeroSection() {
   return (
+    <>
+    <Head>
+      <link
+        rel="preload"
+        as="image"
+        href="/img/home/hero-bg.jpeg"
+        type="image/jpeg"
+      />
+
+      <link
+          rel="preload"
+          as="video"
+          href="/img/home/video-home.mp4"
+          type="video/mp4"
+        />
+    </Head>
     <section className={styles.hero}>
       <div className={styles.overlay}>
         <div className={styles.content}>
@@ -21,14 +38,14 @@ export default function HeroSection() {
             loop 
             playsInline
             className={styles.video}
+            priority={true}
             poster="/img/home/hero-bg.jpeg"
           >
-            <source src="/img/home/video-home.mov" type="video/quicktime" />
             <source src="/img/home/video-home.mp4" type="video/mp4" />
-            <source src="/img/home/video-home.webm" type="video/webm" />
           </video>
         </div>
       </div>
     </section>
+    </>
   )
 }

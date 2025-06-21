@@ -7,6 +7,7 @@ import ScrollToTop from '@/components/ScrollToTop/ScrollToTop'
 import { useState, useRef, useEffect } from 'react'
 import useWindowWidth from '@/app/hooks/useWindowsWidth'
 import Image from 'next/image'
+import Head from 'next/head'
 
 export default function Boutique() {
   const [gridHeight, setGridHeight] = useState(0)
@@ -35,6 +36,15 @@ export default function Boutique() {
 
   return (
     <>
+      <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/boutique_head.webp"
+          type="image/webp"
+        />
+      </Head>
+
       {/* Section Hero avec image */}
       <section className={styles.heroSection}>
         <div className={styles.heroImage}>
