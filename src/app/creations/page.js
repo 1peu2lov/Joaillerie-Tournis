@@ -68,6 +68,7 @@ export default function Créations() {
             alt="Nos créations artisanales"
             className={styles.heroImg}
             fill
+            priority={true}
             style={{ objectFit: 'cover' }}
           />
           <div className={styles.heroOverlay}>

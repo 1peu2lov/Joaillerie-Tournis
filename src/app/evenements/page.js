@@ -15,6 +15,7 @@ export default function Evenements() {
               alt="Nos événements joaillerie"
               className={styles.heroImg}
               fill
+              priority={true}
               style={{ objectFit: 'cover' }}
             />
             <div className={styles.heroOverlay}>

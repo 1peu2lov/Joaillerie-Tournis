@@ -92,6 +92,7 @@ export default function PierresPage() {
             src="/img/pierres/pierres_head.jpeg" 
             alt="Collection de pierres précieuses" 
             fill
+            priority={true}
             style={{ objectFit: 'cover' }}
           />
         </div>

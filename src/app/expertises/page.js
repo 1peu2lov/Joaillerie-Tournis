@@ -26,6 +26,7 @@ export default function ExpertisesPage() {
             src="/img/savoir-faire/expertises.jpg" 
             alt="Expertise de bijoux" 
             fill
+            priority={true}
             style={{ objectFit: 'cover' }}
           />
         </div>

@@ -26,6 +26,7 @@ export default function ReparationsPage() {
             src="/img/artisan_2.jpg" 
             alt="Réparation de bijoux" 
             fill
+            priority={true}
             style={{ objectFit: 'cover' }}
           />
         </div>

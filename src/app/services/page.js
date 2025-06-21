@@ -22,6 +22,7 @@ export default function Services() {
                   src="/img/savoir-faire/transformations.jpg" 
                   alt="Service de création de bijoux" 
                   fill
+                  priority={true}
                   style={{ objectFit: 'cover' }}
                 />
               </div>
@@ -30,6 +31,7 @@ export default function Services() {
                   src="/img/savoir-faire/reparations.jpg" 
                   alt="Service de réparation" 
                   fill
+                  priority={true}
                   style={{ objectFit: 'cover' }}
                 />
               </div>
@@ -38,6 +40,7 @@ export default function Services() {
                   src="/img/savoir-faire/expertises.jpg" 
                   alt="Service d'expertise" 
                   fill
+                  priority={true}
                   style={{ objectFit: 'cover' }}
                 />
               </div>
@@ -46,6 +49,7 @@ export default function Services() {
                   src="/img/savoir-faire/pierres.jpg" 
                   alt="Service de transformation" 
                   fill
+                  priority={true}
                   style={{ objectFit: 'cover' }}
                 />
               </div>
@@ -54,6 +58,7 @@ export default function Services() {
                   src="/img/savoir-faire/fabrications.jpg" 
                   alt="Service de conseil" 
                   fill
+                  priority={true}
                   style={{ objectFit: 'cover' }}
                 />
               </div>

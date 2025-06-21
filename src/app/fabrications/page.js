@@ -26,6 +26,7 @@ export default function FabricationsPage() {
             src="/img/working_hands.jpg" 
             alt="Atelier de fabrication" 
             fill
+            priority={true}
             style={{ objectFit: 'cover' }}
           />
         </div>

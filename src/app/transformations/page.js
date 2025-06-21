@@ -71,6 +71,7 @@ export default function TransformationsPage() {
             src="/img/savoir-faire/transformations.jpg" 
             alt="Transformation de bijoux" 
             fill
+            priority={true}
             style={{ objectFit: 'cover' }}
           />
         </div>

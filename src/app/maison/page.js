@@ -16,6 +16,7 @@ export default function Maison() {
               src="/img/histoire/hero-img.jpg" 
               alt="Atelier de joaillerie Tournis" 
               fill
+              priority={true}
               style={{ objectFit: 'cover' }}
             />
           </div>

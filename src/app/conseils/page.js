@@ -27,6 +27,7 @@ export default function Conseils() {
               src="/img/expert.jpg" 
               alt="Expert en bijouterie" 
               fill
+              priority={true}
               style={{ objectFit: 'cover' }}
             />
           </div>

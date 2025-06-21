@@ -43,6 +43,7 @@ export default function Boutique() {
             alt="Notre e-boutique de joaillerie"
             className={styles.heroImg}
             fill
+            priority={true}
             style={{ objectFit: 'cover' }}
           />
           <div className={styles.heroOverlay}>

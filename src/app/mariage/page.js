@@ -43,6 +43,7 @@ export default function Mariage() {
             alt="Bijoux de mariage sur mesure"
             className={styles.heroImg}
             fill
+            priority={true}
             style={{ objectFit: 'cover' }}
           />
           <div className={styles.heroOverlay}>
