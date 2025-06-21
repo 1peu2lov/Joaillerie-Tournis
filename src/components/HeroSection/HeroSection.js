@@ -23,7 +23,7 @@ export default function HeroSection() {
     <section className={styles.hero}>
       <div className={styles.overlay}>
         <div className={styles.content}>
-          <h1>L&apos;excellence joaillière au cœur de Bordeaux</h1>
+          <h1>Joaillerie Tournis l&apos;excellence au cœur de Bordeaux</h1>
           <div className={styles.bottom}>
             <p>Depuis 1896, la Maison Tournis sublime l&apos;art du bijou sur-mesure.</p>
             <Link href="/maison" className={styles.linkWrapper}>
@@ -38,7 +38,7 @@ export default function HeroSection() {
             loop 
             playsInline
             className={styles.video}
-            priority={true}
+            priority="true"
             poster="/img/home/hero-bg.jpeg"
           >
             <source src="/img/home/video-home.mp4" type="video/mp4" />

@@ -40,7 +40,7 @@ export default function CreationPage() {
 
     return (
         <div className={styles.creationPage}>
-            <Link href="/creations" className={styles.backButton}>
+            <Link href="/creations" className={styles.backButton} title="Retour à la page créations">
                 ← Retour aux créations
             </Link>
 
@@ -121,7 +121,7 @@ export default function CreationPage() {
                             Cette création vous intéresse ? Contactez-nous pour plus d&apos;informations.
                         </p>
                         <button className={styles.contactButton}>
-                            <Link href="/rendez-vous">
+                            <Link href="/rendez-vous" title="Prendre rendez-vous pour cette création">
                                 Prendre rendez-vous
                             </Link>
                         </button>

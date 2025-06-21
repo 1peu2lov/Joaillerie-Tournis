@@ -55,7 +55,7 @@ export default function Header() {
             <span className={`${styles.burger} ${menuOpen ? styles.open : ''}`} />
           </button>
 
-          <Link href={"/"} className={styles.logo} onClick={() => setMenuOpen(o => {o === false ? o : !o})}>
+          <Link href={"/"} className={styles.logo} onClick={() => setMenuOpen(o => {o === false ? o : !o})} title="Accueil - Joaillerie Tournis">
             <Image
               src="/img/logo/logo.svg"
               alt="Logo Tournis"
@@ -78,6 +78,7 @@ export default function Header() {
                     <Link 
                       href={href} 
                       className={`${styles.navLink} ${isActive(href) ? styles.active : ''}`}
+                      title={`${label} - Joaillerie Tournis`}
                     >
                       {label}
                     </Link>
@@ -96,6 +97,7 @@ export default function Header() {
                               href={service.href}
                               className={`${styles.serviceLink} ${isActive(service.href) ? styles.active : ''}`}
                               onClick={() => setServicesMenuOpen(false)}
+                              title={`${service.label} - Services Joaillerie Tournis`}
                             >
                               {service.label}
                             </Link>
@@ -111,6 +113,7 @@ export default function Header() {
                 key={i} 
                 href={href} 
                 className={`${styles.navLink} ${isActive(href) ? styles.active : ''}`}
+                title={`${label} - Joaillerie Tournis`}
               >
                 {label}
               </Link>
@@ -126,6 +129,7 @@ export default function Header() {
                 key={i} 
                 href={href} 
                 className={`${styles.navLink} ${isActive(href) ? styles.active : ''}`}
+                title={`${label} - Joaillerie Tournis`}
               >
                 {label}
               </Link>
@@ -137,6 +141,7 @@ export default function Header() {
               href="/contact" 
               className={`${styles.iconLink} ${isActive('/contact') ? styles.active : ''}`} 
               aria-label="Contact"
+              title="Contacter Joaillerie Tournis"
             >
               <Image
                 src="/icons/tel.svg"
@@ -150,6 +155,7 @@ export default function Header() {
               href="/panier" 
               className={`${styles.iconLink} ${isActive('/panier') ? styles.active : ''}`} 
               aria-label="Panier"
+              title="Mon panier - Joaillerie Tournis"
             >
               <div className={styles.cartIconWrapper}>
                 <Image
@@ -188,6 +194,7 @@ export default function Header() {
                     href={href} 
                     onClick={() => setMenuOpen(false)}
                     className={`${styles.mobileNavLink} ${isActive(href) ? styles.active : ''}`}
+                    title={`${label} - Joaillerie Tournis`}
                   >
                     {label}
                   </Link>
@@ -201,6 +208,7 @@ export default function Header() {
                     href="/services" 
                     onClick={() => setMenuOpen(false)}
                     className={`${styles.servicesMainLink} ${isActive('/services') ? styles.active : ''}`}
+                    title="Services - Joaillerie Tournis"
                   >
                     Services
                   </Link>
@@ -212,6 +220,7 @@ export default function Header() {
                       href={service.href}
                       className={`${styles.mobileServiceLink} ${isActive(service.href) ? styles.active : ''}`}
                       onClick={() => setMenuOpen(false)}
+                      title={`${service.label} - Services Joaillerie Tournis`}
                     >
                       {service.label}
                     </Link>

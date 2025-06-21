@@ -100,7 +100,7 @@ export default function RedirectionCarousel() {
         >
           {items.map((item, i) => (
             <div className={`keen-slider__slide ${styles.carouselSlide}`} key={i}>
-              <Link href={item.link} className={styles.cardLink}>
+              <Link href={item.link} className={styles.cardLink} title={`${item.title} - ${item.description}`}>
                 <div className={styles.card}>
                   <Image
                     src={item.image}

@@ -44,6 +44,10 @@
   position: absolute;
   inset: 0;
   z-index: 1;
+  background-image: url('/img/histoire/hero-img.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   &::after {
     content: '';
@@ -64,7 +68,7 @@
 
   h1 {
     @include font-size('h1',"md");
-    font-family: vars.$font-head-title;
+    font-family: vars.$font-title;
     color: vars.$color-secondary;
     line-height: 1.2;
     font-weight: 400;

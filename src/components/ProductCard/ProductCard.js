@@ -48,6 +48,7 @@ export default function ProductCard({ product, isPremium = false, variant = 'nor
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 data-variant="image-only"
+                title={`${product.name} - Voir cette création`}
             >
                 <div className={styles.imageContainer}>
                     <Image 

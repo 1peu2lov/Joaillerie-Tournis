@@ -3,6 +3,7 @@ import styles from './transformations.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import Head from 'next/head'
 
 export default function TransformationsPage() {
   const [lightboxTransformation, setLightboxTransformation] = useState(null)
@@ -50,13 +51,22 @@ export default function TransformationsPage() {
   }
 
   return (
+    <>
+    <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/savoir-faire/transformations.jpg"
+          type="image/jpg"
+        />
+      </Head>
     <div className={styles.transformationsPage}>
       <section className={styles.hero}>
         <div className={styles.heroNavigation}>
-          <Link href="/fabrications" className={styles.navButton}>
+          <Link href="/fabrications" className={styles.navButton} title="Page précédente : Fabrications">
             ← Fabrications
           </Link>
-          <Link href="/reparations" className={styles.navButton}>
+          <Link href="/reparations" className={styles.navButton} title="Page suivante : Réparations">
             Réparations →
           </Link>
         </div>
@@ -292,7 +302,7 @@ export default function TransformationsPage() {
         <div className={styles.container}>
           <h2>Transformez vos bijoux</h2>
           <p>Consultez-nous pour donner une nouvelle vie à vos bijoux précieux</p>
-          <a href="/rendez-vous" className={styles.ctaButton}>
+          <a href="/rendez-vous" className={styles.ctaButton} title="Prendre rendez-vous pour une transformation de bijoux">
             Prendre rendez-vous
           </a>
         </div>
@@ -334,5 +344,6 @@ export default function TransformationsPage() {
         </div>
       )}
     </div>
+    </>
   )
 } 

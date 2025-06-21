@@ -3,10 +3,43 @@ import styles from './page.module.scss'
 import SavoirFaireSection from '@/components/SavoirFaireSection/SavoirFaireSection'
 import PageAnimation from '@/components/PageAnimation/PageAnimation'
 import Image from 'next/image'
+import Head from 'next/head'
 
 export default function Services() {
   return (
     <>
+    <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/savoir-faire/transformations.jpg"
+          type="image/jpg"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/img/savoir-faire/reparations.jpg"
+          type="image/jpg"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/img/savoir-faire/expertises.jpg"
+          type="image/jpg"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/img/savoir-faire/pierres.jpg"
+          type="image/jpg"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/img/savoir-faire/fabrications.jpg"
+          type="image/jpg"
+        />
+      </Head>
       <main className={styles.servicesPage}>
         <section className={styles.hero}>
           <div className={styles.heroContent}>
@@ -23,7 +56,7 @@ export default function Services() {
                   alt="Service de création de bijoux" 
                   fill
                   priority={true}
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'cover', backgroundImage: 'url(/img/savoir-faire/transformations.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
                 />
               </div>
               <div className={styles.imageWrapper}>
@@ -32,7 +65,7 @@ export default function Services() {
                   alt="Service de réparation" 
                   fill
                   priority={true}
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'cover', backgroundImage: 'url(/img/savoir-faire/reparations.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
                 />
               </div>
               <div className={styles.imageWrapper}>
@@ -41,7 +74,7 @@ export default function Services() {
                   alt="Service d'expertise" 
                   fill
                   priority={true}
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'cover', backgroundImage: 'url(/img/savoir-faire/expertises.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
                 />
               </div>
               <div className={styles.imageWrapper}>
@@ -50,7 +83,7 @@ export default function Services() {
                   alt="Service de transformation" 
                   fill
                   priority={true}
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'cover', backgroundImage: 'url(/img/savoir-faire/pierres.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
                 />
               </div>
               <div className={styles.imageWrapper}>
@@ -59,7 +92,7 @@ export default function Services() {
                   alt="Service de conseil" 
                   fill
                   priority={true}
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'cover', backgroundImage: 'url(/img/savoir-faire/fabrications.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
                 />
               </div>
             </div>
@@ -156,7 +189,7 @@ export default function Services() {
           <div className={styles.container}>
             <h2>Démarrez votre projet</h2>
             <p>Contactez-nous pour discuter de votre projet et découvrir comment nous pouvons vous accompagner</p>
-            <a href="/rendez-vous" className={styles.ctaButton}>
+            <a href="/rendez-vous" className={styles.ctaButton} title="Prendre rendez-vous pour nos services">
               Prendre rendez-vous
             </a>
           </div>

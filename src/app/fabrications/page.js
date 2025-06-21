@@ -2,16 +2,26 @@
 import styles from './fabrications.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
+import Head from 'next/head'
 
 export default function FabricationsPage() {
   return (
+    <>
+    <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/working_hands.jpg"
+          type="image/jpg"
+        />
+      </Head>
     <div className={styles.fabricationsPage}>
       <section className={styles.hero}>
         <div className={styles.heroNavigation}>
-          <Link href="/conseils" className={styles.navButton}>
+          <Link href="/conseils" className={styles.navButton} title="Page précédente : Conseils & Garanties">
             ← Conseils & Garanties
           </Link>
-          <Link href="/transformations" className={styles.navButton}>
+          <Link href="/transformations" className={styles.navButton} title="Page suivante : Transformations">
             Transformations →
           </Link>
         </div>
@@ -129,11 +139,12 @@ export default function FabricationsPage() {
         <div className={styles.container}>
           <h2>Créons ensemble votre bijou unique</h2>
           <p>Prenez rendez-vous pour discuter de votre projet</p>
-          <a href="/rendez-vous" className={styles.ctaButton}>
+          <a href="/rendez-vous" className={styles.ctaButton} title="Prendre rendez-vous pour une fabrication sur mesure">
             Prendre rendez-vous
           </a>
         </div>
       </section>
     </div>
+    </>
   )
 } 

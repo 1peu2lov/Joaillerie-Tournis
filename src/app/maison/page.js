@@ -2,10 +2,19 @@
 import styles from './page.module.scss'
 import Image from 'next/image'
 import PageAnimation from '@/components/PageAnimation/PageAnimation'
+import Head from 'next/head'
 
 export default function Maison() {
   return (
     <>
+    <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/histoire/hero-img.jpg"
+          type="image/jpg"
+        />
+      </Head>
       <main className={styles.maisonPage}>
         <section className={styles.hero}>
           <div className={styles.heroContent}>
@@ -231,7 +240,7 @@ export default function Maison() {
           <div className={styles.container}>
             <h2>Découvrez notre univers</h2>
             <p>Prenez rendez-vous pour une visite de notre atelier et découvrez nos créations</p>
-            <a href="/rendez-vous" className={styles.ctaButton}>
+            <a href="/rendez-vous" className={styles.ctaButton} title="Prendre rendez-vous pour découvrir notre maison">
               Prendre rendez-vous
             </a>
           </div>

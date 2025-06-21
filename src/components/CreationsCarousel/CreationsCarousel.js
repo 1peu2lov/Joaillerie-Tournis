@@ -267,7 +267,7 @@ export default function CreationsCarousel() {
                             className={styles.carouselCard}
                             style={{ flex: `0 0 ${100 / cardsPerView}%` }}
                         >
-                            <Link href={`/creations/${product.id}`} className={styles.productLink} onClick={handleLinkClick}>
+                            <Link href={`/creations/${product.id}`} className={styles.productLink} onClick={handleLinkClick} title={`${product.name} - Découvrir cette création`}>
                                 <div className={styles.imageContainer}>
                                     <Image
                                         src={product.images[0]}

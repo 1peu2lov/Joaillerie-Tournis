@@ -1,0 +1,48 @@
+# Robots.txt pour Tournis - Joaillerie Française
+# Site web: https://tournis.fr
+
+User-agent: *
+Allow: /
+
+# Pages principales
+Allow: /
+Allow: /boutique
+Allow: /creations
+Allow: /maison
+Allow: /contact
+Allow: /rendez-vous
+Allow: /panier
+Allow: /evenements
+Allow: /mariage
+
+# Pages de services (savoir-faire)
+Allow: /services
+Allow: /fabrications
+Allow: /transformations
+Allow: /reparations
+Allow: /expertises
+Allow: /pierres
+Allow: /conseils
+
+# Pages produits dynamiques
+Allow: /boutique/*
+Allow: /creations/*
+
+# Assets et ressources
+Allow: /img/
+Allow: /icons/
+Allow: /fonts/
+
+# Fichiers à ne pas indexer
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /scripts/
+
+# Sitemap
+Sitemap: https://tournis.fr/sitemap.xml
+
+# Délai entre les requêtes (en secondes)
+Crawl-delay: 1 

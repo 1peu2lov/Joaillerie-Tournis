@@ -2,16 +2,26 @@
 import styles from './reparations.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
+import Head from 'next/head'
 
 export default function ReparationsPage() {
   return (
+    <>
+    <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/artisan_2.jpg"
+          type="image/jpg"
+        />
+      </Head>
     <div className={styles.reparationsPage}>
       <section className={styles.hero}>
         <div className={styles.heroNavigation}>
-          <Link href="/transformations" className={styles.navButton}>
+          <Link href="/transformations" className={styles.navButton} title="Page précédente : Transformations">
             ← Transformations
           </Link>
-          <Link href="/pierres" className={styles.navButton}>
+          <Link href="/pierres" className={styles.navButton} title="Page suivante : Collection Pierres">
             Collection Pierres →
           </Link>
         </div>
@@ -123,11 +133,12 @@ export default function ReparationsPage() {
         <div className={styles.container}>
           <h2>Réparez vos bijoux précieux</h2>
           <p>Confiez-nous vos bijoux abîmés, nous leur redonnerons leur éclat d&apos;origine</p>
-          <a href="/rendez-vous" className={styles.ctaButton}>
+          <a href="/rendez-vous" className={styles.ctaButton} title="Prendre rendez-vous pour une réparation de bijoux">
             Prendre rendez-vous
           </a>
         </div>
       </section>
     </div>
+    </>
   )
 } 

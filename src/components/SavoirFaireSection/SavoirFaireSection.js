@@ -28,7 +28,7 @@ export default function SavoirFaireSection() {
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </div>
-            <Link href={item.href} className={styles.cta} aria-label={item.cta}>
+            <Link href={item.href} className={styles.cta} aria-label={item.cta} title={`${item.title} - ${item.cta}`}>
               {item.cta}
             </Link>
           </div>

@@ -45,7 +45,7 @@ export default function Home() {
               <h2>Prenez rendez-vous avec nos experts</h2>
               <p>Un accompagnement personnalisé pour créer le bijou de vos rêves.</p>
                 <div className={styles.separator} />
-              <Link href="/rendez-vous" className={styles.cta}>
+              <Link href="/rendez-vous" className={styles.cta} title="Prendre rendez-vous avec nos experts joailliers">
                 Prendre rendez-vous
               </Link>
             </div>
@@ -96,7 +96,7 @@ export default function Home() {
             </div>
             <div className={styles.testimonialsFooter}>
               <p>Plus de 125 ans d&apos;excellence et de confiance</p>
-              <Link href="/creations" className={styles.testimonialsCtaButton}>
+              <Link href="/creations" className={styles.testimonialsCtaButton} title="Découvrir nos créations de joaillerie">
                 Découvrir nos créations
               </Link>
             </div>

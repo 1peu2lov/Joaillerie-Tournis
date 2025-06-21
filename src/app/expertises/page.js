@@ -2,16 +2,26 @@
 import styles from './expertises.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
+import Head from 'next/head'
 
 export default function ExpertisesPage() {
   return (
+    <>
+    <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/savoir-faire/expertises.jpg"
+          type="image/jpg"
+        />
+      </Head>
     <div className={styles.expertisesPage}>
       <section className={styles.hero}>
         <div className={styles.heroNavigation}>
-          <Link href="/pierres" className={styles.navButton}>
+          <Link href="/pierres" className={styles.navButton} title="Page précédente : Collection Pierres">
             ← Collection Pierres
           </Link>
-          <Link href="/conseils" className={styles.navButton}>
+          <Link href="/conseils" className={styles.navButton} title="Page suivante : Conseils & Garanties">
             Conseils & Garanties →
           </Link>
         </div>
@@ -149,11 +159,12 @@ export default function ExpertisesPage() {
         <div className={styles.container}>
           <h2>Faites expertiser vos bijoux</h2>
           <p>Connaître la vraie valeur de vos bijoux en toute confiance</p>
-          <a href="/rendez-vous" className={styles.ctaButton}>
+          <a href="/rendez-vous" className={styles.ctaButton} title="Prendre rendez-vous pour une expertise de bijoux">
             Prendre rendez-vous
           </a>
         </div>
       </section>
     </div>
+    </>
   )
 } 

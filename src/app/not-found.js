@@ -92,16 +92,16 @@ export default function NotFound() {
         <div className={styles.quickActions}>
           <h3 className={styles.actionsTitle}>Actions rapides</h3>
           <div className={styles.actionButtons}>
-                          <Link href="/" className={`${styles.actionBtn} ${styles.primary}`}>
+                          <Link href="/" className={`${styles.actionBtn} ${styles.primary}`} title="Retour à l'accueil - Joaillerie Tournis">
                 Retour à l&apos;accueil
               </Link>
-            <Link href="/creations" className={`${styles.actionBtn} ${styles.secondary}`}>
+            <Link href="/creations" className={`${styles.actionBtn} ${styles.secondary}`} title="Voir nos créations de joaillerie">
               Voir nos créations
             </Link>
-            <Link href="/boutique" className={`${styles.actionBtn} ${styles.secondary}`}>
+            <Link href="/boutique" className={`${styles.actionBtn} ${styles.secondary}`} title="Découvrir notre boutique en ligne">
               Découvrir la boutique
             </Link>
-            <Link href="/contact" className={`${styles.actionBtn} ${styles.outline}`}>
+            <Link href="/contact" className={`${styles.actionBtn} ${styles.outline}`} title="Contacter Joaillerie Tournis">
                Nous contacter
             </Link>
           </div>

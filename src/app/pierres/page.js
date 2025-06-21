@@ -3,6 +3,7 @@ import { useState } from 'react'
 import styles from './pierres.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
+import Head from 'next/head'
 
 const pierresParCouleur = {
   rouge: {
@@ -71,13 +72,22 @@ export default function PierresPage() {
   const [couleurActive, setCouleurActive] = useState('rouge')
 
   return (
+    <>
+    <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/pierres/pierres_head.jpeg"
+          type="image/jpeg"
+        />
+      </Head>
     <div className={styles.pierresPage}>
       <section className={styles.hero}>
         <div className={styles.heroNavigation}>
-          <Link href="/reparations" className={styles.navButton}>
+          <Link href="/reparations" className={styles.navButton} title="Page précédente : Réparations">
             ← Réparations
           </Link>
-          <Link href="/expertises" className={styles.navButton}>
+          <Link href="/expertises" className={styles.navButton} title="Page suivante : Expertises">
             Expertises →
           </Link>
         </div>
@@ -272,11 +282,12 @@ export default function PierresPage() {
         <div className={styles.container}>
           <h2>Découvrez notre collection</h2>
           <p>Prenez rendez-vous pour découvrir nos pierres précieuses et créer votre bijou unique</p>
-          <a href="/rendez-vous" className={styles.ctaButton}>
+          <a href="/rendez-vous" className={styles.ctaButton} title="Prendre rendez-vous pour choisir vos pierres">
             Prendre rendez-vous
           </a>
         </div>
       </section>
     </div>
+    </>
   )
 } 
