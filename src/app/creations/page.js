@@ -2,12 +2,13 @@
 
 import styles from './page.module.scss'
 import Image from 'next/image' 
+import Head from 'next/head'
 import { BarDeFiltre } from '@/components/BarDeFiltre/BarDeFiltre'
 import ProductsGrid from '@/components/ProductsGrid/ProductsGrid'
 import ScrollToTop from '@/components/ScrollToTop/ScrollToTop'
 import CreationsCarousel from '@/components/CreationsCarousel/CreationsCarousel'
 import { useState, useRef, useEffect } from 'react'
-import useWindowWidth from '@/app/hooks/useWindowsWidth'
+import useWindowWidth from '@/app/hooks/useWindowsWidth' 
 
 export default function Créations() {
   const [gridHeight, setGridHeight] = useState(0)
@@ -60,6 +61,15 @@ export default function Créations() {
 
   return (
     <>
+      <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/creation_head.webp"
+          type="image/webp"
+        />
+      </Head>
+      
       {/* Section Hero avec image */}
       <section className={styles.heroSection}>
         <div className={styles.heroImage}>
