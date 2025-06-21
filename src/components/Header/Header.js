@@ -107,13 +107,13 @@ export default function Header() {
                 )
               }
               return (
-                <Link 
-                  key={i} 
-                  href={href} 
-                  className={`${styles.navLink} ${isActive(href) ? styles.active : ''}`}
-                >
-                  {label}
-                </Link>
+              <Link 
+                key={i} 
+                href={href} 
+                className={`${styles.navLink} ${isActive(href) ? styles.active : ''}`}
+              >
+                {label}
+              </Link>
               )
             })}
           </nav>

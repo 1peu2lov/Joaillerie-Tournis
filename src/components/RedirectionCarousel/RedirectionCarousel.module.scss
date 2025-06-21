@@ -1,269 +1,158 @@
 @use '../../styles/abstracts/variables' as vars;
+@use '../../styles/abstracts/breakpoints' as *;
 
 .carousel {
-  padding: 1.5rem 1rem;
+  padding: 0rem 0rem;
   background-color: vars.$color-secondary;
-  position: relative;
+  width: 100vw;
 }
 
 .carouselContainer {
   position: relative;
-  display: flex;
-  align-items: center;
-  max-width: 1700px;
+  max-width: none;
   margin: 0 auto;
-  padding: 0 80px; // More space for square nav buttons on desktop
-  margin-top: 2rem;
-  
-  @media (max-width: 1023px) {
-    padding: 0 20px; // Reduced padding on mobile/tablet since no nav buttons
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0;
 }
 
-.scrollContainer {
-  flex: 1;
-  overflow: hidden;
+.carouselWrapper {
   position: relative;
-  cursor: grab;
-  
-  &:active {
-    cursor: grabbing;
-  }
-  
-  // Disable text selection during drag
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  
-  // Improve touch handling
-  touch-action: pan-y pinch-zoom;
-  
-  // Hardware acceleration for smooth scrolling
-  transform: translateZ(0);
-  will-change: transform;
+  overflow: hidden;
+  width: 100%;
+  touch-action: pan-y;
+}
+
+.keen-slider {
+  transition-timing-function: ease-in-out;
 }
 
 .carouselTrack {
   display: flex;
   width: 100%;
-  height: 100%;
-  will-change: transform;
-  transform: translateZ(0); // Force hardware acceleration
-  backface-visibility: hidden; // Prevent flickering
 }
 
-.scrollContainer::-webkit-scrollbar {
-  display: none;
+.carouselSlide {
+  flex-shrink: 0;
+  padding: 0 0.5rem;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  
+  @include breakpoint('md') {
+    padding: 0 0.75rem;
+  }
+  
+  @include breakpoint('lg') {
+    padding: 0 1rem;
+  }
+}
+
+.cardLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
 }
 
 .card {
   position: relative;
-  height: 45vh;
-  min-height: 280px;
-  
-  // Use padding approach like CreationsCarousel
-  padding: 0 0.5rem; // Half gap on each side
-  width: 100%; // Mobile: 1 item
-  flex: 0 0 100%;
-  
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-
-
-  &:hover {
-    transform: translateY(-5px);
-    
-    .cardInner {
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-    }
-  }
-
-  @media (max-width: 768px) {
-    padding: 0 0.5rem;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    padding: 0 0.75rem;
-    width: 50%;
-    flex: 0 0 50%;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 0 1rem;
-    width: 33.333%;
-    flex: 0 0 33.333%;
-  }
-}
-
-.cardInner {
-  position: relative;
   width: 100%;
-  height: 100%;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  height: 400px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   
-
+  @include breakpoint('md') {
+    height: 350px;
+  }
   
-  // Improved background image handling
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: local;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.3) 50%,
-      rgba(0, 0, 0, 0.6) 100%
-    );
-    z-index: 1;
-    border-radius: inherit;
+  @include breakpoint('lg') {
+    height: 450px;
   }
 }
 
-// Navigation buttons - Only visible on desktop
-.navButton {
+.cardImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.cardOverlay {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(vars.$color-primary, 0.9);
-  border: none;
-  color: vars.$color-secondary;
-  font-size: 1.8rem;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-
-  // Hide on mobile and tablet
-  @media (max-width: 1023px) {
-    display: none;
-  }
-
-  &:hover {
-    background-color: vars.$color-primary;
-    transform: translateY(-50%) scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-
-  &.prevButton {
-    left: 15px; // More space from carousel
-  }
-
-  &.nextButton {
-    right: 15px; // More space from carousel
-  }
-
-  // Desktop specific styling
-  @media (min-width: 1024px) {
-    font-size: 2rem;
-    width: 55px;
-    height: 55px;
-    
-    &.prevButton {
-      left: 20px; // Even more space on desktop
-    }
-
-    &.nextButton {
-      right: 20px;
-    }
-  }
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
 }
 
-// Dots navigation
-.dotsContainer {
-  display: flex;
-  justify-content: center;
-  gap: 0.6rem; // Slightly more space for better proportion
-  margin-top: 2rem; // More space from carousel
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background-color: rgba(vars.$color-primary, 0.3);
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: rgba(vars.$color-primary, 0.6);
-    transform: scale(1.2);
-  }
-
-  &.active {
-    background-color: vars.$color-primary;
-    transform: scale(1.4);
-  }
-}
-
-// Texte et bouton au-dessus de l'overlay
-.card h2,
-.card p,
-.cta {
+.cardContent {
   position: relative;
   z-index: 2;
+  padding: 1.5rem;
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  
+  @include breakpoint('md') {
+    padding: 2rem;
+  }
 }
 
-.card h2 {
-  font-size: 1.3rem;
-  margin-bottom: 0.75rem;
-  color: vars.$color-secondary;
-  font-weight: 400;
-  letter-spacing: vars.$spacing-unit;
-  line-height: 1.2;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+.cardTop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.card p {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-  flex-grow: 1;
-  color: vars.$color-secondary;
+.cardContent h3 {
+  font-family: vars.$font-title;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
   letter-spacing: 0.5px;
-  font-weight: 400;
-  line-height: 1.4;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  
+  @include breakpoint('md') {
+    font-size: 1.5rem;
+  }
 }
 
-// CTA with animation
-.cta {
-  position: relative;
-  color: vars.$color-secondary;
-  text-decoration: none;
-  align-self: flex-start;
-  padding: 5px 5px 7px 5px; 
-  letter-spacing: 1.5px;
-  font-weight: 500;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+.cardContent p {
+  font-family: vars.$font-sans;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+  
+  @include breakpoint('md') {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
 
+.cta {
+  display: inline-block;
+  font-family: vars.$font-sans;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: transform 0.3s ease;
+  align-self: flex-start;
+  
   &::after {
     content: '';
     position: absolute;
@@ -274,82 +163,66 @@
     background-image: url('/img/textures/gold-texture3.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
-    transition: all 0.3s ease;
+    transition: height 0.3s ease;
+  }
+  
+  @include breakpoint('md') {
+    font-size: 0.8rem;
   }
 }
 
-// Hover effect on the entire card affects the CTA
-.card:hover .cta {
-  letter-spacing: 1.7px;
+// Hover effects
+.carouselSlide:hover .cta {
   transform: translateY(-2px);
   
   &::after {
     height: 3px;
-    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
   }
 }
 
-// Responsive design
-@media (min-width: 768px) {
+
+
+// Dots Navigation
+.dotsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(vars.$color-primary, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  
+  &:hover {
+    background-color: rgba(vars.$color-primary, 0.6);
+    transform: scale(1.2);
+  }
+  
+  &.active {
+    background-color: vars.$color-primary;
+    transform: scale(1.4);
+  }
+}
+
+// Responsive adjustments
+@include breakpoint('md') {
   .carousel {
-    padding: 2rem 1rem;
-  }
-  
-  .card {
-    height: 50vh;
-    min-height: 320px;
-  }
-  
-  .card h2 {
-    font-size: 1.4rem;
-  }
-  
-  .card p {
-    font-size: 1rem;
-  }
-  
-  .cta {
-    font-size: 0.75rem;
+    padding: 3rem 2rem;
   }
 }
 
-@media (min-width: 1024px) {
+@include breakpoint('lg') {
   .carousel {
-    padding: 2.5rem 1rem;
+    padding: 4rem 2rem;
   }
   
-  .card {
-    height: 55vh;
-    min-height: 350px;
-  }
-  
-  .cardInner {
-    padding: 2rem; // More padding for larger cards
-  }
-  
-  .card h2 {
-    font-size: 1.4rem;
-  }
-  
-  .card p {
-    font-size: 1rem;
-  }
-  
-  .cta {
-    font-size: 0.75rem;
-  }
-}
-
-@media (min-width: 1400px) {
   .carouselContainer {
-    padding: 0 100px; // Maximum spacing for very large screens
+    gap: 3rem;
   }
-  
-  .card {
-    min-height: 380px;
-  }
-  
-  .cardInner {
-    padding: 2.5rem;
-  }
-}
+} 

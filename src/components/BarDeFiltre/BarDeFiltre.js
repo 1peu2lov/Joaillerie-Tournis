@@ -174,40 +174,40 @@ export const BarDeFiltre = forwardRef(({
                                     exit={{ opacity: 0, height: 0 }}
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                 >
-                                    <div className={styles.priceInputs}>
-                                        <input
-                                            type="number"
-                                            value={tempFiltres.prix.min}
-                                            onChange={(e) => handlePriceChange('min', e.target.value)}
-                                            min="0"
-                                            max={tempFiltres.prix.max}
-                                        />
-                                        <span>€</span>
-                                        <input
-                                            type="number"
-                                            value={tempFiltres.prix.max}
-                                            onChange={(e) => handlePriceChange('max', e.target.value)}
-                                            min={tempFiltres.prix.min}
-                                            max="3500"
-                                        />
-                                        <span>€</span>
-                                    </div>
-                                    <div className={styles.rangeSliders}>
-                                        <input
-                                            type="range"
-                                            value={tempFiltres.prix.min}
-                                            onChange={(e) => handlePriceChange('min', e.target.value)}
-                                            min="0"
-                                            max="3500"
-                                        />
-                                        <input
-                                            type="range"
-                                            value={tempFiltres.prix.max}
-                                            onChange={(e) => handlePriceChange('max', e.target.value)}
-                                            min="0"
-                                            max="3500"
-                                        />
-                                    </div>
+                            <div className={styles.priceInputs}>
+                                <input
+                                    type="number"
+                                    value={tempFiltres.prix.min}
+                                    onChange={(e) => handlePriceChange('min', e.target.value)}
+                                    min="0"
+                                    max={tempFiltres.prix.max}
+                                />
+                                <span>€</span>
+                                <input
+                                    type="number"
+                                    value={tempFiltres.prix.max}
+                                    onChange={(e) => handlePriceChange('max', e.target.value)}
+                                    min={tempFiltres.prix.min}
+                                    max="3500"
+                                />
+                                <span>€</span>
+                            </div>
+                            <div className={styles.rangeSliders}>
+                                <input
+                                    type="range"
+                                    value={tempFiltres.prix.min}
+                                    onChange={(e) => handlePriceChange('min', e.target.value)}
+                                    min="0"
+                                    max="3500"
+                                />
+                                <input
+                                    type="range"
+                                    value={tempFiltres.prix.max}
+                                    onChange={(e) => handlePriceChange('max', e.target.value)}
+                                    min="0"
+                                    max="3500"
+                                />
+                            </div>
                                 </motion.div>
                             )}
                         </AnimatePresence>
@@ -266,16 +266,16 @@ export const BarDeFiltre = forwardRef(({
                                     exit={{ opacity: 0, height: 0 }}
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                 >
-                                    {['Diamant', 'Rubis', 'Saphir', 'Émeraude', 'Perle'].map(pierre => (
-                                        <label key={pierre}>
-                                            <input 
-                                                type="checkbox"
-                                                onChange={() => handleChange('pierres', pierre)}
-                                                checked={tempFiltres.pierres.includes(pierre)}
-                                            />
-                                            {pierre}
-                                        </label>
-                                    ))}
+                            {['Diamant', 'Rubis', 'Saphir', 'Émeraude', 'Perle'].map(pierre => (
+                                <label key={pierre}>
+                                    <input 
+                                        type="checkbox"
+                                        onChange={() => handleChange('pierres', pierre)}
+                                        checked={tempFiltres.pierres.includes(pierre)}
+                                    />
+                                    {pierre}
+                                </label>
+                            ))}
                                 </motion.div>
                             )}
                         </AnimatePresence>
@@ -300,22 +300,22 @@ export const BarDeFiltre = forwardRef(({
                                     exit={{ opacity: 0, height: 0 }}
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                 >
-                                    {[
-                                        'Or blanc 18 carats',
-                                        'Or jaune 18 carats',
-                                        'Or rose 18 carats',
-                                        'Platine',
-                                        'Argent 925'
-                                    ].map(materiau => (
-                                        <label key={materiau}>
-                                            <input 
-                                                type="checkbox"
-                                                onChange={() => handleChange('materiaux', materiau)}
-                                                checked={tempFiltres.materiaux.includes(materiau)}
-                                            />
-                                            {materiau}
-                                        </label>
-                                    ))}
+                            {[
+                                'Or blanc 18 carats',
+                                'Or jaune 18 carats',
+                                'Or rose 18 carats',
+                                'Platine',
+                                'Argent 925'
+                            ].map(materiau => (
+                                <label key={materiau}>
+                                    <input 
+                                        type="checkbox"
+                                        onChange={() => handleChange('materiaux', materiau)}
+                                        checked={tempFiltres.materiaux.includes(materiau)}
+                                    />
+                                    {materiau}
+                                </label>
+                            ))}
                                 </motion.div>
                             )}
                         </AnimatePresence>
@@ -325,7 +325,7 @@ export const BarDeFiltre = forwardRef(({
                 {showColors && (
                     <div className={styles.filtreSection}>
                         <div className={styles.titleContainer} onClick={() => toggleSection('couleurs')}>
-                            <h3>Couleurs</h3>
+                        <h3>Couleurs</h3>
                             <span className={`${styles.arrow} ${sectionsOpen.couleurs ? styles.open : ''}`}>
                                 &gt;
                             </span>
@@ -339,28 +339,28 @@ export const BarDeFiltre = forwardRef(({
                                     exit={{ opacity: 0, height: 0 }}
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
                                 >
-                                    {[
-                                        { value: '#FFFFFF', label: 'Blanc' },
-                                        { value: '#FFD700', label: 'Or' },
-                                        { value: '#C0C0C0', label: 'Argent' },
-                                        { value: '#FFB6C1', label: 'Rose' },
-                                        { value: '#FF0000', label: 'Rouge' },
-                                        { value: '#0000FF', label: 'Bleu' },
-                                        { value: '#50C878', label: 'Vert' }
-                                    ].map(couleur => (
-                                        <label key={couleur.value}>
-                                            <input 
-                                                type="checkbox"
-                                                onChange={() => handleChange('couleurs', couleur.value)}
-                                                checked={tempFiltres.couleurs.includes(couleur.value)}
-                                            />
-                                            <span 
-                                                className={styles.colorSwatch} 
-                                                style={{ backgroundColor: couleur.value }}
-                                            />
-                                            {couleur.label}
-                                        </label>
-                                    ))}
+                            {[
+                                { value: '#FFFFFF', label: 'Blanc' },
+                                { value: '#FFD700', label: 'Or' },
+                                { value: '#C0C0C0', label: 'Argent' },
+                                { value: '#FFB6C1', label: 'Rose' },
+                                { value: '#FF0000', label: 'Rouge' },
+                                { value: '#0000FF', label: 'Bleu' },
+                                { value: '#50C878', label: 'Vert' }
+                            ].map(couleur => (
+                                <label key={couleur.value}>
+                                    <input 
+                                        type="checkbox"
+                                        onChange={() => handleChange('couleurs', couleur.value)}
+                                        checked={tempFiltres.couleurs.includes(couleur.value)}
+                                    />
+                                    <span 
+                                        className={styles.colorSwatch} 
+                                        style={{ backgroundColor: couleur.value }}
+                                    />
+                                    {couleur.label}
+                                </label>
+                            ))}
                                 </motion.div>
                             )}
                         </AnimatePresence>

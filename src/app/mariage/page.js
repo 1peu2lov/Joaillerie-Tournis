@@ -39,7 +39,7 @@ export default function Mariage() {
       <section className={styles.heroSection}>
         <div className={styles.heroImage}>
           <Image 
-            src="/img/mariage.jpeg" 
+            src="/img/mariage.webp" 
             alt="Bijoux de mariage sur mesure"
             className={styles.heroImg}
             fill
