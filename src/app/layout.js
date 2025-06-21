@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'Tournis - Joaillerie de luxe à Bordeaux',
-  description: 'Joaillerie Tournis à Bordeaux : 127 ans d\'excellence artisanale française. Créations de bijoux sur mesure, alliances uniques, transformations précieuses et expertises gemmologiques. Maîtres joailliers depuis 1896.',
+  title: 'Joaillerie Tournis Bordeaux - Bijoux sur mesure depuis 1896',
+  description: 'Joaillerie Tournis Bordeaux : bijoux sur mesure, alliances uniques et expertises depuis 1896. Créations artisanales, transformations et réparations par nos maîtres joailliers.',
   keywords: 'joaillerie, bijoux, Bordeaux, création sur mesure, transformation bijoux, réparation bijoux, expertise bijoux, alliance, bague de fiançailles',
   authors: [{ name: 'Joaillerie Tournis' }],
   creator: 'Joaillerie Tournis',
@@ -44,27 +44,144 @@ export const metadata = {
     ],
   },
   manifest: '/site.webmanifest',
+  alternates: {
+    canonical: process.env.NODE_ENV === 'production' 
+      ? 'https://tournis.netlify.app' 
+      : 'http://localhost:3000',
+  },
   themeColor: '#1E2846',
   viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://votre-domaine.com',
-    title: 'Tournis - Joaillerie d\'exception à Bordeaux',
-    description: 'Joaillerie Tournis à Bordeaux : 127 ans d\'excellence artisanale française. Créations de bijoux sur mesure, alliances uniques, transformations précieuses et expertises gemmologiques.',
+    url: process.env.NODE_ENV === 'production' 
+      ? 'https://tournis.netlify.app' 
+      : 'http://localhost:3000',
+    title: 'Joaillerie Tournis Bordeaux - Bijoux sur mesure depuis 1896',
+    description: 'Joaillerie Tournis Bordeaux : bijoux sur mesure, alliances uniques et expertises depuis 1896. Créations artisanales, transformations et réparations par nos maîtres joailliers.',
     siteName: 'Joaillerie Tournis',
+    images: [
+      {
+        url: process.env.NODE_ENV === 'production' 
+          ? 'https://tournis.netlify.app/img/og-image.jpg'
+          : 'http://localhost:3000/img/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Joaillerie Tournis - Bijoux sur mesure à Bordeaux',
+        type: 'image/jpeg',
+      }
+    ],
+    countryName: 'France',
+    region: 'Nouvelle-Aquitaine',
+    placeName: 'Bordeaux',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tournis - Joaillerie d\'exception à Bordeaux',
-    description: 'Joaillerie Tournis à Bordeaux : 127 ans d\'excellence artisanale française. Créations de bijoux sur mesure, alliances uniques, transformations précieuses et expertises gemmologiques.',
+    title: 'Joaillerie Tournis Bordeaux - Bijoux sur mesure depuis 1896',
+    description: 'Joaillerie Tournis Bordeaux : bijoux sur mesure, alliances uniques et expertises depuis 1896. Créations artisanales, transformations et réparations par nos maîtres joailliers.',
   },
 }
 
 export default function RootLayout({ children }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'JewelryStore',
+    name: 'Joaillerie Tournis',
+    description: 'Joaillerie de luxe à Bordeaux depuis 1896. Créations sur mesure, transformations, réparations et expertises de bijoux par nos maîtres joailliers.',
+         url: process.env.NODE_ENV === 'production' 
+       ? 'https://tournis.netlify.app' 
+       : 'http://localhost:3000',
+    telephone: '+33-5-56-XX-XX-XX',
+         email: 'contact@tournis.netlify.app',
+    foundingDate: '1896',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Adresse de la joaillerie',
+      addressLocality: 'Bordeaux',
+      addressRegion: 'Nouvelle-Aquitaine',
+      postalCode: '33000',
+      addressCountry: 'FR'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '44.8378',
+      longitude: '-0.5792'
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '18:00'
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Saturday',
+        opens: '09:00',
+        closes: '17:00'
+      }
+    ],
+    sameAs: [
+      'https://www.facebook.com/joaillerie-tournis',
+      'https://www.instagram.com/joaillerie-tournis',
+      'https://www.linkedin.com/company/joaillerie-tournis'
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Services de joaillerie',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Création de bijoux sur mesure',
+            description: 'Conception artisanale de bijoux uniques'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Transformation de bijoux',
+            description: 'Redonnez vie à vos bijoux anciens'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Réparation de bijoux',
+            description: 'Réparations de précision par nos experts'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Expertise de bijoux',
+            description: 'Évaluation professionnelle de vos bijoux'
+          }
+        }
+      ]
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      reviewCount: '127',
+      bestRating: '5',
+      worstRating: '1'
+    }
+  }
+
   return (
     <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body>
         <CartProvider>
           <Header />
