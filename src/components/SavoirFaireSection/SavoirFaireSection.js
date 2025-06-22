@@ -1,5 +1,4 @@
 // src/components/SavoirFaireSection/SavoirFaireSection.jsx
-'use client'
 import Link from 'next/link'
 import styles from './SavoirFaireSection.module.scss'
 

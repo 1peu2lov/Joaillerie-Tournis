@@ -1,41 +1,14 @@
-'use client'
-
-import { useParams } from 'next/navigation'
 import styles from './page.module.scss'
-import Image from 'next/image'
 import productsData from '@/data/products.json'
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import ProductImageGallery from '@/components/ProductImageGallery/ProductImageGallery'
+import { notFound } from 'next/navigation'
 
-export default function CreationPage() {
-    const params = useParams()
-    const [product, setProduct] = useState(null)
-    const [mainImage, setMainImage] = useState('')
-
-    useEffect(() => {
-        const productData = productsData.find(p => p.id === params.product)
-        setProduct(productData)
-        if (productData?.images?.[0]) {
-            setMainImage(productData.images[0])
-        }
-    }, [params.product])
-
-    // Générer des images placeholder si moins de 4 images
-    const getPlaceholderImages = () => {
-        const mainImg = product?.images?.[0] || '/images/placeholder-1.jpg'
-        return Array(4).fill(mainImg)
-    }
-
-    const allImages = product?.images?.length >= 4 
-        ? product.images 
-        : [...(product?.images || []), ...getPlaceholderImages()].slice(0, 4)
+export default function CreationPage({ params }) {
+    const product = productsData.find(p => p.id === params.product)
 
     if (!product) {
-        return (
-            <div className={styles.loading}>
-                <p>Chargement...</p>
-            </div>
-        )
+        notFound()
     }
 
     return (
@@ -45,35 +18,7 @@ export default function CreationPage() {
             </Link>
 
             <div className={styles.creationContent}>
-                <div className={styles.imageSection}>
-                    <div className={styles.mainImageContainer}>
-                        <Image 
-                            src={mainImage || product.images[0]} 
-                            alt={product.name}
-                            className={styles.mainImage}
-                            width={600}
-                            height={600}
-                            style={{ objectFit: 'cover' }}
-                        />
-                    </div>
-                    <div className={styles.thumbnailGallery}>
-                        {allImages.map((image, index) => (
-                            <div 
-                                key={index}
-                                className={`${styles.thumbnail} ${mainImage === image ? styles.active : ''}`}
-                                onClick={() => setMainImage(image)}
-                            >
-                                <Image 
-                                    src={image}
-                                    alt={`${product.name} - Vue ${index + 1}`}
-                                    width={100}
-                                    height={100}
-                                    style={{ objectFit: 'cover' }}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <ProductImageGallery product={product} />
 
                 <div className={styles.infoSection}>
                     <h1>{product.name}</h1>
@@ -113,18 +58,15 @@ export default function CreationPage() {
                                 ))}
                             </div>
                         </div>
-
                     </div>
 
                     <div className={styles.creationActions}>
                         <p className={styles.contactText}>
                             Cette création vous intéresse ? Contactez-nous pour plus d&apos;informations.
                         </p>
-                        <button className={styles.contactButton}>
-                            <Link href="/rendez-vous" title="Prendre rendez-vous pour cette création">
-                                Prendre rendez-vous
-                            </Link>
-                        </button>
+                        <Link href="/rendez-vous" className={styles.contactButton} title="Prendre rendez-vous pour cette création">
+                            Prendre rendez-vous
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -1,11 +1,19 @@
-'use client'
-
 import styles from './page.module.scss'
 import Image from 'next/image'
 import PageAnimation from '@/components/PageAnimation/PageAnimation'
+import Head from 'next/head'
 
 export default function Evenements() {
   return (
+    <>
+    <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/salon_mariage.webp"
+          type="image/webp"
+        />
+      </Head>
       <main className={styles.evenementsPage}>
         {/* Section Hero avec image */}
         <section className={styles.heroSection}>
@@ -171,5 +179,6 @@ export default function Evenements() {
           </div>
         </section> */}
       </main>
+    </>
   )
 }

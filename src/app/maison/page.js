@@ -1,4 +1,3 @@
-'use client'
 import styles from './page.module.scss'
 import Image from 'next/image'
 import PageAnimation from '@/components/PageAnimation/PageAnimation'

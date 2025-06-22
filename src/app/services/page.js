@@ -1,4 +1,3 @@
-'use client'
 import styles from './page.module.scss'
 import SavoirFaireSection from '@/components/SavoirFaireSection/SavoirFaireSection'
 import PageAnimation from '@/components/PageAnimation/PageAnimation'
