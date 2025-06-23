@@ -15,13 +15,13 @@ export default function Contact() {
                 <div className={styles.infoContent}>
                   <div className={styles.infoItem}>
                     <h3>Adresse</h3>
-                    <p>81 rue Ducau</p>
+                    <p>29 Cr de l&apos;Intendance</p>
                     <p>33000 Bordeaux</p>
                     <p>France</p>
                   </div>
                   <div className={styles.infoItem}>
                     <h3>Téléphone</h3>
-                    <p>+33 5 56 00 00 00</p>
+                    <p>+33 5 57 87 04 71</p>
                   </div>
                   <div className={styles.infoItem}>
                     <h3>Email</h3>
@@ -29,8 +29,8 @@ export default function Contact() {
                   </div>
                   <div className={styles.infoItem}>
                     <h3>Horaires</h3>
-                    <p>Mardi - Samedi : 10h - 19h</p>
-                    <p>Lundi : Sur rendez-vous</p>
+                    <p>Lundi - Samedi : 10h - 18h30</p>
+                    <p>Dimanche: Fermé</p>
                   </div>
                 </div>
               </div>

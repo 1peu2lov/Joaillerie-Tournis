@@ -65,14 +65,14 @@ export default function RendezVous() {
                 </p>
                 <div className={styles.address}>
                   <h3>Adresse</h3>
-                  <p>81 rue Ducau</p>
+                  <p>29 Cr de l&apos;Intendance</p>
                   <p>33000 Bordeaux</p>
                   <p>France</p>
                 </div>
                 <div className={styles.hours}>
                   <h3>Horaires d&apos;ouverture</h3>
-                  <p>Mardi - Samedi : 10h - 19h</p>
-                  <p>Lundi : Sur rendez-vous</p>
+                  <p>Lundi - Samedi : 10h - 18h30</p>
+                  <p>Dimanche: Fermé</p>
                 </div>
               </div>
               <div className={styles.mapContent}>
