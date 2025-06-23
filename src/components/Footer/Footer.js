@@ -26,13 +26,13 @@ export default function Footer() {
       <hr className={styles.divider} />
 
       <div className={styles.social}>
-        <Link href="https://instagram.com" title="Suivez Joaillerie Tournis sur Instagram">
+        <Link href="https://www.instagram.com/joaillerietournis/?hl=fr" title="Suivez Joaillerie Tournis sur Instagram">
           <Image src="/icons/Instagram.svg" alt="Instagram" width={40} height={40} />
         </Link>
-        <Link href="https://facebook.com" title="Suivez Joaillerie Tournis sur Facebook">
+        <Link href="https://www.facebook.com/JoaillerieTournis?locale=fr_FR" title="Suivez Joaillerie Tournis sur Facebook">
           <Image src="/icons/Facebook.svg" alt="Facebook" width={40} height={40} />
         </Link>
-        <Link href="https://linkedin.com" title="Suivez Joaillerie Tournis sur LinkedIn">
+        <Link href="https://www.linkedin.com/company/joaillerietournis/" title="Suivez Joaillerie Tournis sur LinkedIn">
           <Image src="/icons/Linkedin.svg" alt="LinkedIn" width={40} height={40} />
         </Link>
         <Link href="https://pinterest.com" title="Suivez Joaillerie Tournis sur Pinterest">

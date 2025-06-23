@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: 'Joaillerie Tournis Bordeaux - Bijoux sur mesure depuis 1896',
-  description: 'Joaillerie Tournis Bordeaux : bijoux sur mesure, alliances uniques et expertises depuis 1896. Créations artisanales, transformations et réparations par nos maîtres joailliers.',
+  description: 'Joaillerie Tournis Bordeaux : bijoux sur mesure, alliances uniques et expertises depuis 1896. Créations artisanales, transformations et réparations.',
   keywords: 'joaillerie, bijoux, Bordeaux, création sur mesure, transformation bijoux, réparation bijoux, expertise bijoux, alliance, bague de fiançailles',
   authors: [{ name: 'Joaillerie Tournis' }],
   creator: 'Joaillerie Tournis',
@@ -175,6 +175,7 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/> 
       </head>
       <body>
         <CartProvider>

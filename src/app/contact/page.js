@@ -38,7 +38,7 @@ export default function Contact() {
               <div className={styles.socialCard}>
                 <h3>Suivez-nous</h3>
                 <div className={styles.socialLinks}>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                  <a href="https://www.instagram.com/joaillerietournis/?hl=fr" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                     <Image 
                       src="/icons/instagram.svg" 
                       alt="Instagram" 
@@ -47,7 +47,7 @@ export default function Contact() {
                     />
                     <span>Instagram</span>
                   </a>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                  <a href="https://www.facebook.com/JoaillerieTournis?locale=fr_FR" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                     <Image 
                       src="/icons/facebook.svg" 
                       alt="Facebook"
@@ -56,7 +56,7 @@ export default function Contact() {
                     />
                     <span>Facebook</span>
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                  <a href="https://www.linkedin.com/company/joaillerietournis/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                     <Image 
                       src="/icons/linkedin.svg" 
                       alt="LinkedIn"
