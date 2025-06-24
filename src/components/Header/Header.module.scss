@@ -83,6 +83,11 @@
   z-index: 1;
   width: 120px;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateX(-50%) translateY(-2px);
+  }
 
   @include breakpoint('lg') {
     position: absolute;
@@ -90,6 +95,10 @@
     transform: translateX(-50%);
     width: 160px;
     margin-right: 0;
+
+    &:hover {
+      transform: translateX(-50%) translateY(-2px);
+    }
   }
 }
 

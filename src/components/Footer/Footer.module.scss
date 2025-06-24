@@ -9,9 +9,28 @@
   padding: vars.$spacing-xl vars.$spacing-md;
   text-align: center;
   font-family: vars.$font-sans;
+  position: relative;
 
   @include breakpoint('md') {
     padding: vars.$spacing-xxl vars.$spacing-xl;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/img/pattern-blanc.png');
+    background-size: 300px 300px;
+    background-repeat: repeat;
+    background-position: 0 0;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 2;
   }
 }
 

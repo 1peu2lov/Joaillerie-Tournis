@@ -21,8 +21,8 @@ export default function Header() {
 
   const routes = [
     { label: 'Nos créations',         href: '/creations' },
-    { label: 'Joaillerie boutique', href: '/boutique' },     
-    { label: 'Services',  href: '/services' },
+    { label: 'E-boutique', href: '/boutique' },     
+    { label: 'Nos services',  href: '/services' },
     { label: 'Notre maison',          href: '/maison' },
     { label: 'Mariage',               href: '/mariage' },
     { label: 'Rendez-vous',   href: '/rendez-vous' },
@@ -67,7 +67,7 @@ export default function Header() {
 
           <nav className={styles.desktopNav}>
             {routes.slice(0, 4).map(({ label, href }, i) => {
-              if (label === 'Services') {
+              if (label === 'Nos services') {
                 return (
                   <div 
                     key={i}

@@ -279,6 +279,7 @@
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         animation: fadeInUp 1s ease-out 0.5s forwards;
         opacity: 0;
+        border-radius: 2px;
 
         @include breakpoint('md') {
             height: 500px;

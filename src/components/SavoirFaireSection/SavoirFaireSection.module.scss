@@ -19,10 +19,16 @@ $breakpoint-lg: 768px;
 
   h2 {
     font-family: vars.$font-title;
-    @include font-size('h2');
+    font-size: 1.8rem;
     margin-bottom: vars.$spacing-xl;
     text-align: center;
     color: vars.$color-primary;
+    @include breakpoint('md') {
+      font-size: 1.8rem;
+    }
+    @include breakpoint('lg') {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -99,7 +105,7 @@ $breakpoint-lg: 768px;
 
 .info h3 {
   margin: 0 0 vars.$spacing-sm;
-  font-family: vars.$font-sans;
+  font-family: vars.$font-title;
   font-size: 1.4rem;
   color: #fff;
   font-weight: map-get($font-weights, 'medium');
@@ -108,9 +114,10 @@ $breakpoint-lg: 768px;
 
 .info p {
   margin: 0;
-  @include font-size('body','md');
+  @include font-size('body','sm');
   flex-grow: 1;
   color: #eee;
+  letter-spacing: 0.08rem;
 }
 
 .cta {

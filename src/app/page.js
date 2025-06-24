@@ -29,6 +29,66 @@ export default function Home() {
         </section>
 
         <RedirectionCarousel />
+        
+        {/* Section Or recyclé */}
+        <section className={styles.orRecycleSection}>
+          <div className={styles.orRecycleContainer}>
+            <div className={styles.orRecycleContent}>
+              <div className={styles.orRecycleText}>
+                <h2>Or recyclé et responsabilité</h2>
+                <p>
+                  L&apos;or recyclé provient du rachat d&apos;or auprès de particuliers. Suivant sa qualité, 
+                  il est soit refondu dans notre atelier, soit recyclé auprès de notre affineur en France. 
+                  Cela fait plusieurs générations que nous n&apos;achetons pas d&apos;or directement des mines.
+                </p>
+                <p>
+                  Cette approche responsable nous permet de donner une seconde vie aux métaux précieux 
+                  tout en préservant l&apos;environnement et en maintenant notre éthique artisanale.
+                </p>
+              </div>
+              <div className={styles.orRecycleImage}>
+                <Image
+                  src="/img/home/or_fondu.jpeg"
+                  alt="Atelier de recyclage d'or - Maison Tournis"
+                  fill
+                  className={styles.image}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <SavoirFaireSection />
+
+        {/* Section Artisanat */}
+        <section className={styles.artisanatSection}>
+          <div className={styles.artisanatContainer}>
+            <div className={styles.artisanatContent}>
+              <div className={styles.artisanatImage}>
+                <Image
+                  src="/img/histoire/atelier.jpg"
+                  alt="Artisanat traditionnel - Maison Tournis"
+                  fill
+                  className={styles.image}
+                />
+              </div>
+              <div className={styles.artisanatText}>
+                <h2>L&apos;artisanat au cœur de notre tradition</h2>
+                <p>
+                  Depuis 1896, notre atelier perpétue les gestes ancestraux de la joaillerie française. 
+                  Chaque pièce est façonnée à la main par nos maîtres artisans, alliant techniques 
+                  traditionnelles et innovation contemporaine.
+                </p>
+                <p>
+                  Du dessin initial à la finition, chaque création traverse nos mains expertes dans 
+                  le respect des savoir-faire transmis de génération en génération. Cette approche 
+                  artisanale garantit l&apos;unicité et l&apos;excellence de chaque bijou.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className={styles.appointmentSection}>
           <div className={styles.appointmentContainer}>
             <div className={styles.imageContainer}>
@@ -51,15 +111,19 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.text}>
-            <p>Chez Tournis, chaque création incarne l&apos;excellence : fabrication sur mesure, transformation précieuse, réparations invisibles, sélection éthique des pierres et expertise gemmologique se conjuguent avec exigence dans notre atelier bordelais.
+          <div className={styles.welcomeText}>
+            <p>
+              Vous êtes les bienvenus dans notre boutique du centre de Bordeaux, avec ou sans rendez-vous. 
+              Notre équipe se fera un plaisir de vous accueillir pour découvrir nos créations, vous conseiller 
+              sur vos projets ou simplement échanger autour de notre passion pour la joaillerie.
             </p>
-            <br/>
-            <p> Un savoir-faire rare, au service de bijoux uniques, conçus pour traverser le temps avec éclat.</p>
+            <p>
+              Un accompagnement personnalisé vous attend dans notre atelier familial, où chaque visite devient 
+              une expérience unique au cœur de l&apos;artisanat français.
+            </p>
           </div>
 
         </section>
-        <SavoirFaireSection />
 
         {/* Section Témoignages clients */}
         <section className={styles.testimonialsSection}>
