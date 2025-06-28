@@ -26,7 +26,7 @@ export default function HeroSection() {
           <h1>Joaillerie Tournis l&apos;excellence au cœur de Bordeaux</h1>
           <div className={styles.bottom}>
             <p>Depuis 1896, la Maison Tournis sublime l&apos;art du bijou sur-mesure.</p>
-            <Link href="/maison" className={styles.linkWrapper}>
+            <Link href="services" className={styles.linkWrapper}>
               <button className={styles.cta}>Nous découvrir</button>
             </Link>
           </div>
